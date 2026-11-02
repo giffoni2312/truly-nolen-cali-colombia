@@ -1,0 +1,12 @@
+# Only Cali goes into this repo. The Venezuela reference copy, temporary images,
+# big originals and screenshots stay local.
+referencia/
+provisionales/
+portadas/
+fotos/
+capturas/
+tools/out/
+site/
+CARRO-PARA-GEMINI.png
+node_modules/
+capturas*
