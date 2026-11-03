@@ -30,7 +30,7 @@
     mundo.style.opacity = '0';
     setTimeout(function () { mundo.pause(); enMundo = false; cambiando = false; }, FUNDIDO * 1000);
   }
-  function total() { return carro.duration < 8 ? 2 : 1; }  // vueltas del carro antes del mundo
+  function total() { return d.vueltas ? +d.vueltas : (carro.duration < 8 ? 2 : 1); }  // vueltas del carro antes del mundo (la ficha puede fijarlas: pelicula.vueltas)
   var antes = 0;
   carro.addEventListener('playing', function () { carro.loop = true; });
   carro.addEventListener('timeupdate', function () {

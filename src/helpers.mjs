@@ -1,4 +1,5 @@
-// Section renderers that reproduce the exact markup (classes and order) of the Venezuela reference pages.
+// Page builders that reproduce the markup (classes and order) of the Venezuela reference pages,
+// which follow the globaltni.com master: prose sections, no tables in services, pests or articles.
 export const ID = 'cali';
 export const NAME = 'Cali';
 export const ROOT = `/oficinas/${ID}/`;
@@ -7,6 +8,8 @@ export const A = (file) => `${ROOT}assets/${file}`;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = (s) => esc(s).replace(/"/g, '&quot;');
+const plain = (h) => String(h).replace(/<br\s*\/?>/g, ' ').replace(/\s+/g, ' ').trim();
+const strip = (h) => plain(h).replace(/<[^>]+>/g, '');
 
 // The 6 pests, in the same order as the reference site.
 export const PLAGAS = [
@@ -17,63 +20,28 @@ export const PLAGAS = [
   { slug: 'comejen', nombre: 'Comején', sub: 'Guía de comején', img: 'cali-plaga-comejen-foto.webp' },
   { slug: 'alacranes', nombre: 'Alacranes', sub: 'Guía de alacranes', img: 'cali-plaga-alacran-foto.webp' },
 ];
+const SERV = { hogares: 'Hogares', comercios: 'Comercios', industria: 'Industria' };
 
-export const detailHero = ({ eyebrow, h1, text, img, alt }) =>
-  `<section class="section detail-hero"><a class="text-link" href="${ROOT}">← Volver al inicio</a><div class="story"><div><p class="eyebrow">${eyebrow}</p><h1>${h1}</h1><p>${text}</p><a class="button" href="#contacto">Conversemos</a></div><img src="${A(img)}" alt="${attr(alt)}"/></div></section>`;
-
-// rows: [tema, significa, lista?]
-export const tabla = ({ ey, h2, rows, nota }) => {
-  const conLista = rows.some((r) => r[2]);
-  const head = `<thead><tr><th scope="col" aria-label="Número"></th><th scope="col">Tema</th><th scope="col">Qué significa</th>${conLista ? '<th scope="col">Qué revisamos</th>' : ''}</tr></thead>`;
-  const body = rows
-    .map((r, i) => {
-      const lista = conLista ? `<td data-col="Qué revisamos">${r[2] ? `<ul class="g-lista">${r[2].map((x) => `<li>${x}</li>`).join('')}</ul>` : ''}</td>` : '';
-      return `<tr><td class="g-t-n">${String(i + 1).padStart(2, '0')}</td><th scope="row">${r[0]}</th><td data-col="Qué significa">${r[1]}</td>${lista}</tr>`;
-    })
-    .join('');
-  return `<section class="section g g-bloque"><header class="g-cab"><p class="g-ey">${ey}</p><h2>${h2}</h2></header><div class="g-tabla-marco"><table class="g-tabla">${head}<tbody>${body}</tbody></table></div>${nota ? `<p class="g-nota">${nota}</p>` : ''}</section>`;
-};
-
+// ---------- Content blocks (data only; each page type renders them its own way) ----------
+// rows: [tema, texto, lista?]
+export const tabla = ({ h2, rows, intro, nota }) => ({ k: 'tabla', h2, rows, intro, nota });
 // items: [cifra, texto, fuente]
-export const dato = ({ ey, h2, items }) =>
-  `<section class="section g g-dato"><header class="g-cab"><p class="g-ey">${ey}</p><h2>${h2}</h2></header><div class="g-dato-fila">${items
-    .map(([b, p, s]) => `<article><b>${b}</b><p>${p}</p><small>${s}</small></article>`)
-    .join('')}</div></section>`;
+export const dato = ({ h2, items }) => ({ k: 'dato', h2, items });
+// det: [interior, perímetro, patio] as "a · b · c"
+export const zonas = ({ det }) => ({ k: 'zonas', det });
+// resumenes: { slug: texto }; cuales: subset of slugs
+export const plagasGrid = ({ h2, resumenes, nota, cuales }) => ({ k: 'plagas', h2, resumenes, nota, cuales });
 
-export const esperar = ({ ey, h2, cols, nota }) =>
-  `<section class="section g g-esperar"><header class="g-cab"><p class="g-ey">${ey}</p><h2>${h2}</h2></header><div class="g-cols g-cols-3">${cols
-    .map(([h, p], i) => `<article><span class="g-n">${String(i + 1).padStart(2, '0')}</span><h3>${h}</h3><p>${p}</p></article>`)
-    .join('')}</div><p class="g-nota">${nota}</p></section>`;
+const rowsHtml = (rows) =>
+  rows
+    .map(([t, p, lista]) => `<p><strong>${t}.</strong> ${p}</p>${lista ? `<ul>${lista.map((x) => `<li>${x}</li>`).join('')}</ul>` : ''}`)
+    .join('');
+const datoHtml = (items) => items.map(([b, p, s]) => `<p><strong>${b}</strong> ${p} <small class="s-fuente">${s}</small></p>`).join('');
+const enlaces = (items) => `<ul class="s-enlaces">${items.map(([href, t]) => `<li><a href="${href}">${t}</a></li>`).join('')}</ul>`;
+const pestLinks = (slugs) => enlaces(PLAGAS.filter((p) => slugs.includes(p.slug)).map((p) => [`${ROOT}plagas/${p.slug}/`, p.nombre]));
+const servLinks = (keys) => enlaces(keys.map((k) => [`${ROOT}servicios/${k}/`, SERV[k]]));
 
-export const zonas = ({ alt, det }) =>
-  `<section class="section g g-zonas"><div class="g-zonas-grid"><figure class="g-zonas-fig"><img src="${A('cali-casa-zonas.webp')}" alt="${attr(alt)}" loading="lazy"/></figure><div><header class="g-cab"><p class="g-ey">Tres zonas para revisar</p><h2>Cada rincón<br/>cuenta.</h2><p class="g-intro">Tu casa tiene tres áreas que se complementan. La inspección define qué hace falta en cada una.</p></header><ul class="g-zonas-lista"><li class="g-z-rojo"><h3>Interior</h3><p>Donde vives y guardas la comida.</p><p class="g-z-det">${det[0]}</p></li><li class="g-z-amarillo"><h3>Perímetro</h3><p>Por donde entran.</p><p class="g-z-det">${det[1]}</p></li><li class="g-z-verde"><h3>Patio y áreas verdes</h3><p>El entorno que hay que entender.</p><p class="g-z-det">${det[2]}</p></li></ul></div></div></section>`;
-
-// resumenes: { slug: texto }
-export const plagasGrid = ({ ey, h2, resumenes, nota, cuales }) =>
-  `<section class="section g g-plagas"><header class="g-cab"><p class="g-ey">${ey}</p><h2>${h2}</h2></header><div class="g-plagas-grid"${cuales ? '' : ' style="--n:6"'}>${PLAGAS.filter((p) => !cuales || cuales.includes(p.slug)).map(
-    (p) =>
-      `<article><a class="g-pl-fig" href="${ROOT}plagas/${p.slug}/"><img src="${A(p.img)}" alt="" loading="lazy"/></a><h3>${p.nombre}</h3><p class="g-pl-sub">${p.sub}</p><p>${resumenes[p.slug]}</p><a class="g-mas" href="${ROOT}plagas/${p.slug}/">Ver la guía<span aria-hidden="true">→</span></a></article>`
-  ).join('')}</div>${nota ? `<p class="g-plagas-nota">${nota}</p>` : ''}</section>`;
-
-const SERV = {
-  hogares: ['01', 'Hogares', 'Para tu casa, tu apartamento o tu finca.', 'cali-casa-cocina.webp'],
-  comercios: ['02', 'Comercios', 'Atención a las necesidades de tu equipo y tus clientes.', 'cali-comercio.webp'],
-  industria: ['03', 'Industria', 'Un programa que parte de conocer tu operación.', 'cali-industria.webp'],
-};
-export const services = ({ ey = 'Servicios', h2, cuales = ['hogares', 'comercios'] }) =>
-  `<section class="section services"><div class="section-heading"><p class="eyebrow">${ey}</p><h2>${h2}</h2></div><div class="service-grid">${cuales
-    .map((k) => {
-      const [n, t, p, img] = SERV[k];
-      return `<a class="service" href="${ROOT}servicios/${k}/"><img src="${A(img)}" alt="" loading="lazy"/><div><span>${n}</span><h3>${t}</h3><p>${p}</p><span class="service-action">Ver servicio</span></div></a>`;
-    })
-    .join('')}</div></section>`;
-
-// items: [pregunta, respuesta]
-export const faq = ({ ey = 'Preguntas frecuentes', h2 = 'Lo que más nos preguntan.', items, id }) =>
-  `<section${id ? ` id="${id}"` : ''} class="section faq"><div><p class="eyebrow">${ey}</p><h2>${h2}</h2></div><div>${items
-    .map(([q, a]) => `<details><summary>${q}<span aria-hidden="true">+</span></summary><p>${a}</p></details>`)
-    .join('')}</div></section>`;
-
+// ---------- Shared sections ----------
 export const FAQ_GENERAL = [
   ['¿Cómo comienza el servicio?', 'El equipo revisa tu consulta, confirma si podemos atenderte y coordina la evaluación que corresponda.'],
   ['¿Puedo solicitar atención para mi negocio?', 'Sí. El tipo de actividad, los horarios y las condiciones del espacio ayudan a definir el programa.'],
@@ -83,18 +51,106 @@ export const FAQ_GENERAL = [
   ['¿Una visita es suficiente?', 'El equipo define el alcance y el seguimiento después de evaluar tu situación. Las visitas y condiciones se explican en la propuesta.'],
 ];
 
+const answers = (items) =>
+  items.map(([q, a]) => `<details class="ux-answer"><summary><h3>${q}</h3></summary><article><p>${a}</p></article></details>`).join('');
+
 // items: [texto, url]
 export const fuentes = (items) =>
-  `<section class="section detail-sources"><div><p class="eyebrow">Fuentes</p><h2>De dónde sale esta información.</h2><p class="nota">Cada dato de esta página viene de una fuente pública que puedes revisar.</p></div><ol>${items
+  `<section class="wrap s-section s-fuentes"><h2>De dónde sale esta información.</h2><p class="s-note">Cada dato de esta página viene de una fuente pública que puedes revisar.</p><ol>${items
     .map(([t, u]) => `<li><a href="${attr(u)}" target="_blank" rel="noopener noreferrer">${t}</a></li>`)
     .join('')}</ol></section>`;
 
-// starts: [label, prompt]
-export const cierre = (starts) => {
-  const entry = starts
-    ? `<div class="marco-entry"><div class="marco-entry-heading"><img src="/oficinas/assets/truly-carrito-asistente.svg" alt="" width="72" height="48" loading="lazy"/><div><h3>Truly AI</h3><p>Asistente virtual · ${NAME}</p></div></div><p class="marco-entry-label">¿Por dónde empezamos?</p><div class="marco-starts">${starts
-        .map(([l, p]) => `<a href="#contacto" data-abrir-chat data-chat-prompt="${attr(p)}">${l}<span aria-hidden="true">→</span></a>`)
-        .join('')}</div><p class="marco-entry-note">Conversa aquí con Truly AI. Si lo prefieres, puedes seguir por WhatsApp.</p></div>`
-    : '';
-  return `<section id="contacto" class="section local-consult g-cierre"><div><span id="consulta"></span><span id="cobertura"></span><p class="eyebrow">Truly Nolen · ${NAME}</p><h2>Cuéntanos qué necesitas proteger.</h2><p>Todo empieza con contarnos qué viste. Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><div class="contact-channels" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;align-self:end"><a class="button" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div>${entry}</section>`;
+// Closing of internal pages (services, pests, articles, legal).
+export const closing = () =>
+  `<section id="contacto" class="s-closing"><div class="wrap"><h2>Cuéntanos qué necesitas proteger.</h2><p>Todo empieza con contarnos qué viste. Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><div class="s-closing-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a><a class="text-link" href="${ROOT}#consulta">Consultar cobertura →</a></div></div></section>`;
+
+// Closing of the blog index (same as the reference: channels, no form).
+export const cierreBlog = () =>
+  `<section id="contacto" class="section local-consult g-cierre"><div><span id="consulta"></span><span id="cobertura"></span><p class="eyebrow">Truly Nolen · ${NAME}</p><h2>Cuéntanos qué necesitas proteger.</h2><p>Todo empieza con contarnos qué viste. Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><div class="contact-channels" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;align-self:end"><a class="button" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`;
+
+const intro = (crumbs, h1, extra = '') =>
+  `<section class="wrap s-intro"><nav aria-label="Ruta"><a href="${ROOT}">Inicio</a>${crumbs
+    .map((c) => `<span aria-hidden="true">/</span>${Array.isArray(c) ? `<a href="${c[0]}">${c[1]}</a>` : c}`)
+    .join('')}</nav><h1>${h1}</h1>${extra}</section>`;
+
+// ---------- Service page ----------
+// lead: { h2, text, para, incluye, sigue, nota, img, alt }
+export const servicePage = ({ nombre, lead, bloques, preguntas, fuentesList }) => {
+  const flow = (h2, inner) => `<section class="wrap s-section s-flow"><h2>${plain(h2)}</h2><article class="s-prose">${inner}</article></section>`;
+  const parts = bloques.map((b) => {
+    if (b.k === 'tabla') return flow(b.h2, `${b.intro ? `<p>${b.intro}</p>` : ''}${rowsHtml(b.rows)}${b.nota ? `<p>${b.nota}</p>` : ''}`);
+    if (b.k === 'dato') return flow(b.h2, datoHtml(b.items));
+    if (b.k === 'zonas')
+      return flow(
+        'Cada rincón cuenta.',
+        `<p>Tu casa tiene tres áreas que se complementan. La inspección define qué hace falta en cada una.</p><p class="s-zona s-zona-rojo"><strong>Interior.</strong> Donde vives y guardas la comida. ${b.det[0]}</p><p class="s-zona s-zona-amarillo"><strong>Perímetro.</strong> Por donde entran. ${b.det[1]}</p><p class="s-zona s-zona-verde"><strong>Patio y áreas verdes.</strong> El entorno que hay que entender. ${b.det[2]}</p>`
+      );
+    if (b.k === 'plagas') {
+      const sel = PLAGAS.filter((p) => !b.cuales || b.cuales.includes(p.slug));
+      if (b.cuales) return flow(b.h2, pestLinks(b.cuales));
+      return (
+        flow(b.h2, sel.map((p) => `<p><strong>${p.nombre}.</strong> ${b.resumenes[p.slug]}</p>`).join('') + (b.nota ? `<p>${b.nota}</p>` : '')) +
+        flow('Conoce cada plaga en su guía.', pestLinks(sel.map((p) => p.slug)))
+      );
+    }
+    if (b.k === 'html') return b.html;
+    throw new Error('bloque desconocido ' + b.k);
+  });
+  return [
+    intro(['Servicios', nombre], nombre),
+    `<section class="wrap s-section s-lead-pair"><article class="s-prose"><h2>${plain(lead.h2)}</h2></article><article class="s-prose"><p>${lead.text}</p><p><strong>¿Para quién?</strong> ${lead.para}</p><p><strong>¿Qué incluye?</strong> ${lead.incluye}</p><p><strong>¿Cómo sigue?</strong> ${lead.sigue}</p><p class="s-note">${lead.nota}</p></article><figure class="s-figure"><img src="${A(lead.img)}" alt="${attr(lead.alt)}"/></figure><a class="button s-service-action" href="#contacto">Conversemos →</a></section>`,
+    ...parts,
+    `<section class="wrap s-section s-preguntas"><h2>Lo que más nos preguntan.</h2><div class="s-prose">${answers(preguntas)}</div></section>`,
+    fuentes(fuentesList),
+    closing(),
+  ].join('');
 };
+
+// ---------- Pest page ----------
+export const pestPage = ({ slug, lead, bloques, serv, fuentesList }) => {
+  const p = PLAGAS.find((x) => x.slug === slug);
+  const secs = bloques.map((b) => {
+    if (b.k === 'tabla') {
+      const conLista = b.rows.some((r) => r[2]);
+      const body = conLista ? rowsHtml(b.rows) : b.rows.map(([t, x]) => `<h3>${t}</h3><p>${x}</p>`).join('');
+      return { h2: plain(b.h2), body: `${b.intro ? `<p>${b.intro}</p>` : ''}${body}${b.nota ? `<p>${b.nota}</p>` : ''}` };
+    }
+    if (b.k === 'dato') return { h2: plain(b.h2), body: datoHtml(b.items) };
+    throw new Error('bloque desconocido ' + b.k);
+  });
+  secs.push({ h2: plain(serv.h2), body: servLinks(serv.cuales || ['hogares', 'comercios']) });
+  const families = PLAGAS.map((x) => `<a href="${ROOT}plagas/${x.slug}/"${x.slug === slug ? ' aria-current="page"' : ''}>${x.nombre}</a>`).join('');
+  const index = secs.map((s, i) => `<li><a href="#guia-${i + 1}">${strip(s.h2)}</a></li>`).join('');
+  const content = secs.map((s, i) => `<section class="pest-copy" id="guia-${i + 1}"><h2 id="guia-${i + 1}-title">${s.h2}</h2>${s.body}</section>`).join('');
+  return [
+    `<div class="wrap pest-wrap"><nav class="pest-breadcrumb" aria-label="Ruta"><a href="${ROOT}">Inicio</a><span aria-hidden="true">/</span><span>Guía de plagas</span><span aria-hidden="true">/</span><span>${p.nombre}</span></nav>`,
+    `<header class="pest-masthead"><div><p class="pest-eyebrow">Guía de plagas</p><h1>${p.nombre}</h1><p class="pest-lead">${lead}</p><div class="pest-hero-actions"><a class="button" href="#contacto">Conversemos →</a><a class="text-link" href="#guia-1">Explorar esta guía ↓</a></div></div><figure class="pest-figure pest-hero-figure"><img src="${A(p.img)}" alt="${attr(p.nombre)}"/></figure></header>`,
+    `<nav class="pest-families" aria-label="Guía de plagas">${families}</nav>`,
+    `<div class="pest-layout"><aside class="pest-sidebar"><details class="pest-index" id="reading-index"><summary>En esta página <span>−</span></summary><ol>${index}</ol></details></aside><div class="pest-content">${content}</div></div></div>`,
+    fuentes(fuentesList),
+    closing(),
+  ].join('');
+};
+
+// ---------- Blog ----------
+export const articlePage = ({ b, fechaTxt, lectura, alt, cuerpo, preguntas, fuentesList, otro, crumbBlog }) => {
+  let n = 0;
+  const heads = [];
+  const body = cuerpo.replace(/<h2>([\s\S]*?)<\/h2>/g, (_, t) => {
+    n++;
+    heads.push(t);
+    return `<h2 id="art-${n}">${t}</h2>`;
+  });
+  return [
+    intro([[crumbBlog, 'Blog'], b.tema], b.titulo, `<figure class="s-figure"><img src="${A(b.img)}" alt="${attr(alt)}"/><figcaption>${alt}</figcaption></figure>`),
+    `<section class="wrap s-section s-prose"><p class="s-note">Truly Nolen ${NAME} · ${fechaTxt} · ${lectura} min de lectura</p><p class="s-entrada">${b.resumen}</p></section>`,
+    `<nav class="wrap s-index ux-index" aria-label="En este artículo"><details><summary>En este artículo</summary><ul>${heads.map((t, i) => `<li><a href="#art-${i + 1}">${strip(t)}</a></li>`).join('')}</ul></details></nav>`,
+    `<section class="wrap s-section s-article"><div class="article-body">${body}<h2 class="sin-num">Preguntas frecuentes</h2><div class="s-prose">${answers(preguntas)}</div></div></section>`,
+    fuentes(fuentesList),
+    `<section class="wrap closeout-blog-next"><div><p class="closeout-blog-eyebrow">Seguir leyendo</p><h2>${otro.titulo}</h2><a class="text-link" href="${ROOT}blog/${otro.slug}/">Leer el artículo →</a></div><a class="text-link" href="${ROOT}blog/">Ver todos los artículos →</a></section>`,
+    closing(),
+  ].join('');
+};
+
+// ---------- Legal ----------
+export const legalPage = (h1, texto) => [intro([h1], h1), `<section class="wrap s-section s-prose"><p>${texto}</p></section>`, closing()].join('');
