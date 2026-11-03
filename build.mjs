@@ -6,6 +6,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PAGES, PORTADA } from './src/pages.mjs';
 import { ID, NAME } from './src/helpers.mjs';
+import { corporativas } from './src/corporativas.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REF = join(HERE, 'referencia', 'site');
@@ -35,11 +36,19 @@ const ver = (f) => {
   return existsSync(p) ? createHash('sha256').update(readFileSync(p)).digest('hex').slice(0, 12) : 'falta';
 };
 
+// 2b. Real brand files (TEPS seal, real car), only if they are in ./assets-marca. Never redrawn.
+const CORP = corporativas(HERE);
+const MARCA = join(HERE, 'assets-marca');
+if (existsSync(MARCA)) for (const f of readdirSync(MARCA)) cpSync(join(MARCA, f), join(OUT, 'oficinas', 'assets', f));
+if (!CORP.sello || !CORP.carro) console.log('AVISO: faltan archivos de marca en assets-marca/: ' + [!CORP.sello && 'teps-sello.webp', !CORP.carro && 'carro-truly.png'].filter(Boolean).join(', '));
+
 // 3. Shell replacements: everything outside <main> that names Venezuela.
 const FOOTER_ALT = 'Torre de Cali y los cerros de Cali, Colombia. Ilustración';
 const FOOTER_CAP = 'Cali · Torre de Cali';
 export const OFICINA_PIE = '<p data-preview-office>Cali</p><p>Carrera 25 # 5 Oeste – 167, Barrio Cristales</p><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>';
 function shell(html) {
+  // Recipe "vuelta 9": the real car replaces the drawn one (figures band, chat, Truly AI box) when the file exists.
+  if (CORP.carro) html = html.replaceAll('/oficinas/assets/truly-carrito-asistente.svg', '/oficinas/assets/carro-truly.png');
   return html
     .replace(/\/oficinas\/venezuela\/assets\/venezuela-desktop\.webp\?v=[0-9a-f]+/g, `/oficinas/${ID}/assets/${ID}-desktop.webp?v=${ver(`${ID}-desktop.webp`)}`)
     .replace(/\/oficinas\/venezuela\/assets\/venezuela-desktop\.mp4\?v=[0-9a-f]+/g, `/oficinas/${ID}/assets/${ID}-desktop.mp4?v=${ver(`${ID}-desktop.mp4`)}`)
@@ -89,7 +98,18 @@ for (const [out, page] of Object.entries({ '': PORTADA, ...PAGES })) {
       main = main.replaceAll(a, b);
     }
   }
+  if (out === '') {
+    // Recipe "vuelta 8/9": master index of 4 cards and the corporate sections after the commercial one.
+    const prog = main.match(/<section id="servicios" class="section g g-programa">[\s\S]*?<\/section>/);
+    if (!prog) throw new Error('[portada] no encontré la sección del programa');
+    main = main.replace(prog[0], CORP.programa);
+    const neg = main.indexOf('<section id="negocio"');
+    const fin = main.indexOf('</section>', neg) + '</section>'.length;
+    if (neg < 0) throw new Error('[portada] no encontré la sección de comercios');
+    main = main.slice(0, fin) + CORP.despuesDeComercial + main.slice(fin);
+  }
   let full = shell(html.slice(0, i)) + main + shell(html.slice(j));
+  if (out === '') full = full.replace('</head>', CORP.css + '</head>');
   full = shell(full); // the reference main may still carry asset paths
   full = setHead(full, page.title, page.desc);
   const file = join(OUT, 'oficinas', ID, out, 'index.html');

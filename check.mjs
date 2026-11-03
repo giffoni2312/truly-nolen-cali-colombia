@@ -75,7 +75,15 @@ for (const file of pages) {
   const refFile = join(REF, refRel, 'index.html');
   if (existsSync(refFile)) {
     const r = readFileSync(refFile, 'utf8');
-    if (sections(r) !== sections(h)) errors.push(`${label}: el orden de secciones no es igual a Venezuela\n     VE:   ${sections(r)}\n     CALI: ${sections(h)}`);
+    // Recipe "vuelta 8/9": the homepage adds sanitization -> TEPS -> network -> history after the commercial section
+    // (master globaltni.com/es, without the franchise section). Venezuela does not have them yet.
+    const esperado = label === 'portada' ? sections(r).replace('section g g-comercial |', 'section g g-comercial | section g g-sanit | section g g-teps | section g g-red | section g g-historia |') : sections(r);
+    if (label === 'portada') {
+      if (/franquicia|franchise/i.test(h.slice(h.indexOf('<main'), h.indexOf('</main>')))) errors.push('portada: tiene la sección de franquicias (una oficina no la lleva)');
+      const cards = [...(h.match(/g-prog-4">([\s\S]*?)<\/div><\/section>/) || ['', ''])[1].matchAll(/<h3>([^<]+)<\/h3>/g)].map((x) => x[1]).join(',');
+      if (cards !== 'TEPS,Comercial,Residencial,Sanitización') errors.push(`portada: el índice no tiene las 4 tarjetas del master en orden (tiene: ${cards})`);
+    }
+    if (esperado !== sections(h)) errors.push(`${label}: el orden de secciones no es igual a Venezuela\n     ESPERADO: ${esperado}\n     CALI: ${sections(h)}`);
     const a = shellParts(r), b = shellParts(h);
     const norm = (s) => s.replace(/Venezuela/g, 'X').replace(/Cali/g, 'X').replace(/Cucarachas y chiripas/g, 'Cucarachas').replace(/Hormigas y bachacos/g, 'Hormigas').replace(/\|Carrera 25 # 5 Oeste – 167, Barrio Cristales\|\+57 316 741 9018/, ''); // the Cali office line is intentional (Venezuela has no office)
     if (norm(a.nav) !== norm(b.nav)) errors.push(`${label}: el menú no es igual a Venezuela`);
