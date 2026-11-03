@@ -120,7 +120,7 @@ export const PORTADA = {
     ['Cómo eliminar el comején: señales y qué hacer', BLOG.zancudos.titulo],
     ['El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tienes y dónde está la colonia. Te contamos sus señales y cómo evitar que vuelva.', BLOG.zancudos.resumen],
     ['<section class="g-cifras" aria-label="Truly Nolen en el mundo">', '<section class="g-cifras" id="nosotros" aria-label="Truly Nolen en el mundo">'],
-    ['Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p>', 'Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018">+57 316 741 9018</a></p>'],
+    ['Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p>', 'Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p>'],
     ['Indica tu estado, municipio y el tipo de espacio.', 'Indica tu comuna o corregimiento, tu barrio y el tipo de espacio.'],
     ['data-n1="Estado" data-n2="Municipio"', 'data-n1="Comuna o corregimiento" data-n2="Barrio"'],
     ['Comparte tu estado y municipio para revisar si podemos atenderte y coordinar el siguiente paso.', 'Comparte tu comuna o corregimiento y tu barrio para revisar si podemos atenderte y coordinar el siguiente paso.'],
