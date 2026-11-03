@@ -27,7 +27,7 @@ const VOSEO = /\b(querés|podés|contanos|tenés|sabés)\b/i;
 
 const sections = (h) => {
   const m = h.slice(h.indexOf('<main'), h.indexOf('</main>'));
-  return [...m.matchAll(/<(section|article)[^>]*class="([^"]+)"/g)].map((x) => x[2]).join(' | ');
+  return [...m.matchAll(/<(section|article)[^>]*class="([^"]+)"/g)].map((x) => x[2]).join(' | ').replace(/(\| blog-card)(?: \| blog-card)+/g, '$1'); // a longer post list is the same structure
 };
 const shellParts = (h) => {
   const nav = (h.match(/<header class="site-nav">[\s\S]*?<\/header>/) || [''])[0];
@@ -63,7 +63,7 @@ for (const file of pages) {
     if (!existsSync(target)) errors.push(`${label}: enlace o archivo roto ${url}`);
   }
   const refH = existsSync(join(REF, REF_SLUG[rel] || rel, 'index.html')) ? readFileSync(join(REF, REF_SLUG[rel] || rel, 'index.html'), 'utf8') : '';
-  for (const id of new Set([...h.matchAll(/href="#([^"]+)"/g)].map((x) => x[1]))) {
+  for (const id of new Set([...h.matchAll(/(?<!\[)href="#([^"]+)"/g)].map((x) => x[1]))) {
     if (h.includes(`id="${id}"`)) continue;
     if (refH && !refH.includes(`id="${id}"`)) warn.push(`${label}: ancla #${id} sin destino (igual que en Venezuela)`);
     else errors.push(`${label}: ancla #${id} sin destino`);

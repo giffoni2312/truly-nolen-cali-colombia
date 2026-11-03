@@ -58,6 +58,22 @@ const BLOG = {
     resumen: 'El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tienes y dónde está la colonia. Te contamos sus señales y cómo evitar que vuelva.',
     img: 'cali-blog-como-eliminar-el-comejen.webp',
   },
+  ratas: {
+    slug: 'como-evitar-ratas-en-casa',
+    ref: 'blog/como-eliminar-el-comejen',
+    tema: 'Ratas y ratones',
+    titulo: 'Cómo evitar las ratas en casa y en tu negocio',
+    resumen: 'Las ratas llegan donde encuentran comida y basura. Te contamos por qué son un riesgo para la salud en Cali y qué pide la norma para guardar las basuras.',
+    img: 'cali-blog-como-evitar-ratas-en-casa.webp',
+  },
+  cucarachas: {
+    slug: 'cucarachas-resistentes-en-cali',
+    ref: 'blog/como-eliminar-el-comejen',
+    tema: 'Cucarachas',
+    titulo: 'Por qué el insecticida ya no mata a las cucarachas',
+    resumen: 'En Cali se encontraron cucarachas alemanas resistentes a un insecticida común. Te contamos qué significa y por qué echar más del mismo producto no sirve.',
+    img: 'cali-blog-cucarachas-resistentes-en-cali.webp',
+  },
 };
 const FECHA = '<time datetime="2026-11-02">2 de noviembre de 2026</time>';
 const FECHA_TXT = '2 de noviembre de 2026';
@@ -103,6 +119,8 @@ export const PORTADA = {
     ['blog/como-eliminar-el-comejen/', `blog/${BLOG.zancudos.slug}/`],
     ['Cómo eliminar el comején: señales y qué hacer', BLOG.zancudos.titulo],
     ['El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tienes y dónde está la colonia. Te contamos sus señales y cómo evitar que vuelva.', BLOG.zancudos.resumen],
+    ['<section class="g-cifras" aria-label="Truly Nolen en el mundo">', '<section class="g-cifras" id="nosotros" aria-label="Truly Nolen en el mundo">'],
+    ['Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p>', 'Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018">+57 316 741 9018</a></p>'],
     ['Indica tu estado, municipio y el tipo de espacio.', 'Indica tu comuna o corregimiento, tu barrio y el tipo de espacio.'],
     ['data-n1="Estado" data-n2="Municipio"', 'data-n1="Comuna o corregimiento" data-n2="Barrio"'],
     ['Comparte tu estado y municipio para revisar si podemos atenderte y coordinar el siguiente paso.', 'Comparte tu comuna o corregimiento y tu barrio para revisar si podemos atenderte y coordinar el siguiente paso.'],
@@ -573,13 +591,13 @@ const blogIndex = {
   desc: 'Guías sobre las plagas de Cali, con cada dato respaldado por su fuente.',
   main: [
     `<section class="section blog-head"><a class="text-link" href="${ROOT}">← Volver al inicio</a><p class="eyebrow">Blog · Cali</p><h1>Blog de control de plagas</h1><p>Guías sobre las plagas de aquí, con cada dato respaldado por su fuente.</p></section>`,
-    `<section class="section blog-lista"><div class="blog-grid">${blogCard(BLOG.zancudos, 'blog-card blog-featured')}${blogCard(BLOG.comejen)}</div></section>`,
+    `<section class="section blog-lista"><div class="blog-grid">${blogCard(BLOG.zancudos, 'blog-card blog-featured')}${blogCard(BLOG.comejen)}${blogCard(BLOG.ratas)}${blogCard(BLOG.cucarachas)}</div></section>`,
     cierre(null),
   ].join(''),
 };
 
 const articulo = (b, { alt, cuerpo, preguntas, fuentesList, otro, lectura }) => ({
-  ref: `blog/${b.slug}`,
+  ref: b.ref || `blog/${b.slug}`,
   title: `${b.titulo} | Truly Nolen Cali`,
   desc: b.resumen,
   main: [
@@ -643,6 +661,53 @@ const postComejen = articulo(BLOG.comejen, {
   fuentesList: [F.termitasCali, F.ucipm, F.dec1843],
 });
 
+const postRatas = articulo(BLOG.ratas, {
+  lectura: 4,
+  alt: 'Rata noruega junto a una pared',
+  otro: BLOG.cucarachas,
+  cuerpo: `<p>¿Cómo evitar las ratas en casa? Quitándoles la comida y el refugio. Las ratas y los ratones llegan donde hay restos de comida y basura mal guardada, y se quedan donde encuentran dónde esconderse.</p>
+<h2>No es solo asco: es un riesgo para la salud</h2>
+<p>El Instituto Nacional de Salud señala a los roedores, sobre todo las ratas, como los principales reservorios de la leptospirosis, una enfermedad que se transmite por su orina. En 2024 se notificaron 9.681 casos en Colombia, y el mismo informe ubica a Cali entre las entidades con mayor aumento de casos confirmados entre 2021 y 2024.</p>
+<h2>En Cali las ratas siguen a la basura</h2>
+<p>En 2023, según El País Cali, los sectores más afectados por roedores fueron el Parque del Perro y la Carrera 66. En 2026 hubo denuncias por ratas cerca de restaurantes de la calle Novena, en el sur de la ciudad. La Secretaría de Salud asoció esos focos, en gran medida, al mal manejo de los residuos sólidos.</p>
+<h2>Lo que pide la norma para las basuras</h2>
+<p>La Ley 9 de 1979, el Código Sanitario Nacional, pide guardar las basuras en recipientes que impidan la proliferación de insectos y roedores (artículo 28). En la práctica:</p>
+<ul><li><strong>Canecas con tapa</strong>, siempre cerradas.</li><li><strong>Saca la basura</strong> en el horario de recolección, no la noche anterior.</li><li><strong>Guarda la comida</strong> en alacenas cerradas, también la de las mascotas.</li><li><strong>No dejes restos</strong> de comida al alcance, ni dentro ni fuera de la casa.</li></ul>
+<h2>Las señales que conviene fotografiar</h2>
+<ul><li>Excrementos pequeños y oscuros en cocinas, alacenas o bodegas.</li><li>Roeduras en empaques, cables o madera.</li><li>Ruidos en el techo o el cielo raso, sobre todo de noche.</li><li>Madrigueras en zonas verdes cerca de la casa o el negocio.</li></ul>
+<h2>Truly AI te orienta en el siguiente paso</h2>
+<p>Con las fotos y el lugar donde viste las señales ya puedes escribirle a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Si quieres repasar los datos, entra a la <a href="${ROOT}plagas/ratas-y-ratones/">guía de ratas y ratones</a>.</p>`,
+  preguntas: [
+    ['¿Por qué las ratas son peligrosas?', 'El Instituto Nacional de Salud las señala como los principales reservorios de la leptospirosis. En 2024 se notificaron 9.681 casos en Colombia.'],
+    ['¿Qué dice la norma sobre las basuras?', 'La Ley 9 de 1979 pide guardarlas en recipientes que impidan la proliferación de insectos y roedores (artículo 28).'],
+    ['Escucho ruidos en el techo. ¿Son ratas?', 'Puede ser. Busca excrementos y roeduras cerca, fotografíalos y escríbele a Truly AI.'],
+  ],
+  fuentesList: [F.lepto, F.roedores2023, F.roedores2026, F.ley9],
+});
+
+const postCucarachas = articulo(BLOG.cucarachas, {
+  lectura: 4,
+  alt: 'Cucaracha americana sobre fondo claro',
+  otro: BLOG.ratas,
+  cuerpo: `<p>¿Por qué el insecticida ya no mata a las cucarachas? Porque algunas poblaciones se volvieron resistentes. En Cali ya se encontró ese problema en la cucaracha alemana, la pequeña de cocina.</p>
+<h2>Lo que encontraron en Cali</h2>
+<p>Un estudio publicado en 2009 en la Revista Cubana de Medicina Tropical encontró en Cali las primeras cepas de cucaracha alemana (<em>Blattella germanica</em>) resistentes a la deltametrina, un insecticida común. Las cepas más resistentes salieron de un club deportivo y de una plaza de mercado.</p>
+<h2>Qué significa para tu casa o tu negocio</h2>
+<p>Si el mismo producto de siempre ya no funciona, echar más no resuelve el problema. Hay que encontrar dónde se esconden y cambiar el método.</p>
+<h2>Dos cucarachas, dos escondites</h2>
+<ul><li><strong>Cucaracha alemana:</strong> la pequeña. Vive cerca de la comida, el calor y la humedad: detrás de la nevera y la estufa, debajo del lavaplatos.</li><li><strong>Cucaracha americana:</strong> la más grande (<em>Periplaneta americana</em>). Sube por sifones, rejillas y cajas de inspección.</li></ul>
+<h2>En negocios de alimentos es obligatorio</h2>
+<p>La Resolución 2674 de 2013 del Ministerio de Salud pide a los establecimientos de alimentos un programa de control de plagas (artículo 26). Bodegas, mesones y canecas de basura son los primeros puntos que hay que revisar.</p>
+<h2>Truly AI te ayuda a empezar</h2>
+<p>Anota si son pequeñas o grandes y dónde las ves. Con eso ya puedes escribirle a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Si quieres repasar los datos, entra a la <a href="${ROOT}plagas/cucarachas/">guía de cucarachas</a>.</p>`,
+  preguntas: [
+    ['¿Las cucarachas se vuelven resistentes?', 'Sí. En 2009 se encontraron en Cali cucarachas alemanas resistentes a la deltametrina, según la Revista Cubana de Medicina Tropical.'],
+    ['¿Cómo sé cuál cucaracha tengo?', 'La alemana es pequeña y vive en la cocina. La americana es la más grande y suele salir de sifones y rejillas.'],
+    ['¿Mi restaurante necesita control de plagas?', 'La Resolución 2674 de 2013 pide un programa de control de plagas a los establecimientos de alimentos (artículo 26).'],
+  ],
+  fuentesList: [F.cucaDelta, F.res2674],
+});
+
 // ---------- Legal ----------
 const legal = (slug, h1, texto) => ({
   ref: slug,
@@ -664,6 +729,8 @@ export const PAGES = {
   blog: blogIndex,
   [`blog/${BLOG.zancudos.slug}`]: postZancudos,
   [`blog/${BLOG.comejen.slug}`]: postComejen,
+  [`blog/${BLOG.ratas.slug}`]: postRatas,
+  [`blog/${BLOG.cucarachas.slug}`]: postCucarachas,
   privacidad: legal('privacidad', 'Privacidad', 'Lo que escribas en el chat de este sitio o por WhatsApp lo recibe y responde Truly AI, el asistente de Truly Nolen International. Úsalo para tu consulta sobre control de plagas y no compartas datos sensibles, como claves, datos bancarios o información médica.'),
   terminos: legal('terminos', 'Términos de uso', 'La información de este sitio es general. Los servicios, la cobertura, los precios y las condiciones se confirman directamente con Truly Nolen antes de cualquier visita o servicio, y no constituyen una oferta.'),
   accesibilidad: legal('accesibilidad', 'Accesibilidad', 'Puedes recorrer este sitio con el teclado, ampliar el texto y usar la preferencia de movimiento reducido de tu dispositivo. Si tu dispositivo pide reducir el movimiento, se muestra una imagen fija. Si encuentras una dificultad de acceso, cuéntasela a Truly AI en el chat.'),
