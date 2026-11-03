@@ -38,6 +38,7 @@ const ver = (f) => {
 // 3. Shell replacements: everything outside <main> that names Venezuela.
 const FOOTER_ALT = 'Torre de Cali y los cerros de Cali, Colombia. Ilustración';
 const FOOTER_CAP = 'Cali · Torre de Cali';
+export const OFICINA_PIE = '<p data-preview-office>Cali</p><p>Carrera 25 # 5 Oeste – 167, Barrio Cristales</p><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>';
 function shell(html) {
   return html
     .replace(/\/oficinas\/venezuela\/assets\/venezuela-desktop\.webp\?v=[0-9a-f]+/g, `/oficinas/${ID}/assets/${ID}-desktop.webp?v=${ver(`${ID}-desktop.webp`)}`)
@@ -58,7 +59,9 @@ function shell(html) {
     .replaceAll('data-oficina="venezuela"', `data-oficina="${ID}"`)
     .replaceAll('es_VE', 'es_CO')
     .replaceAll('"@type": "Country", "name": "Venezuela"', '"@type": "City", "name": "Santiago de Cali"')
-    .replaceAll('Venezuela', NAME);
+    .replaceAll('Venezuela', NAME)
+    // Cali has an office (recipe, annex F): its address and phone go in the footer too.
+    .replace('<p data-preview-office>Cali</p><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>', OFICINA_PIE);
 }
 
 function setHead(html, title, desc) {

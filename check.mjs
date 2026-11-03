@@ -77,7 +77,7 @@ for (const file of pages) {
     const r = readFileSync(refFile, 'utf8');
     if (sections(r) !== sections(h)) errors.push(`${label}: el orden de secciones no es igual a Venezuela\n     VE:   ${sections(r)}\n     CALI: ${sections(h)}`);
     const a = shellParts(r), b = shellParts(h);
-    const norm = (s) => s.replace(/Venezuela/g, 'X').replace(/Cali/g, 'X').replace(/Cucarachas y chiripas/g, 'Cucarachas').replace(/Hormigas y bachacos/g, 'Hormigas');
+    const norm = (s) => s.replace(/Venezuela/g, 'X').replace(/Cali/g, 'X').replace(/Cucarachas y chiripas/g, 'Cucarachas').replace(/Hormigas y bachacos/g, 'Hormigas').replace(/\|Carrera 25 # 5 Oeste – 167, Barrio Cristales\|\+57 316 741 9018/, ''); // the Cali office line is intentional (Venezuela has no office)
     if (norm(a.nav) !== norm(b.nav)) errors.push(`${label}: el menú no es igual a Venezuela`);
     if (norm(a.foot) !== norm(b.foot)) errors.push(`${label}: el pie no es igual a Venezuela`);
     const btn = (s) => (s.match(/class="(button|text-link|g-link|g-mas|service-action)[^"]*"/g) || []).length;

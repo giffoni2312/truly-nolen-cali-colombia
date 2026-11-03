@@ -210,7 +210,7 @@ const comercios = {
     dato({
       ey: 'Un dato que pesa',
       h2: 'Lo que pasó en<br/>la calle Novena.',
-      items: [['2026', 'denuncias por ratas cerca de restaurantes de la calle Novena, en el sur de Cali, llevaron a una intervención sanitaria con cebos autorizados.', 'El Espectador (2026)']],
+      items: [['Calle Novena.', 'En 2026, las denuncias por ratas cerca de restaurantes del sur de Cali llevaron a una intervención sanitaria con cebos autorizados.', 'El Espectador (2026)']],
     }),
     tabla({
       ey: 'Dónde miramos',
