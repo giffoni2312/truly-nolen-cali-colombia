@@ -1,0 +1,27 @@
+{
+  "name": "truly-cali",
+  "version": "1.0.0",
+  "description": "Sitio de control de plagas de Truly Nolen para **Cali, Colombia**. Proyecto aparte: no se mezcla con ningún otro país.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giffoni2312/truly-nolen-cali-colombia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/giffoni2312/truly-nolen-cali-colombia/issues"
+  },
+  "homepage": "https://github.com/giffoni2312/truly-nolen-cali-colombia#readme",
+  "dependencies": {
+    "playwright-core": "^1.64.1"
+  }
+}
