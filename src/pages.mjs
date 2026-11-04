@@ -83,7 +83,7 @@ const FECHA = '<time datetime="2026-11-02">2 de noviembre de 2026</time>';
 const FECHA_TXT = '2 de noviembre de 2026';
 
 const blogCard = (b, cls = 'blog-card') =>
-  `<article class="${cls}"><a href="${ROOT}blog/${b.slug}/" tabindex="-1" aria-hidden="true"><img src="${A(b.img)}" alt="" loading="lazy"/></a><div><p class="eyebrow">${b.tema}</p><h2><a href="${ROOT}blog/${b.slug}/">${b.titulo}</a></h2><p>${b.resumen}</p><p class="blog-fecha">${FECHA}</p><a class="text-link" href="${ROOT}blog/${b.slug}/">Leer el artículo →</a></div></article>`;
+  `<article class="${cls}"><a href="${ROOT}blog/${b.slug}/" tabindex="-1" aria-hidden="true"><img src="${A(b.img)}" alt="" loading="lazy"/></a><div><p class="eyebrow">${b.tema}</p><h2><a href="${ROOT}blog/${b.slug}/">${b.titulo}</a></h2><p>${b.resumen}</p><p class="blog-fecha">${FECHA}</p><a class="text-link" href="${ROOT}blog/${b.slug}/">Leer guía →</a></div></article>`;
 
 // ---------- Portada (same markup as the reference, only Cali text) ----------
 const COMUNAS = [...Array.from({ length: 22 }, (_, i) => `Comuna ${i + 1}`), 'Corregimiento Golondrinas', 'Corregimiento Montebello', 'Corregimiento La Elvira', 'Corregimiento La Paz', 'Corregimiento La Castilla', 'Corregimiento El Saladito', 'Corregimiento Felidia', 'Corregimiento La Leonera', 'Corregimiento Navarro', 'Corregimiento El Hormiguero', 'Corregimiento Pance', 'Corregimiento La Buitrera', 'Corregimiento Pichindé', 'Corregimiento Los Andes', 'Corregimiento Villacarmelo', 'Municipio vecino (Jamundí, Yumbo, Palmira, Candelaria)'];
@@ -131,7 +131,8 @@ const hogares = {
   title: 'Control de plagas para hogares en Cali | Truly Nolen Cali',
   desc: 'Revisamos tu casa o apartamento en Cali por dentro y por fuera: cocina, baños, perímetro y patio. Escríbele a Truly AI.',
   main: servicePage({
-    nombre: 'Servicio residencial',
+    nombre: 'Servicios para hogares',
+    crumb: 'Hogares',
     lead: {
       h2: 'Revisamos tu casa por dentro y por fuera.',
       text: 'Desde la cocina hasta el patio. Revisamos tu casa o apartamento para encontrar dónde está la actividad de plagas y qué la favorece, cuidando a tu familia y a tus mascotas.',
@@ -177,7 +178,8 @@ const comercios = {
   title: 'Control de plagas para comercios en Cali | Truly Nolen Cali',
   desc: 'Control de plagas para restaurantes, panaderías, tiendas y oficinas en Cali, con el plan que pide la Resolución 2674 de 2013.',
   main: servicePage({
-    nombre: 'Servicio comercial',
+    nombre: 'Servicios para comercios',
+    crumb: 'Comercios',
     lead: { h2: 'Tu negocio abierto, sin plagas a la vista.', text: 'Restaurantes, panaderías, tiendas y oficinas. Revisamos las áreas de trabajo y de almacenamiento, y coordinamos los horarios para no frenar tu operación.', para: 'Panaderías, restaurantes, tiendas de barrio, puestos de galería, droguerías, consultorios y oficinas.', incluye: 'Inspección de las áreas de trabajo y de almacenamiento, control según la actividad y coordinación de horarios y accesos con el encargado.', sigue: 'Registro de hallazgos y recomendaciones. Si tienes varias sedes, se acuerda el alcance de cada una.', nota: 'Antes de empezar recibes una propuesta con el alcance y las condiciones para tu negocio.', img: 'cali-comercio.webp', alt: 'Supermercado en Cali' },
     bloques: [
     tabla({
@@ -245,7 +247,8 @@ const industria = {
   title: 'Control de plagas para industrias en Cali | Truly Nolen Cali',
   desc: 'Control de plagas para plantas de alimentos, bodegas y centros logísticos en Cali y municipios vecinos. Escríbele a Truly AI.',
   main: servicePage({
-    nombre: 'Servicio industrial',
+    nombre: 'Servicios para la industria',
+    crumb: 'Industria',
     lead: { h2: 'Un programa que parte de conocer tu operación.', text: 'Plantas de alimentos, bodegas y centros logísticos en Cali y sus municipios vecinos. Primero entendemos cómo funciona tu operación y después definimos el programa.', para: 'Plantas de alimentos y bebidas, laboratorios, bodegas, centros de distribución y operadores logísticos.', incluye: 'Inspección de las áreas de producción, almacenamiento y perímetro, control según los riesgos de la operación y registros de cada visita.', sigue: 'Informe de hallazgos, recomendaciones y visitas de seguimiento según el programa acordado.', nota: 'Antes de empezar recibes una propuesta con el alcance y las condiciones para tu operación.', img: 'cali-industria.webp', alt: 'Bodega industrial en Cali' },
     bloques: [
     tabla({
@@ -566,7 +569,7 @@ const blogIndex = {
   main: [
     `<section class="wrap s-intro"><nav aria-label="Ruta"><a href="${ROOT}">Inicio</a><span aria-hidden="true">/</span>Blog</nav><h1>Blog de control de plagas</h1><p class="s-entrada">Guías sobre las plagas de aquí, con la fuente de cada dato.</p></section>`,
     `<section class="section blog-lista"><div class="blog-grid">${blogCard(BLOG.zancudos, 'blog-card blog-featured')}${blogCard(BLOG.comejen)}${blogCard(BLOG.ratas)}${blogCard(BLOG.cucarachas)}</div></section>`,
-    cierreBlog(),
+    cierreBlog(COMUNAS),
   ].join(''),
 };
 

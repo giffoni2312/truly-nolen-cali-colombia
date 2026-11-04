@@ -1,5 +1,6 @@
 // Page builders that reproduce the markup (classes and order) of the Venezuela reference pages,
 // which follow the globaltni.com master: prose sections, no tables in services, pests or articles.
+import { cierreCompleto } from './portada.mjs';
 export const ID = 'cali';
 export const NAME = 'Cali';
 export const ROOT = `/oficinas/${ID}/`;
@@ -62,11 +63,10 @@ export const fuentes = (items) =>
 
 // Closing of internal pages (services, pests, articles, legal).
 export const closing = () =>
-  `<section id="contacto" class="s-closing"><div class="wrap"><h2>Cuéntanos qué necesitas proteger.</h2><p>Todo empieza con contarnos qué viste. Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><div class="s-closing-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a><a class="text-link" href="tel:+573167419018">+57 316 741 9018</a><a class="text-link" href="${ROOT}#consulta">Consultar cobertura →</a></div></div></section>`;
+  `<section id="contacto" class="s-closing"><div class="wrap"><h2>¿Qué necesitas proteger?</h2><p>Cuéntanos qué viste y dónde. Truly AI te contesta aquí o por WhatsApp y te orienta en el siguiente paso.</p><div class="s-closing-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a><a class="text-link" href="tel:+573167419018">+57 316 741 9018</a><a class="text-link" href="${ROOT}#consulta">Consultar cobertura →</a></div></div></section>`;
 
-// Closing of the blog index (same as the reference: channels, no form).
-export const cierreBlog = () =>
-  `<section id="contacto" class="section local-consult g-cierre"><div><span id="consulta"></span><span id="cobertura"></span><p class="eyebrow">Truly Nolen · ${NAME}</p><h2>Cuéntanos qué necesitas proteger.</h2><p>Todo empieza con contarnos qué viste. Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><div class="contact-channels" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;align-self:end"><a class="button" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`;
+// Closing of the blog index: the full homepage closing, like the Argentina reference.
+export const cierreBlog = (comunas) => cierreCompleto(comunas);
 
 const intro = (crumbs, h1, extra = '') =>
   `<section class="wrap s-intro"><nav aria-label="Ruta"><a href="${ROOT}">Inicio</a>${crumbs
@@ -79,7 +79,7 @@ export const zonasSection = (det, conLink = false) =>
 
 // ---------- Service page ----------
 // lead: { h2, text, para, incluye, sigue, nota, img, alt }
-export const servicePage = ({ nombre, lead, bloques, preguntas, fuentesList }) => {
+export const servicePage = ({ nombre, crumb, lead, bloques, preguntas, fuentesList }) => {
   const flow = (h2, inner) => `<section class="wrap s-section s-flow"><h2>${plain(h2)}</h2><article class="s-prose">${inner}</article></section>`;
   const parts = bloques.map((b) => {
     if (b.k === 'tabla') return flow(b.h2, `${b.intro ? `<p>${b.intro}</p>` : ''}${rowsHtml(b.rows)}${b.nota ? `<p>${b.nota}</p>` : ''}`);
@@ -97,7 +97,7 @@ export const servicePage = ({ nombre, lead, bloques, preguntas, fuentesList }) =
     throw new Error('bloque desconocido ' + b.k);
   });
   return [
-    intro(['Servicios', nombre], nombre),
+    intro(['Servicios', crumb || nombre], nombre),
     `<section class="wrap s-section s-lead-pair"><article class="s-prose"><h2>${plain(lead.h2)}</h2></article><article class="s-prose"><p>${lead.text}</p><p><strong>¿Para quién?</strong> ${lead.para}</p><p><strong>¿Qué incluye?</strong> ${lead.incluye}</p><p><strong>¿Cómo sigue?</strong> ${lead.sigue}</p><p class="s-note">${lead.nota}</p></article><figure class="s-figure"><img src="${A(lead.img)}" alt="${attr(lead.alt)}"/></figure><a class="button s-service-action" href="#contacto" data-abrir-chat>Consultar por este servicio →</a></section>`,
     ...parts,
     fuentes(fuentesList),
