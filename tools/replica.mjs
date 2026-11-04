@@ -15,23 +15,23 @@
 import { chromium } from 'playwright-core';
 
 const CALI = 'http://127.0.0.1:8090/oficinas/cali/';
-const VE = 'https://borrador-venezuela.truly-inbound-borrador.pages.dev/oficinas/venezuela/';
+const VE = 'https://lucart97.github.io/truly-nolen-argentina/oficinas/argentina/'; // reference: Argentina (Carlos, 3-nov-2026)
 const PAIRS = [
   ['', ''],
   ['servicios/hogares/', 'servicios/hogares/'],
   ['servicios/comercios/', 'servicios/comercios/'],
   ['servicios/industria/', 'servicios/industria/'],
-  ['plagas/zancudos/', 'plagas/zancudos/'],
+  ['plagas/zancudos/', 'plagas/mosquitos/'],
   ['plagas/ratas-y-ratones/', 'plagas/ratas-y-ratones/'],
-  ['plagas/cucarachas/', 'plagas/cucarachas-y-chiripas/'],
-  ['plagas/hormigas/', 'plagas/hormigas-y-bachacos/'],
-  ['plagas/comejen/', 'plagas/comejen/'],
+  ['plagas/cucarachas/', 'plagas/cucarachas/'],
+  ['plagas/hormigas/', 'plagas/palomas/'],
+  ['plagas/comejen/', 'plagas/termitas/'],
   ['plagas/alacranes/', 'plagas/alacranes/'],
   ['blog/', 'blog/'],
-  ['blog/como-acabar-con-los-zancudos-en-casa/', 'blog/como-acabar-con-los-zancudos-en-casa/'],
-  ['blog/como-eliminar-el-comejen/', 'blog/como-eliminar-el-comejen/'],
-  ['blog/como-evitar-ratas-en-casa/', 'blog/como-eliminar-el-comejen/'],
-  ['blog/cucarachas-resistentes-en-cali/', 'blog/como-eliminar-el-comejen/'],
+  ['blog/como-acabar-con-los-zancudos-en-casa/', 'blog/como-eliminar-las-cucarachas-de-la-cocina/'],
+  ['blog/como-eliminar-el-comejen/', 'blog/vinchuca-y-chagas/'],
+  ['blog/como-evitar-ratas-en-casa/', 'blog/desratizacion-en-caba-2026/'],
+  ['blog/cucarachas-resistentes-en-cali/', 'blog/palomas-en-edificios/'],
   ['privacidad/', 'privacidad/'],
   ['terminos/', 'terminos/'],
   ['accesibilidad/', 'accesibilidad/'],
@@ -156,5 +156,5 @@ for (const w of WIDTHS) {
 }
 await browser.close();
 console.log(report.join('\n') || '');
-console.log(problems ? `\n${problems} diferencia(s) con Venezuela.` : `\n${PAIRS.length} páginas × ${WIDTHS.length} anchos iguales a Venezuela en lo medido.`);
+console.log(problems ? `\n${problems} diferencia(s) con Argentina.` : `\n${PAIRS.length} páginas × ${WIDTHS.length} anchos iguales a Argentina en lo medido.`);
 process.exit(problems ? 1 : 0);
