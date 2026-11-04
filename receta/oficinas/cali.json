@@ -1,0 +1,87 @@
+{
+  "id": "cali",
+  "title": "Cali",
+  "country": "Colombia",
+  "language": "es",
+  "base": "colombia",
+  "landmark": "Torre de Cali",
+  "localArea": "Cali, Valle del Cauca",
+  "chatIdioma": "Colombian Spanish with tú (cuéntanos, tienes, puedes), warm and professional; never vos, never usted.",
+  "tratoVetado": [
+    "usted",
+    "Usted",
+    "vos",
+    "querés",
+    "tenés",
+    "contanos",
+    "Cuéntenos",
+    "Escríbanos"
+  ],
+  "contacto": {
+    "oficina": "Carrera 25 # 5 Oeste – 167, Barrio Cristales, Cali, Colombia, 760043",
+    "telefono": "+57 316 741 9018",
+    "fuente": "http://globaltni.com/en/offices/",
+    "whatsappTrulyAI": "https://wa.me/15202145675",
+    "horario": null
+  },
+  "pelicula": {
+    "videoStatus": "pendiente",
+    "nota": "Video actual en 1280x720. Falta el 4K (3840x2160) con color en 3 pasos, el vertical que ruede y los bigotes al 70 %.",
+    "video": {
+      "file": "site/oficinas/cali/assets/cali-desktop.mp4",
+      "sha256": "2c5c58912b4f319c99db0100c6a5fa48506269072a59c8ee0b84743a0e0bbe24",
+      "width": 1280,
+      "height": 720,
+      "duration": 10
+    },
+    "movil": {
+      "file": "site/oficinas/cali/assets/cali-movil.mp4",
+      "sha256": "2c5c58912b4f319c99db0100c6a5fa48506269072a59c8ee0b84743a0e0bbe24",
+      "width": 1280,
+      "height": 720
+    },
+    "poster": "site/oficinas/cali/assets/cali-desktop.webp"
+  },
+  "footer": {
+    "estado": "listo",
+    "file": "site/oficinas/cali/assets/footer-cali.webp",
+    "sha256": "fec406f9a108626890bda4c9adcfd1ac1feb247dee188464fd2daab89f212f7c"
+  },
+  "casaZonas": {
+    "file": "site/oficinas/cali/assets/cali-casa-zonas.webp"
+  },
+  "paginas": {
+    "servicios": [
+      "hogares",
+      "comercios",
+      "industria"
+    ],
+    "plagas": [
+      "zancudos",
+      "ratas-y-ratones",
+      "cucarachas",
+      "hormigas",
+      "comejen",
+      "alacranes"
+    ]
+  },
+  "blog": {
+    "publicados": [
+      "como-acabar-con-los-zancudos-en-casa",
+      "como-eliminar-el-comejen",
+      "como-evitar-ratas-en-casa",
+      "cucarachas-resistentes-en-cali"
+    ]
+  },
+  "seo": {
+    "url": "https://giffoni2312.github.io/truly-nolen-cali-colombia/oficinas/cali/",
+    "indexar": false,
+    "imagen": "site/oficinas/cali/assets/cali-social.jpg"
+  },
+  "pendientes": [
+    "Candados oficiales (capa-oficinas)",
+    "Video 4K y vertical",
+    "Fotos con Midjourney",
+    "Horario y WhatsApp propios de la oficina (no publicados)"
+  ]
+}
