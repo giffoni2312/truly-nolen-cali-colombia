@@ -1,8 +1,11 @@
 // Cali content. Every figure comes from investigacion-cali.md (source + year on the page).
 import { A, ROOT, PLAGAS, tabla, dato, zonas, plagasGrid, FAQ_GENERAL, fuentes, servicePage, pestPage, articlePage, legalPage, cierreBlog } from './helpers.mjs';
+import { sectoresHtml } from './sectores.mjs';
+
 
 // ---------- Sources ----------
 const F = {
+  gtComercial: ['Truly Nolen International (2026). Servicio comercial: salud, industrias, venta de alimentos y logística', 'https://globaltni.com/es/services/commercial/'],
   emergencia: ['El País Cali (2024). Alcaldía de Cali declara emergencia sanitaria por avance del dengue', 'https://www.elpais.com.co/cali/alcaldia-de-cali-declara-emergencia-sanitaria-por-avance-del-dengue-1136.html'],
   dengue2024: ['Alcaldía de Santiago de Cali (16 de octubre de 2024). Cali continúa reduciendo los casos de dengue', 'https://www.cali.gov.co/educacion/publicaciones/183271/cali-continua-reduciendo-los-casos-de-dengue-al-tiempo-que-intensifica-las-acciones-de-control-vectorial/'],
   dengue2025: ['Alcaldía de Santiago de Cali (5 de diciembre de 2025). Cali se protege del dengue y las enfermedades vectoriales', 'https://www.cali.gov.co/publicaciones/190460/cali-se-protege-del-dengue-y-las-enfermedades-vectoriales-para-cerrar-el-ano-con-salud/'],
@@ -109,12 +112,13 @@ export const PORTADA = {
   title: 'Truly Nolen Cali | Control de plagas',
   desc: 'Control de plagas en Cali para hogares, comercios e industrias. Escríbele a Truly AI y te orientamos en el siguiente paso.',
   replace: [
+    // receta 4-nov (6c): one row per globaltni sector, each to its own anchor; Industria keeps its own page
+    ["<div class=\"g-sectores\"><a class=\"g-sector\" href=\"/oficinas/venezuela/servicios/comercios/\"><span><h3>Alimentos y comercio</h3><p>Supermercados, hipermercados, centros de distribución, locales de comida rápida, restaurantes, panaderías</p></span><span aria-hidden=\"true\">→</span></a><a class=\"g-sector\" href=\"/oficinas/venezuela/servicios/comercios/\"><span><h3>Salud</h3><p>Laboratorios de diagnóstico, hospitales, centros de asistencia prolongada, centros de atención de emergencias, centros de rehabilitación, consultorios médicos</p></span><span aria-hidden=\"true\">→</span></a><a class=\"g-sector\" href=\"/oficinas/venezuela/servicios/industria/\"><span><h3>Industria</h3><p>Inspección, monitoreo y registros para plantas, galpones y almacenes.</p></span><span aria-hidden=\"true\">→</span></a></div>", `<div class="g-sectores"><a class="g-sector" href="${ROOT}servicios/comercios/#sector-salud"><span><h3>Salud</h3><p>Hospitales, clínicas, laboratorios, hogares geriátricos y consultorios.</p></span><span aria-hidden="true">→</span></a><a class="g-sector" href="${ROOT}servicios/comercios/#sector-alimentos"><span><h3>Venta de alimentos</h3><p>Supermercados, panaderías, restaurantes y comidas rápidas.</p></span><span aria-hidden="true">→</span></a><a class="g-sector" href="${ROOT}servicios/comercios/#sector-logistica"><span><h3>Logística</h3><p>Bodegas, transporte de carga, agentes de carga y operadores logísticos.</p></span><span aria-hidden="true">→</span></a><a class="g-sector" href="${ROOT}servicios/industria/"><span><h3>Industria</h3><p>Inspección, monitoreo y registros para plantas, bodegas y centros logísticos.</p></span><span aria-hidden="true">→</span></a></div>`],
     ['Para tu casa, tu apartamento o tu quinta.', 'Para tu casa, tu apartamento o tu finca.'],
     ['alt="Casa moderna en Caracas vista desde arriba: el interior en rojo, el perímetro en amarillo y el jardín en verde"', 'alt="Casa moderna en Cali vista desde arriba, con los Farallones al fondo: el interior en rojo, el perímetro en amarillo y el jardín en verde"'],
     ['venezuela-casa-zonas.webp', 'cali-casa-zonas.webp'],
     ['ve-comercio-panaderia-mj-6af3bdde-2.webp', 'cali-comercio-panaderia.webp'],
-    ['panaderías, restaurantes, bodegones, farmacias y oficinas.', 'panaderías, restaurantes, tiendas de barrio, droguerías y oficinas.'],
-    ['Inspección, monitoreo y registros para plantas, galpones y almacenes.', 'Inspección, monitoreo y registros para plantas, bodegas y centros logísticos.'],
+    ['tu operación: panaderías, restaurantes, bodegones, farmacias y oficinas.', 'tu operación: salud, venta de alimentos, logística e industria.'],
     ['Las que más vemos en Venezuela.', 'Las que más vemos en Cali.'],
     ...PLAGAS.flatMap((p) => [[VE_RESUMEN[p.slug], RESUMEN[p.slug]], [VE_IMG[p.slug], p.img]]),
     ['ve-blog-como-eliminar-el-comejen.webp', BLOG.zancudos.img],
@@ -189,6 +193,7 @@ const comercios = {
     nombre: 'Servicio comercial',
     lead: { h2: 'Tu negocio abierto, sin plagas a la vista.', text: 'Restaurantes, panaderías, tiendas y oficinas. Revisamos las áreas de trabajo y de almacenamiento, y coordinamos los horarios para no frenar tu operación.', para: 'Panaderías, restaurantes, tiendas de barrio, puestos de galería, droguerías, consultorios y oficinas.', incluye: 'Inspección de las áreas de trabajo y de almacenamiento, control según la actividad y coordinación de horarios y accesos con el encargado.', sigue: 'Registro de hallazgos y recomendaciones. Si tienes varias sedes, se acuerda el alcance de cada una.', nota: 'Antes de empezar recibes una propuesta con el alcance y las condiciones para tu negocio.', img: 'cali-comercio.webp', alt: 'Supermercado en Cali' },
     bloques: [
+    { k: 'html', html: sectoresHtml() },
     tabla({
       ey: 'Lo que pide la norma',
       h2: 'Si vendes alimentos,<br/>necesitas un plan.',
@@ -221,14 +226,6 @@ const comercios = {
         ['Basuras', 'Donde se acumulan los residuos antes de la recolección.', ['Canecas tapadas.', 'Horario de sacar la basura.']],
       ],
     }),
-    tabla({
-      h2: '¿Quién se beneficia?',
-      intro: 'Los negocios para los que Truly Nolen International pensó su programa comercial.',
-      rows: [
-        ['Alimentos y comercio', 'Supermercados, hipermercados, centros de distribución, locales de comida rápida, restaurantes, panaderías.'],
-        ['Salud', 'Laboratorios de diagnóstico, hospitales, centros de asistencia prolongada, centros de atención de emergencias, centros de rehabilitación, consultorios médicos.'],
-      ],
-    }),
     plagasGrid({ ey: 'Guía de plagas', h2: 'Las plagas que más<br/>afectan a un negocio.', resumenes: RESUMEN, cuales: ['ratas-y-ratones', 'cucarachas', 'hormigas'] }),
     tabla({
       ey: 'Antes de conversar',
@@ -245,7 +242,7 @@ const comercios = {
         ['¿Qué información debo preparar?', 'El tipo de actividad, las áreas del local, los horarios y lo que has observado. Si tienes un plan de saneamiento, tenlo a mano.'],
         ['¿Y si tengo varias sedes?', 'Se acuerda el alcance de cada una en la propuesta.'],
       ],
-    fuentesList: [F.res2674, F.fumigacion, F.dec1843, F.roedores2026, F.galerias],
+    fuentesList: [F.gtComercial, F.res2674, F.fumigacion, F.dec1843, F.roedores2026, F.galerias],
   }),
 };
 

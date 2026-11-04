@@ -83,7 +83,17 @@ for (const file of pages) {
       const cards = [...(h.match(/g-prog-4">([\s\S]*?)<\/div><\/section>/) || ['', ''])[1].matchAll(/<h3>([^<]+)<\/h3>/g)].map((x) => x[1]).join(',');
       if (cards !== 'TEPS,Comercial,Residencial,Sanitización') errors.push(`portada: el índice no tiene las 4 tarjetas del master en orden (tiene: ${cards})`);
     }
-    if (esperado !== sections(h)) errors.push(`${label}: el orden de secciones no es igual a Venezuela\n     ESPERADO: ${esperado}\n     CALI: ${sections(h)}`);
+    // Recipe 4-nov (6c): Comercios carries globaltni's 4 sectors (ct-*) right after the lead, in place of the old
+    // "¿Quién se beneficia?" prose block. Check that block on its own, then compare the rest with Venezuela.
+    let actual = sections(h), esperadoCmp = esperado;
+    if (h.includes('class="ct-commercial"')) {
+      const ct = (actual.match(/ct-[a-z-]+(?: ct-[a-z-]+)?/g) || []).join(',');
+      if (ct !== 'ct-sector ct-healthcare,ct-sector ct-industrial,ct-sector ct-food-processing,ct-sector ct-logistics,ct-other ct-wrap,ct-related ct-wrap') errors.push(`${label}: los sectores de globaltni no están completos o en orden (${ct})`);
+      if (!actual.startsWith('wrap s-intro | wrap s-section s-lead-pair | s-prose | s-prose | ct-sector')) errors.push(`${label}: los sectores no van justo después de la entrada`);
+      actual = actual.replace(/ct-[a-z-]+(?: ct-[a-z-]+)? \| /g, '');
+      esperadoCmp = esperado.replace('wrap s-section s-flow | s-prose | ', '');
+    }
+    if (esperadoCmp !== actual) errors.push(`${label}: el orden de secciones no es igual a Venezuela\n     ESPERADO: ${esperadoCmp}\n     CALI: ${actual}`);
     const a = shellParts(r), b = shellParts(h);
     const norm = (s) => s.replace(/Venezuela/g, 'X').replace(/Cali/g, 'X').replace(/Cucarachas y chiripas/g, 'Cucarachas').replace(/Hormigas y bachacos/g, 'Hormigas').replace(/\|Carrera 25 # 5 Oeste – 167, Barrio Cristales\|\+57 316 741 9018/, ''); // the Cali office line is intentional (Venezuela has no office)
     if (norm(a.nav) !== norm(b.nav)) errors.push(`${label}: el menú no es igual a Venezuela`);

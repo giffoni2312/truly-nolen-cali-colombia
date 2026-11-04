@@ -1,0 +1,16 @@
+/* Colombia over globaltni's ct-* sheet (4-nov-2026). globaltni sizes its titles and text with general h2/p rules
+   that have no ct- in the selector, so they are copied here with the values measured on globaltni at 390/1024/1280. */
+body.country-site[data-oficina] .ct-commercial .ct-sector-heading h2,body.country-site[data-oficina] .ct-commercial .ct-other h2{font-family:var(--display);font-weight:800;font-size:46px;line-height:1.08;letter-spacing:-.003em}
+body.country-site[data-oficina] .ct-commercial .ct-other h2{font-size:44px;line-height:1.1}
+body.country-site[data-oficina] .ct-commercial .ct-related h2{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.2;letter-spacing:-.003em}
+body.country-site[data-oficina] .ct-commercial .ct-facilities h3{font-family:var(--display);font-weight:800;font-size:24px;line-height:1.2;letter-spacing:-.003em}
+body.country-site[data-oficina] .ct-commercial .ct-prose p,body.country-site[data-oficina] .ct-commercial .ct-facilities li,body.country-site[data-oficina] .ct-commercial .ct-other p{font-size:19px;line-height:1.65}
+@media (max-width:1100px){body.country-site[data-oficina] .ct-commercial .ct-sector-heading h2{font-size:40px}}
+@media (max-width:760px){
+  body.country-site[data-oficina] .ct-commercial .ct-sector-heading h2,body.country-site[data-oficina] .ct-commercial .ct-other h2{font-size:34px;line-height:1.1}
+  body.country-site[data-oficina] .ct-commercial .ct-related h2{font-size:28px}
+  body.country-site[data-oficina] .ct-commercial .ct-facilities h3{font-size:25px}
+}
+/* Until Carlos chooses the sector photos, the photo column stays empty so the text keeps globaltni's columns. */
+body.country-site[data-oficina] .ct-commercial .ct-documentary:empty{min-height:1px}
+@media (max-width:760px){body.country-site[data-oficina] .ct-commercial .ct-documentary:empty{display:none}}

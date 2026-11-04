@@ -23,3 +23,8 @@ body.country-site[data-oficina] :is(.s-intro nav,.pest-breadcrumb){display:flex;
 /* Cut-out pest photos (white background) get a soft frame so they do not look like empty boxes. */
 body.country-site[data-oficina] .g-pl-fig:has(img[src*="rata-truly"],img[src*="cucaracha-americana-foto"]){background:#f3f2ee}
 body.country-site[data-oficina] .g-pl-fig img:is([src*="rata-truly"],[src*="cucaracha-americana-foto"]){object-fit:contain!important;mix-blend-mode:multiply;padding:8%}
+
+/* receta 4-nov-2026: the footer watercolor uses 100vw (counts the scrollbar) -> 8 px sideways scroll; clip it.
+   Sector anchors land below the sticky header. */
+body{overflow-x:clip}
+[id^="sector-"],#indice,#otros-sectores{scroll-margin-top:96px}
