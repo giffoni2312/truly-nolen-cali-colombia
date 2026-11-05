@@ -29,6 +29,7 @@ Se volvió a bajar con `node tools/mirror.mjs` y Cali se rearmó encima con su c
 - `node tools/trato.mjs`: 0 formas de tú en las 18 páginas.
 - `node tools/replica.mjs` (navegador, 390/768/961/1024/1100/1280/1440): 18 páginas × 7 anchos iguales a Venezuela en lo medido
   (estilos, sin desborde horizontal, menú en una línea, títulos sin partir, toques ≥44 px).
+- En vivo (`node tools/vivo.mjs`, commit ca38d21): 18 páginas 200, 0 errores de consola, 0 imágenes rotas, 0 enlaces rotos.
 - `node tools/conducta.mjs` (390/768/1024/1440, Cali y Venezuela): la lupa abre la búsqueda y no el chat («zancudos» → 2 resultados);
   encabezado pegado al bajar 1500 px: top −44 en computadora y 0 en celular, igual que Venezuela; botón del chat 112×108 a 16/12
   (celular 88×89 a 10/10), igual; 0 imágenes rotas y 0 enlaces o anclas rotas en las 18 páginas.
@@ -39,7 +40,7 @@ Se volvió a bajar con `node tools/mirror.mjs` y Cali se rearmó encima con su c
   `receta/oficinas/cali/voz-humana/corpus.md`; el veredicto va en `receta/oficinas/cali/voz-humana/veredicto-5nov.md`
   (no en `docs/`: `publicar.mjs` borra y publica esa carpeta).
 - **Fotos de espacios (paso 8):** Carlos elige. Candidatas reales de Unsplash (licencia gratis) en `respaldos/2026-11-05-candidatas-unsplash/`
-  con `candidatas.json` (autor, página, licencia). No se puso ninguna. La foto comercial de la portada sigue siendo la de Cali con el
+  con `candidatas.json` (autor, página, licencia; 24 fotos, solo de Colombia, licencia Unsplash gratis; la primera tanda, con fotos de otros países, quedó en `…-tanda1`). No se puso ninguna. **Ojo: son flojas** — Unsplash devolvió casi las mismas fotos populares para cualquier búsqueda (fachadas, calles, una cocina); casi ninguna es un lugar de trabajo real de Cali como pide el paso 8. Conviene buscarlas a mano en el navegador. La foto comercial de la portada sigue siendo la de Cali con el
   técnico de camisa amarilla (uniforme viejo).
 - **Video del carro con la receta v4 (5b):** necesita Midjourney y los insumos de Pablo (reference-frame.png, beetle-recorte.png, etc.). No está en este PC.
 - **Candados oficiales:** `gate-replica`, `comparar-identico.mjs` (R19, 0 diferencias elemento por elemento), `candado-oficinas.sh`, `gate-fotos`:

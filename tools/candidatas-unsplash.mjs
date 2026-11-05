@@ -8,10 +8,10 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 const OUT = new URL('../respaldos/2026-11-05-candidatas-unsplash/', import.meta.url);
 mkdirSync(OUT, { recursive: true });
 const BUSQUEDAS = {
-  operacion: ['cali-colombia-street', 'cali-colombia'],
-  casa: ['cali-colombia-house', 'colombia-house'],
-  comercio: ['cali-colombia-restaurant', 'colombia-bakery', 'colombia-market'],
-  industria: ['colombia-warehouse', 'colombia-factory'],
+  operacion: ['colombia-kitchen', 'colombia-restaurant-kitchen', 'cali-colombia-market'],
+  casa: ['cali-colombia-house', 'colombia-house-interior', 'colombia-apartment'],
+  comercio: ['cali-colombia-restaurant', 'colombia-bakery', 'colombia-store', 'colombia-market'],
+  industria: ['colombia-factory', 'colombia-industry', 'colombia-port', 'colombia-coffee-factory'],
 };
 const browser = await chromium.launch({ executablePath: process.env.CHROME_BIN || 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
 const ctx = await browser.newContext({ userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36', locale: 'es-CO', viewport: { width: 1400, height: 1000 } });
@@ -45,13 +45,13 @@ for (const [espacio, terms] of Object.entries(BUSQUEDAS)) {
       return ld ? { autor: ld.creator?.name || ld.author?.name, licencia: ld.license, imagen: ld.contentUrl, titulo: (ld.name || ld.description || '') + (ld.contentLocation?.name ? ` · ${ld.contentLocation.name}` : ''), plus } : null;
     });
     await page.close();
-    if (!info || !info.imagen || info.plus || !/unsplash\.com\/(license|es\/licencia)/.test(info.licencia || '')) continue;
+    if (!info || !info.imagen || info.plus || !/Colombia|Cali/i.test(info.titulo) || !/unsplash\.com\/(license|es\/licencia)/.test(info.licencia || '')) continue;
     const id = info.imagen.match(/photo-[^?]+/)?.[0];
     if (!id) continue;
     const url = `https://images.unsplash.com/${id}?w=1600&q=85&fm=jpg`;
     const r = await ctx.request.get(url);
     if (r.status() !== 200) continue;
-    const file = `cali-${espacio}-${slug.split('-').pop()}.jpg`;
+    const file = `cali-${espacio}-${slug.slice(-11)}.jpg`; // Unsplash ids are the last 11 characters
     writeFileSync(new URL(file, OUT), await r.body());
     out.push({ espacio, archivo: file, autor: info.autor, pagina: `https://unsplash.com/es/fotos/${slug}`, licencia: info.licencia, descripcion: info.titulo });
     n++;
