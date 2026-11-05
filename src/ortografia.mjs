@@ -31,6 +31,9 @@ export const ORTOGRAFIA = [
   ['marcos, closets o muebles', 'marcos, clósets o muebles'],
   // one wording across the site («empezar por» + action)
   ['Todo empieza con contarnos qué vio.', 'Todo empieza por contarnos qué vio.'],
+  // who guides whom: with «usted», «Escríbale a Truly AI … y le orienta» reads as if the visitor guides Truly AI (juez de voz, 5-nov)
+  ['Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.', 'Escriba aquí mismo o por WhatsApp y Truly AI le orienta en el siguiente paso.'],
+  ['Escríbale a Truly AI aquí mismo o por WhatsApp: le orienta en el siguiente paso.', 'Escriba aquí mismo o por WhatsApp y Truly AI le orienta en el siguiente paso.'],
 ];
 
 export function corregir(html, usados) {

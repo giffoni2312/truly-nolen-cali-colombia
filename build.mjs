@@ -98,6 +98,35 @@ function shell(html) {
 }
 const CHAT_CONTEXTO = 'Truly Nolen Cali public website of the local Truly Nolen office in Cali, Colombia. Verified office contact details, the only ones you may share: address Carrera 25 # 5 Oeste – 167, Barrio Cristales, Cali; phone +57 316 741 9018. Never invent other phones, emails, schedules, coverage areas, prices or guarantees. Help visitors describe their pest situation (homes, businesses or industry): what they see, where, since when, type of space, children or pets. Explain the general Truly Nolen approach (listen, evaluate, propose, follow up) and what information helps. For service requests explain that the Cali office will review the request and confirm whether and how it can be attended. My Truly opens the separate VIP portal; Inside Truly opens the internal portal. No access to customer account data. Do not claim the chat stores no data. Language: Colombian Spanish from Cali, warm and professional, always usted, never tú or voseo.';
 
+// Each page's own URL and structured data (revisión 5-nov): two articles were built on the comején article template and
+// kept its canonical, og:url, BlogPosting, FAQPage and breadcrumb, so Google would read them as copies of it.
+const SITE_URL = `https://trulyinbound.ai/oficinas/${ID}/`;
+const sinEtiquetas = (s) => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+  .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+function fixSeo(html, out, page) {
+  const url = SITE_URL + (out ? `${out}/` : '');
+  html = html.replace(/(<link rel="canonical" href=")[^"]*"/, `$1${url}"`).replace(/(<meta property="og:url" content=")[^"]*"/, `$1${url}"`);
+  const main = html.slice(html.indexOf('<main'), html.indexOf('</main>'));
+  const headline = sinEtiquetas(page.title.split(' | ')[0]);
+  const img = (main.match(/<img[^>]*src="([^"]+)"/) || [])[1];
+  const faq = [...main.matchAll(/<details class="ux-answer"[^>]*><summary><h3>([\s\S]*?)<\/h3><\/summary><article>([\s\S]*?)<\/article><\/details>/g)]
+    .map(([, q, a]) => ({ '@type': 'Question', name: sinEtiquetas(q), acceptedAnswer: { '@type': 'Answer', text: sinEtiquetas(a) } }));
+  return html.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g, (all, json) => {
+    let d; try { d = JSON.parse(json); } catch { return all; }
+    if (d['@type'] === 'BlogPosting') {
+      Object.assign(d, { headline, description: page.desc, url, mainEntityOfPage: url });
+      if (img) d.image = new URL(img, SITE_URL).href;
+    } else if (d['@type'] === 'FAQPage') {
+      if (!faq.length) return '';
+      d.mainEntity = faq;
+    } else if (d['@type'] === 'BreadcrumbList' && out && page.ref && page.ref !== out) {
+      const last = d.itemListElement[d.itemListElement.length - 1];
+      Object.assign(last, { name: headline, item: url });
+    } else return all;
+    return `<script type="application/ld+json">${JSON.stringify(d)}</script>`;
+  });
+}
+
 function setHead(html, title, desc) {
   const t = title.replace(/&/g, '&amp;');
   const d = desc.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -140,6 +169,11 @@ for (const [out, page] of Object.entries({ '': PORTADA, ...PAGES })) {
   full = shell(full); // the reference main may still carry asset paths
   full = setHead(full, page.title, page.desc);
   full = corregir(full, USADOS); // spelling fixes (src/ortografia.mjs)
+  full = fixSeo(full, out, page);
+  // globaltni's copies (R17) carry exact-width rules for 1440/1024/768/390 that overflowed at 1280, 961 and 360
+  // (Venezuela too). Same cap as Bogotá and Uruguay: 0 boxes moved at the measured widths, no side scroll elsewhere.
+  if (out === 'servicios/hogares' || out === 'servicios/comercios')
+    full = full.replace('</body>', readFileSync(new URL('./src/copia-sin-desborde.html', import.meta.url), 'utf8') + '\n</body>');
   const file = join(OUT, 'oficinas', ID, out, 'index.html');
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, full);

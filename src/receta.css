@@ -8,3 +8,6 @@ body.country-site[data-oficina] .g-pl-fig img:is([src*="rata-truly"],[src*="cuca
 body.country-site[data-oficina] .contact-intro .g-oficina{margin-top:12px;font-size:16px}
 body.country-site[data-oficina] .contact-intro .g-oficina a{color:inherit}
 body.country-site[data-oficina] .local-footer .pie-oficina{display:block;margin-top:8px;line-height:1.4;font-size:inherit;color:#4a4a4a}
+/* Revisión 5-nov: service links at the end of each pest guide, as globaltni's arrow links (44 px touch target). */
+body.country-site[data-oficina] .pest-copy .s-servicios{display:flex;flex-wrap:wrap;gap:4px 32px;margin-top:4px}
+body.country-site[data-oficina] .pest-copy .s-servicios .text-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600}

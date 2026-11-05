@@ -118,7 +118,10 @@ export const pestPage = ({ slug, lead, bloques, serv, fuentesList }) => {
     if (b.k === 'dato') return { h2: plain(b.h2), body: datoHtml(b.items) };
     throw new Error('bloque desconocido ' + b.k);
   });
-  secs.push({ h2: plain(serv.h2), body: servLinks(serv.cuales || ['hogares', 'comercios']) });
+  // Revisión 5-nov: not two loose links. A sentence and arrow links, like globaltni's «Continúe explorando» block.
+  const SERV_LARGO = { hogares: 'Servicio para hogares', comercios: 'Servicio para comercios', industria: 'Servicio para industrias' };
+  secs.push({ h2: plain(serv.h2), body: `<p>Conozca cómo trabajamos según el lugar donde vio la plaga.</p><div class="s-servicios">${(serv.cuales || ['hogares', 'comercios'])
+    .map((k) => `<a class="text-link" href="${ROOT}servicios/${k}/">${SERV_LARGO[k]} <span aria-hidden="true">→</span></a>`).join('')}</div>` });
   const families = PLAGAS.map((x) => `<a href="${ROOT}plagas/${x.slug}/"${x.slug === slug ? ' aria-current="page"' : ''}>${x.nombre}</a>`).join('');
   const index = secs.map((s, i) => `<li><a href="#guia-${i + 1}">${strip(s.h2)}</a></li>`).join('');
   const content = secs.map((s, i) => `<section class="pest-copy" id="guia-${i + 1}"><h2 id="guia-${i + 1}-title">${s.h2}</h2>${s.body}</section>`).join('');
