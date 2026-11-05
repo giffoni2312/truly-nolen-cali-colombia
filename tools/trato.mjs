@@ -4,7 +4,7 @@ import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('../site/oficinas/cali/', import.meta.url));
-const TU = /(?<![\p{L}])(tú|tu|tus|te|ti|contigo|puedes|necesitas|quieres|tienes|sabes|vives|vendes|abres|cierras|manipulas|notas|recibes|encuentras|haces|ves|has|escríbele|escríbenos|cuéntanos|cuéntame|cuéntasela|avísanos|pídele|pregúntale|indícanos|revisa|tapa|lava|bota|guarda|sella|sacude|mira|busca|haz|pon|deja|mantén|cierra|limpia|evita|recoge|vacía|cambia|saca|tenlo|ten|usa|úsalo|elige|describe|comparte|indica|conoce|reconoce|entiende|explora|consulta|llama|escribe|agenda|aprende|lee|descubre|encuentra|compartas|vuelvas|querés|podés|contanos|tenés|sabés|para ti)(?![\p{L}])/giu;
+const TU = /(?<![\p{L}])(tú|tu|tus|te|ti|contigo|puedes|necesitas|quieres|tienes|sabes|vives|vendes|abres|cierras|manipulas|notas|observas|recibes|encuentras|haces|ves|has|escríbele|escríbenos|cuéntanos|cuéntame|cuéntasela|avísanos|pídele|pregúntale|indícanos|revisa|tapa|lava|bota|guarda|sella|sacude|mira|busca|haz|pon|deja|mantén|cierra|limpia|evita|recoge|vacía|cambia|saca|tenlo|ten|usa|úsalo|elige|describe|comparte|indica|conoce|reconoce|entiende|explora|consulta|llama|escribe|agenda|aprende|lee|descubre|encuentra|compartas|vuelvas|querés|podés|contanos|tenés|sabés|para ti)(?![\p{L}])/giu;
 // Third-person uses of the same words ("se guarda", "la autoridad revisa", "sin tapa", "Si encuentra" de usted).
 const TERCERA = /([Ss]e (guarda|usa|encuentra)|(?:^|\s)[Ss]e (?:guarda|usa|encuentra)|autoridad revisa|equipo revisa|(sin|con) tapa|su consulta|Si encuentra|Lo que deja|control cambia|los describe)/i;
 const out = [];

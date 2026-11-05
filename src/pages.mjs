@@ -110,7 +110,7 @@ const VE_IMG = {
 export const PORTADA = {
   ref: '',
   title: 'Truly Nolen Cali | Control de plagas',
-  desc: 'Control de plagas en Cali para hogares, comercios e industrias. Escríbale a Truly AI y le orientamos en el siguiente paso.',
+  desc: 'Control de plagas en Cali para hogares, comercios e industrias. Escríbale a Truly AI: le orienta en el siguiente paso.',
   // 5-nov-2026: the Venezuela reference is already the globaltni.com/es replica (recipe R1-R19, in "usted").
   // Only Cali content changes here; the corporate texts (sectors, zones, TEPS, network, history) stay as globaltni's (R2).
   replace: [
@@ -128,7 +128,7 @@ export const PORTADA = {
     ['El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tiene y dónde está la colonia. Le contamos qué señales deja y cómo evitar que vuelva.', BLOG.zancudos.resumen],
     ['Indique su estado, municipio y el tipo de espacio.', 'Indique su comuna o corregimiento, su barrio y el tipo de espacio.'],
     // Cali has an office (annex F): its address and phone in the closing band
-    ['Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p>', 'Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p>'],
+    ['Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p>', 'Escríbale a Truly AI aquí mismo o por WhatsApp: le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p>'],
   ],
 };
 
@@ -165,7 +165,7 @@ const hogares = {
       rows: [
         ['Tu espacio', 'Indica si es una casa, un apartamento o una finca y qué ambientes requieren atención.'],
         ['Tu rutina', 'Cuéntanos qué horarios te quedan cómodos para una visita.'],
-        ['Lo que observas', 'Describe las señales y desde cuándo las notas. Puedes mencionar si hay niños o mascotas.'],
+        ['Lo que observa', 'Describe las señales y desde cuándo las notas. Puedes mencionar si hay niños o mascotas.'],
       ],
     }),
     ],
@@ -227,7 +227,7 @@ const comercios = {
       rows: [
         ['Tu actividad', 'Indica qué tipo de negocio tienes y si manipulas alimentos.'],
         ['Tus horarios', 'Cuéntanos a qué hora abres y cierras, y cuándo se puede trabajar sin clientes.'],
-        ['Lo que observas', 'Describa las señales, dónde las ve y desde cuándo.'],
+        ['Lo que observa', 'Describa las señales, dónde las ve y desde cuándo.'],
       ],
     }),
     ],
@@ -246,7 +246,7 @@ const industria = {
   desc: 'Control de plagas para plantas de alimentos, bodegas y centros logísticos en Cali y municipios vecinos. Escríbale a Truly AI.',
   main: servicePage({
     nombre: 'Servicio industrial',
-    lead: { h2: 'Un programa que parte de conocer su operación.', text: 'Plantas de alimentos, bodegas y centros logísticos en Cali y sus municipios vecinos. Primero entendemos cómo funciona su operación y después definimos el programa.', para: 'Plantas de alimentos y bebidas, laboratorios, bodegas, centros de distribución y operadores logísticos.', incluye: 'Inspección de las áreas de producción, almacenamiento y perímetro, control según los riesgos de la operación y registros de cada visita.', sigue: 'Informe de hallazgos, recomendaciones y visitas de seguimiento según el programa acordado.', nota: 'Antes de empezar recibe una propuesta con el alcance y las condiciones para su operación.', img: 'cali-industria.webp', alt: 'Bodega industrial en Cali' },
+    lead: { h2: 'Un programa que parte de conocer su operación.', text: 'Plantas de alimentos, bodegas y centros logísticos en Cali y sus municipios vecinos. Primero entendemos cómo funciona su operación y después definimos el programa.', para: 'Plantas de alimentos y bebidas, laboratorios, bodegas, centros de distribución y operadores logísticos.', incluye: 'Inspección de las áreas de producción, almacenamiento y perímetro, control según los riesgos de la operación y registros de cada visita.', sigue: 'Informe de hallazgos, recomendaciones y visitas de seguimiento según el programa acordado.', nota: 'Antes de empezar, usted recibe una propuesta con el alcance y las condiciones para su operación.', img: 'cali-industria.webp', alt: 'Bodega industrial en Cali' },
     bloques: [
     tabla({
       ey: 'Lo que pide la norma',
@@ -281,7 +281,7 @@ const industria = {
       rows: [
         ['Su operación', 'Indique qué produce o almacena y en qué municipio está la planta.'],
         ['Sus auditorías', 'Cuéntenos si necesita registros para la autoridad sanitaria o para sus clientes.'],
-        ['Lo que observas', 'Describa las señales, dónde las ve y desde cuándo.'],
+        ['Lo que observa', 'Describa las señales, dónde las ve y desde cuándo.'],
       ],
     }),
     ],
@@ -370,7 +370,7 @@ const ratas = plaga('ratas-y-ratones', {
       h2: 'Quíteles comida<br/>y refugio.',
       rows: [
         ['Basuras', 'La Ley 9 de 1979 pide guardar las basuras en recipientes que impidan la proliferación de insectos y roedores (artículo 28).', ['Canecas tapadas.', 'Saque la basura en el horario de recolección.']],
-        ['Restos de comida', 'No dejar comida al alcance, ni dentro ni fuera de la casa.', ['Alacenas cerradas.', 'Comida de mascotas guardada.']],
+        ['Restos de comida', 'No deje comida al alcance, ni dentro ni fuera de la casa.', ['Alacenas cerradas.', 'Comida de mascotas guardada.']],
         ['Señales', 'Lo que conviene revisar y fotografiar.', ['Excrementos y roeduras.', 'Madrigueras en zonas verdes.']],
       ],
     }),
@@ -562,7 +562,7 @@ const blogIndex = {
   main: [
     `<section class="wrap journal-wrap"><nav aria-label="Ruta"><a href="${ROOT}">Inicio</a><span aria-hidden="true">/</span>Blog de control de plagas</nav><header class="journal-heading"><h1>Blog de control de plagas</h1><p class="s-prose">Guías sobre las plagas de Cali, con cada dato respaldado por su fuente.</p></header></section>`,
     `<section class="wrap journal-wrap"><div class="journal-stories">${[BLOG.zancudos, BLOG.comejen, BLOG.ratas, BLOG.cucarachas].map((b, i) => `<article class="journal-story"><div class="story-edition"><span>${String(i + 1).padStart(2, '0')}</span>${FECHA}<span class="story-topic">${b.tema}</span></div><div class="story-copy"><h2><a href="${ROOT}blog/${b.slug}/">${b.titulo}</a></h2><p>${b.resumen}</p><a class="text-link" href="${ROOT}blog/${b.slug}/">Leer el artículo <span aria-hidden="true">→</span></a></div><a class="story-image-link" href="${ROOT}blog/${b.slug}/" tabindex="-1" aria-hidden="true"><figure class="story-image"><img src="${A(b.img)}" alt="" loading="lazy"/></figure></a></article>`).join('')}</div></section>`,
-    `<section id="contacto" class="contact-band gt-contact" aria-labelledby="contact-title"><span id="consulta"></span><span id="cobertura"></span><div class="wrap contact-layout"><div class="contact-intro"><h2 id="contact-title">Cuéntenos qué necesita proteger.</h2><p>Todo empieza con contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p></div><div class="contact-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="https://wa.me/15202145675" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`,
+    `<section id="contacto" class="contact-band gt-contact" aria-labelledby="contact-title"><span id="consulta"></span><span id="cobertura"></span><div class="wrap contact-layout"><div class="contact-intro"><h2 id="contact-title">Cuéntenos qué necesita proteger.</h2><p>Todo empieza por contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp: le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p></div><div class="contact-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="https://wa.me/15202145675" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`,
   ].join(''),
 };
 
@@ -589,7 +589,7 @@ const postZancudos = articulo(BLOG.zancudos, {
 <p>En diciembre de 2025 la Alcaldía agregó otras medidas: poner arena en los platos de las materas, usar toldillo, poner mallas en puertas y ventanas, y aplicarse repelente.</p>
 <h2>Cuándo pedir ayuda</h2>
 <p>Si aun con la rutina sigue viendo muchos zancudos, puede haber un criadero que no ha encontrado: una canal del techo tapada, un tanque sin tapa o agua acumulada en un rincón del patio. Ahí sirve una revisión con ojos de experto.</p>
-<p>Escríbale a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Cuéntele qué ve y dónde, y le orienta en el siguiente paso. En la <a href="${ROOT}plagas/zancudos/">guía de zancudos</a> están las cifras de la Alcaldía.</p>`,
+<p>Escríbale a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Cuéntele qué ve y dónde. En la <a href="${ROOT}plagas/zancudos/">guía de zancudos</a> están las cifras de la Alcaldía.</p>`,
   preguntas: [
     ['¿Cada cuánto debo lavar los tanques?', 'La Alcaldía de Cali recomienda lavar y cepillar tanques, cubetas y floreros al menos dos veces a la semana.'],
     ['¿Basta con tapar el tanque?', 'Ayuda, pero no basta. También hay que voltear lo que no se usa, botar inservibles y revisar materas y canales. Según la Alcaldía, los huevos sobreviven meses en superficies secas, por eso hay que lavar y cepillar.'],
@@ -616,9 +616,9 @@ const postComejen = articulo(BLOG.comejen, {
 <h2>La madera que toca el suelo es la puerta del comején subterráneo</h2>
 <p>Para que no vuelva, UC IPM recomienda mantener la madera lejos de la tierra y seca: usar bases de concreto para lo que toque el suelo, retirar madera vieja y restos enterrados cerca de la casa, y reparar grietas y filtraciones.</p>
 <h2>Truly AI le ayuda a dar el primer paso hoy mismo</h2>
-<p>Fotografíe las señales y anote dónde están: puertas, marcos, closets o muebles. Con eso ya puede escribirle a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Le orienta en el siguiente paso. Si quiere repasar las señales, entre a la <a href="${ROOT}plagas/comejen/">guía de comején</a>.</p>`,
+<p>Fotografíe las señales y anote dónde están: puertas, marcos, closets o muebles. Con eso ya puede escribirle a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Si quiere repasar las señales, entre a la <a href="${ROOT}plagas/comejen/">guía de comején</a>.</p>`,
   preguntas: [
-    ['¿Cómo eliminar el comején con remedios caseros?', 'La guía de termitas de la Universidad de California (UC IPM, 2025) dice que los pesticidas caseros contra las termitas «generalmente no son efectivos». Antes de gastar en ellos, escríbale a Truly AI y le orienta en el siguiente paso.'],
+    ['¿Cómo eliminar el comején con remedios caseros?', 'La guía de termitas de la Universidad de California (UC IPM, 2025) dice que los pesticidas caseros contra las termitas «generalmente no son efectivos». Antes de gastar en ellos, mándele una foto a Truly AI.'],
     ['¿Qué son los tubitos de barro en la pared?', 'Son los túneles del comején subterráneo. Un estudio de 2011 sobre Cali los describe como la señal de su daño en paredes y techos.'],
     ['¿Ver comején con alas significa que mi casa está infestada?', 'No siempre, según UC IPM. Si los ve, fotografíelos, anote por dónde salieron y escríbale a Truly AI.'],
   ],
@@ -696,6 +696,6 @@ export const PAGES = {
   [`blog/${BLOG.ratas.slug}`]: postRatas,
   [`blog/${BLOG.cucarachas.slug}`]: postCucarachas,
   privacidad: legal('privacidad', 'Privacidad', 'Lo que escriba en el chat de este sitio o por WhatsApp lo recibe y responde Truly AI, el asistente de Truly Nolen International. Úselo para su consulta sobre control de plagas y no comparta datos sensibles, como claves, datos bancarios o información médica.'),
-  terminos: legal('terminos', 'Términos de uso', 'La información de este sitio es general. Los servicios, la cobertura, los precios y las condiciones se confirman directamente con Truly Nolen antes de cualquier visita o servicio, y no constituyen una oferta.'),
+  terminos: legal('terminos', 'Términos de uso', 'La información de este sitio es general y no constituye una oferta. Los servicios, la cobertura, los precios y las condiciones se confirman directamente con Truly Nolen antes de cualquier visita o servicio.'),
   accesibilidad: legal('accesibilidad', 'Accesibilidad', 'Puede recorrer este sitio con el teclado, ampliar el texto y usar la preferencia de movimiento reducido de su dispositivo. Si su dispositivo pide reducir el movimiento, se muestra una imagen fija. Si encuentra una dificultad de acceso, cuénteselo a Truly AI en el chat.'),
 };

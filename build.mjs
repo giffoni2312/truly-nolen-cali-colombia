@@ -89,8 +89,12 @@ function shell(html) {
     .replaceAll('"@type": "Country", "name": "Venezuela"', '"@type": "City", "name": "Santiago de Cali"')
     .replaceAll('Venezuela', NAME)
     // Cali has an office (recipe, annex F): its address and phone go in the footer too.
-    .replace('<p data-preview-office>Cali</p><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>', OFICINA_PIE_OLD);
+    .replace('<p data-preview-office>Cali</p><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>', OFICINA_PIE_OLD)
+    // The chat context comes from Venezuela, which has no office. Cali has one (verified in investigacion-cali.md):
+    // Truly AI must not deny it, and it may share only these published details.
+    .replace(/<script id="tia-contexto" type="text\/plain">[\s\S]*?<\/script>/, () => `<script id="tia-contexto" type="text/plain">${CHAT_CONTEXTO}</script>`);
 }
+const CHAT_CONTEXTO = 'Truly Nolen Cali public website of the local Truly Nolen office in Cali, Colombia. Verified office contact details, the only ones you may share: address Carrera 25 # 5 Oeste – 167, Barrio Cristales, Cali; phone +57 316 741 9018. Never invent other phones, emails, schedules, coverage areas, prices or guarantees. Help visitors describe their pest situation (homes, businesses or industry): what they see, where, since when, type of space, children or pets. Explain the general Truly Nolen approach (listen, evaluate, propose, follow up) and what information helps. For service requests explain that the Cali office will review the request and confirm whether and how it can be attended. My Truly opens the separate VIP portal; Inside Truly opens the internal portal. No access to customer account data. Do not claim the chat stores no data. Language: Colombian Spanish from Cali, warm and professional, always usted, never tú or voseo.';
 
 function setHead(html, title, desc) {
   const t = title.replace(/&/g, '&amp;');

@@ -52,7 +52,7 @@ export const FAQ_GENERAL = [
 ];
 
 const answers = (items) =>
-  items.map(([q, a]) => `<details class="ux-answer"><summary><h3>${q}</h3></summary><article><p>${a}</p></article></details>`).join('');
+  items.map(([q, a], i) => `<details class="ux-answer"${i ? "" : " open"}><summary><h3>${q}</h3></summary><article><p>${a}</p></article></details>`).join('');
 
 // items: [texto, url]
 export const fuentes = (items) =>
@@ -62,11 +62,11 @@ export const fuentes = (items) =>
 
 // Closing of internal pages (services, pests, articles, legal).
 export const closing = () =>
-  `<section id="contacto" class="s-closing"><div class="wrap"><h2>Cuéntenos qué necesita proteger.</h2><p>Todo empieza con contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p><div class="s-closing-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a><a class="text-link" href="${ROOT}#consulta">Consultar cobertura →</a></div></div></section>`;
+  `<section id="contacto" class="s-closing"><div class="wrap"><h2>Cuéntenos qué necesita proteger.</h2><p>Todo empieza por contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp: le orienta en el siguiente paso.</p><div class="s-closing-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a><a class="text-link" href="${ROOT}#consulta">Consultar cobertura →</a></div></div></section>`;
 
 // Closing of the blog index (same as the reference: channels, no form).
 export const cierreBlog = () =>
-  `<section id="contacto" class="section local-consult g-cierre"><div><span id="consulta"></span><span id="cobertura"></span><p class="eyebrow">Truly Nolen · ${NAME}</p><h2>Cuéntenos qué necesita proteger.</h2><p>Todo empieza con contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p><div class="contact-channels" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;align-self:end"><a class="button" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`;
+  `<section id="contacto" class="section local-consult g-cierre"><div><span id="consulta"></span><span id="cobertura"></span><p class="eyebrow">Truly Nolen · ${NAME}</p><h2>Cuéntenos qué necesita proteger.</h2><p>Todo empieza por contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp: le orienta en el siguiente paso.</p><div class="contact-channels" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;align-self:end"><a class="button" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`;
 
 const intro = (crumbs, h1, extra = '') =>
   `<section class="wrap s-intro"><nav aria-label="Ruta"><a href="${ROOT}">Inicio</a>${crumbs

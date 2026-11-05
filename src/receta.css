@@ -7,4 +7,4 @@ body.country-site[data-oficina] .g-pl-fig img:is([src*="rata-truly"],[src*="cuca
 /* Cali has an office: its address and phone in the closing band and in the footer "Hablemos" column. */
 body.country-site[data-oficina] .contact-intro .g-oficina{margin-top:12px;font-size:16px}
 body.country-site[data-oficina] .contact-intro .g-oficina a{color:inherit}
-body.country-site[data-oficina] .local-footer .pie-oficina{display:block;margin-top:8px;line-height:1.4}
+body.country-site[data-oficina] .local-footer .pie-oficina{display:block;margin-top:8px;line-height:1.4;font-size:inherit;color:#4a4a4a}
