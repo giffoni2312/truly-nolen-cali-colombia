@@ -319,7 +319,7 @@ const zancudos = plaga('zancudos', {
       h2: 'Lo que reportó<br/>la Alcaldía.',
       items: [
         ['34.463', 'casos de dengue en Cali en 2024, hasta el 16 de octubre.', 'Alcaldía de Cali (2024)'],
-        ['11 jun', 'de 2024: Cali declaró emergencia sanitaria por el avance del dengue.', 'El País Cali (2024)'],
+        ['11 de junio', 'de 2024: Cali declaró emergencia sanitaria por el avance del dengue.', 'El País Cali (2024)'],
         ['3.088', 'casos de dengue en 2025, hasta la semana epidemiológica 46.', 'Alcaldía de Cali (2025)'],
       ],
     }),

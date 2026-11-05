@@ -7,6 +7,8 @@ import { fileURLToPath } from 'node:url';
 import { PAGES, PORTADA } from './src/pages.mjs';
 import { ID, NAME } from './src/helpers.mjs';
 import { corporativas } from './src/corporativas.mjs';
+import { ORTOGRAFIA, corregir } from './src/ortografia.mjs';
+const USADOS = new Set();
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REF = join(HERE, 'referencia', 'site');
@@ -137,6 +139,7 @@ for (const [out, page] of Object.entries({ '': PORTADA, ...PAGES })) {
   if (!full.includes('rel="icon"')) full = full.replace('</head>', '<link rel="icon" href="/tn-emblema.png" type="image/png"/></head>');
   full = shell(full); // the reference main may still carry asset paths
   full = setHead(full, page.title, page.desc);
+  full = corregir(full, USADOS); // spelling fixes (src/ortografia.mjs)
   const file = join(OUT, 'oficinas', ID, out, 'index.html');
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, full);
@@ -145,4 +148,6 @@ for (const [out, page] of Object.entries({ '': PORTADA, ...PAGES })) {
 
 // 5. Entry page at the site root that sends to the office.
 writeFileSync(join(OUT, 'index.html'), `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/oficinas/${ID}/"><title>Truly Nolen ${NAME}</title><a href="/oficinas/${ID}/">Truly Nolen ${NAME}</a>`);
+const sinUso = ORTOGRAFIA.filter(([a]) => !USADOS.has(a)).map(([a]) => a);
+if (sinUso.length) console.log("AVISO: correcciones que ya no encuentran su texto: " + sinUso.join(" | "));
 console.log(`Listo: ${count} páginas en site/oficinas/${ID}/`);
