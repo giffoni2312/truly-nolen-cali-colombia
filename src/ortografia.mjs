@@ -37,6 +37,8 @@ export const DECISIONES_5NOV = [
   // system name, no English
   ['Truly Elite Protection System (TEPS) se desarrolló', 'El sistema TEPS se desarrolló'],
   ['Truly Elite Protection System (TEPS) fue desarrollado', 'El sistema TEPS fue desarrollado'],
+  // «corporación» for «empresa» is a calque (coordinador, 5-nov)
+  ['fue desarrollado para corporaciones que requieren', 'fue desarrollado para empresas que requieren'],
   ['Truly Elite Protection System (TEPS) ofrece prevención', 'El sistema TEPS ofrece prevención'],
   ['>Truly Elite Protection System</span>', '>Sistema TEPS</span>'],
   ['Nuestro sistema de protección Truly Elite (TEPS)', 'Nuestro sistema TEPS'],
@@ -70,6 +72,14 @@ export const DECISIONES_5NOV = [
   ['las medidas que aplican al servicio', 'las medidas que se aplican al servicio'],
   // the upper band says «65 países»; the lower band said «65+»: one figure on the page
   ['<strong>65+</strong><span>países</span>', '<strong>65</strong><span>países</span>'],
+  // Comercios: no sentence twice on the page (receta 6c, ajuste del coordinador 5-nov); runs after the generic pairs above
+  ['<p data-source-paragraph="1-2">Nuestro sistema TEPS está diseñado para clientes que requieren sistemas de prevención de plagas de última generación.</p>', '<p data-source-paragraph="1-2">Por eso, el sistema TEPS es la opción para plantas que necesitan prevención de plagas de última generación.</p>'],
+  ['<p data-source-paragraph="2-3">Nuestro sistema TEPS está diseñado para clientes que requieren un sistema de prevención de plagas de última generación.</p>', '<p data-source-paragraph="2-3">El sistema TEPS está pensado para empresas de alimentos que necesitan la prevención más exigente.</p>'],
+  ['<p data-source-paragraph="3-3">Nuestro sistema TEPS está diseñado para clientes que requieren un sistema de prevención de plagas de última generación.</p>', '<p data-source-paragraph="3-3">Con el sistema TEPS, su operación logística cuenta con prevención de plagas de última generación.</p>'],
+  ['<h3 id="healthcare-facilities">¿Quién se beneficia de este programa?</h3>', '<h3 id="healthcare-facilities">¿Quién se beneficia en el sector salud?</h3>'],
+  ['<h3 id="industrial-facilities">¿Quién se beneficia de este programa?</h3>', '<h3 id="industrial-facilities">¿Quién se beneficia en la industria?</h3>'],
+  ['<h3 id="food-processing-facilities">¿Quién se beneficia de este programa?</h3>', '<h3 id="food-processing-facilities">¿Quién se beneficia en el comercio de alimentos?</h3>'],
+  ['<h3 id="logistics-facilities">¿Quién se beneficia de este programa?</h3>', '<h3 id="logistics-facilities">¿Quién se beneficia en la logística?</h3>'],
 ];
 ORTOGRAFIA.push(...DECISIONES_5NOV);
 
