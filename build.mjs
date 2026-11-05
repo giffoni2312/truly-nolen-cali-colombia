@@ -45,9 +45,23 @@ if (!CORP.sello || !CORP.carro) console.log('AVISO: faltan archivos de marca en 
 // 3. Shell replacements: everything outside <main> that names Venezuela.
 const FOOTER_ALT = 'Torre de Cali y los cerros de Cali, Colombia. Ilustración';
 const FOOTER_CAP = 'Cali · Torre de Cali';
-export const OFICINA_PIE = '<p data-preview-office>Cali</p><p>Carrera 25 # 5 Oeste – 167, Barrio Cristales</p><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>';
+export const OFICINA_PIE_OLD = '<p data-preview-office>Cali</p><p>Carrera 25 # 5 Oeste – 167, Barrio Cristales</p><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>';
 const RECETA_CSS = readFileSync(new URL('./src/receta.css', import.meta.url), 'utf8');
+// Cali has an office (recipe, annex F): address and phone in the footer "Hablemos" column, next to Truly AI.
+const OFICINA_HABLEMOS = '<a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><span class="pie-oficina">Carrera 25 # 5 Oeste – 167, Barrio Cristales, Cali</span></nav>';
+// Search index (recipe R4: the magnifier opens the site search, like globaltni.com). Built from Cali's own pages.
+function indiceBusqueda() {
+  const cat = (k) => k.startsWith('servicios/') ? 'Servicios' : k.startsWith('plagas/') ? 'Guía de plagas' : k.startsWith('blog/') ? 'Blog' : null;
+  const items = Object.entries(PAGES).filter(([k]) => cat(k)).map(([k, p]) => {
+    const t = { 'servicios/hogares': 'Hogares', 'servicios/comercios': 'Comercios', 'servicios/industria': 'Industria' }[k] || p.title.split(' | ')[0].replace(/^Guía de /, '').replace(/ en Cali$/, '');
+    return [t, k.startsWith('blog/') ? p.desc : '', `/oficinas/${ID}/${k}/`, cat(k)];
+  });
+  for (const [t, a] of [['Cobertura', 'cobertura'], ['Nosotros', 'nosotros'], ['Preguntas frecuentes', 'preguntas'], ['Contacto', 'contacto']]) items.push([t, '', `/oficinas/${ID}/#${a}`, 'Inicio']);
+  return JSON.stringify({ items, textos: { uno: '1 resultado', varios: '{n} resultados', cero: 'Sin resultados. Pruebe con otra palabra.' } });
+}
 function shell(html) {
+  html = html.replace(/<script type="application\/json" id="gt-buscar-indice">[\s\S]*?<\/script>/, () => `<script type="application/json" id="gt-buscar-indice">${indiceBusqueda()}</script>`);
+  html = html.replace('<a href="/oficinas/venezuela/#contacto" data-abrir-chat>Escribir a Truly AI</a></nav>', OFICINA_HABLEMOS);
   // Recipe "vuelta 9": the real car replaces the drawn one (figures band, chat, Truly AI box) when the file exists.
   if (CORP.carro) html = html.replaceAll('/oficinas/assets/truly-carrito-asistente.svg', '/oficinas/assets/carro-truly.png');
   html = html.replace('Conoce el servicio para comercios →', 'Conoce el servicio para comercios&nbsp;→');
@@ -75,7 +89,7 @@ function shell(html) {
     .replaceAll('"@type": "Country", "name": "Venezuela"', '"@type": "City", "name": "Santiago de Cali"')
     .replaceAll('Venezuela', NAME)
     // Cali has an office (recipe, annex F): its address and phone go in the footer too.
-    .replace('<p data-preview-office>Cali</p><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>', OFICINA_PIE);
+    .replace('<p data-preview-office>Cali</p><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>', OFICINA_PIE_OLD);
 }
 
 function setHead(html, title, desc) {
@@ -103,8 +117,8 @@ for (const [out, page] of Object.entries({ '': PORTADA, ...PAGES })) {
       main = main.replaceAll(a, b);
     }
   }
-  if (out === '') {
-    // Recipe "vuelta 8/9": master index of 4 cards and the corporate sections after the commercial one.
+  if (false) {
+    // (5-nov-2026) The Venezuela reference already carries the master index and corporate sections in its <main>.
     const prog = main.match(/<section id="servicios" class="section g g-programa">[\s\S]*?<\/section>/);
     if (!prog) throw new Error('[portada] no encontré la sección del programa');
     main = main.replace(prog[0], CORP.programa);
@@ -114,7 +128,6 @@ for (const [out, page] of Object.entries({ '': PORTADA, ...PAGES })) {
     main = main.slice(0, fin) + CORP.despuesDeComercial + main.slice(fin);
   }
   let full = shell(html.slice(0, i)) + main + shell(html.slice(j));
-  if (out === '') full = full.replace('</head>', CORP.css + '</head>');
   full = full.replace('</head>', '<style>' + RECETA_CSS + '</style></head>');
   full = shell(full); // the reference main may still carry asset paths
   full = setHead(full, page.title, page.desc);

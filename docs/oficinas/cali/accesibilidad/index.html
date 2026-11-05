@@ -11,12 +11,6 @@
 .g-cifras small{display:block;margin-top:6px;font-size:16px;color:var(--muted)}
 .g-cifra-carro{display:flex;align-items:center;gap:18px}.g-cifra-carro img{width:86px;height:auto}.g-cifra-carro span{font-size:18px}
 .g-programa{background:var(--surface)}
-.g-prog-fila{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.g-prog{position:relative;display:block;padding:30px 30px 56px;border-left:1px solid var(--line);color:var(--ink);text-decoration:none;transition:background .2s}
-.g-prog:first-child{border-left:0}.g-prog-1{box-shadow:inset 0 3px 0 var(--yellow)}.g-prog:hover{background:#faf9f5}
-.g-prog-ico{position:absolute;top:30px;right:28px;width:30px;height:30px}.g-prog-ico svg{width:100%;height:100%;fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.g-prog h3{font-size:28px;font-weight:600;margin:0 0 12px;letter-spacing:-.01em}.g-prog p{margin:0;color:var(--muted);font-size:17px;line-height:1.5;max-width:30ch}
-.g-flecha{position:absolute;right:28px;bottom:22px;font-size:16px}
 .g-zonas{background:var(--surface)}
 .g-zonas-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
 .g-zonas-fig{margin:0}.g-zonas-fig img{display:block;width:100%;height:auto}
@@ -59,7 +53,7 @@
 .g-faq details p{margin:12px 0 0;color:var(--muted);line-height:1.6}
 @media(max-width:1100px){.g-plagas-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}}
 @media(max-width:900px){.g-cifras-in{grid-template-columns:1fr 1fr;row-gap:20px}.g-cifras-in>div{border-left:0;padding-left:0}
-.g-prog-fila,.g-cols-4{grid-template-columns:1fr}.g-prog,.g-cols>article{border-left:0;border-top:1px solid var(--line);padding-left:0}.g-prog:first-child,.g-cols>article:first-child{border-top:0}
+.g-cols-4{grid-template-columns:1fr}.g-cols>article{border-left:0;border-top:1px solid var(--line);padding-left:0}.g-cols>article:first-child{border-top:0}
 .g-zonas-grid,.g-com-grid,.g-ayuda-grid{grid-template-columns:1fr;gap:32px}.g-com-foto{min-height:340px}.g-plagas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.g-plagas-grid{grid-template-columns:1fr}.g-cifras b{font-size:32px}.g-cifra-carro{grid-column:1/-1}.g-cifra-carro img{width:64px}}
 .g-cierre .g-cierre-zona{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18)}.g-cierre .g-cierre-zona a{display:inline-block;margin-left:6px}.g-cierre .contact-channels{margin-top:26px}
@@ -142,13 +136,46 @@ body.country-site[data-oficina] .local-footer{padding-inline:max(64px,calc((100%
 .g-cifra-carro img{width:100px}.g-cifra-carro span{font-size:17px;font-weight:500;line-height:1.4}.g-cifra-carro span small{font-size:14px;font-weight:400}
 @media(max-width:900px){.g-cifras-in{grid-template-columns:1fr 1fr;row-gap:24px;padding-top:30px;padding-bottom:30px}.g-cifras-in>div{padding:0}.g-cifras-in>div:nth-child(even){border-left:1px solid var(--line);padding-left:20px}
 .g-cifras b{font-size:30px}.g-cifras span{font-size:15px}.g-cifras small{margin-top:6px}.g-cifra-carro{display:block;grid-column:auto}.g-cifra-carro img{width:62px;margin-bottom:10px}.g-cifra-carro span{font-size:14px}}
-/* Programa */
+/* Programa: índice «Un programa para su espacio», medido en globaltni.com/es el 3-nov-2026 (1440, 1200, 1024, 768 y 390 px).
+   Rejilla de 4 columnas desde 1200 px, 2 × 2 de 600 a 1199 y 1 columna debajo de 600; línea amarilla de 2 px sobre TEPS. */
+.g-programa .service-index{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid #dedede;border-bottom:1px solid #dedede}
+.g-programa .service-index>a{position:relative;display:flex;flex-direction:column;min-width:0;min-height:180px;margin-right:25px;padding:25px 74px 24px 0;border-right:1px solid #dedede;color:var(--ink);text-decoration:none}
+.g-programa .service-index>a:last-child{border-right:0}
+.g-programa .service-index>a[href="#teps"]{border-top:2px solid #ffd800}
+.g-programa .service-index strong{order:-1;margin:0 0 12px;font-family:inherit;font-size:25px;font-weight:600;line-height:1.15;letter-spacing:-.02em;color:var(--ink)}
+.g-programa .service-index>a>span:first-child{max-width:210px;font-size:16px;line-height:1.6;color:#646b65}
+.g-programa .service-index small{display:block;max-width:25ch;margin-top:10px;padding-right:20px;font-size:13px;line-height:1.6;color:#646b65}
+.g-programa .service-index>a>span[aria-hidden]{position:absolute;right:20px;bottom:29px;font-size:20px;line-height:1.6;color:var(--ink);transition:transform .3s ease}
+.g-programa .service-index>a:is(:hover,:focus-visible){box-shadow:inset 0 -3px #ffd900}
+.g-programa .service-index>a:is(:hover,:focus-visible)>span[aria-hidden]{transform:translateY(3px)}
+.g-programa .service-index>a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.g-programa .service-index>a:hover strong{color:#e82227}
+.g-programa .service-icon{position:absolute;top:20px;right:18px;display:grid;place-items:center;width:44px;height:44px;color:#515c52}
+.g-programa .service-icon svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.g-programa .service-icon img{width:44px;height:44px;border-radius:50%;object-fit:contain;background:#fff}
+@media(max-width:959px){.g-programa .service-index>a{margin-right:15px}}
+@media(max-width:1199px){
+ .g-programa .service-index{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .g-programa .service-index>a:nth-child(even){border-right:0}
+ .g-programa .service-index>a:nth-child(n+3){border-top:1px solid #e2e3de}
+ .g-programa .service-icon svg{width:28px;height:28px}
+}
+@media(max-width:599px){
+ .g-programa .service-index{grid-template-columns:1fr;border-bottom:0}
+ .g-programa .service-index>a,.g-programa .service-index>a:nth-child(even){align-items:flex-start;gap:8px;margin-right:0;min-height:145px;padding:22px 52px 25px 0;border-right:0;border-bottom:1px solid #dedede}
+ .g-programa .service-index>a:nth-child(n+3){border-top:0}
+ .g-programa .service-index>a:nth-child(odd){border-bottom-color:#d4d4d4}
+ .g-programa .service-index strong{margin:0;font-size:22px;line-height:1.2}
+ .g-programa .service-icon{order:-1}
+ .g-programa .service-index>a>span:first-child{order:1;max-width:260px;padding-right:10px;font-size:14px}
+ .g-programa .service-index small{order:2;max-width:250px;margin:0;padding-right:12px;font-size:12px}
+ .g-programa .service-index>a>span[aria-hidden]{right:8px;bottom:20px;font-size:16px}
+ .g-programa .service-icon,.g-programa .service-icon img{width:30px;height:30px}
+ .g-programa .service-icon{top:22px;right:4px}
+ .g-programa .service-icon svg{width:20px;height:20px}
+}
 .g-programa .g-ey{display:none}
 body.country-site[data-oficina] .g-programa .g-cab h2{font-size:clamp(29px,2.64vw,38px);font-weight:650;letter-spacing:-.025em}
-.g-prog{padding:25px 24px 24px;min-height:197px}.g-prog-1{box-shadow:inset 0 2px 0 var(--yellow)}
-body.country-site[data-oficina] .g-prog h3{font-size:25px;line-height:1.15;margin:0 0 14px}.g-prog p{font-size:16px;line-height:1.6;color:#646b65}
-.g-prog-ico{top:22px;right:22px;width:34px;height:34px}.g-flecha{right:22px;bottom:14px;font-size:20px}
-@media(max-width:900px){.g-prog,.g-prog:first-child{padding:22px 0 20px;min-height:0}body.country-site[data-oficina] .g-prog h3{font-size:22px;margin-bottom:10px}.g-prog p{font-size:15px;max-width:34ch}.g-prog-ico{top:22px;right:4px;width:30px;height:30px}.g-flecha{right:8px;bottom:12px;font-size:16px}.g-prog{padding-bottom:36px}}
 /* Zonas (casa): foto 1,12fr / texto 1fr; nombre 16/600, descripción 15 */
 .g-zonas-grid{grid-template-columns:1.12fr 1fr;align-items:start}
 .g-zonas-lista li{padding:12px 0 12px 27px}.g-zonas-lista li::before{top:21px;width:8px;height:8px}
@@ -185,7 +212,7 @@ body.country-site[data-oficina] .brand small{text-transform:none;letter-spacing:
 @media(max-width:760px){body.country-site[data-oficina]>.site-nav{min-height:77px}body.country-site[data-oficina] .country-menu-toggle{border:0!important;background:transparent!important;font-weight:400!important;font-size:16px!important}}
 /* Ajustes tras la 2.ª captura */
 @media(min-width:901px){.g-zonas-grid{align-items:center}body.country-site[data-oficina] .g .g-cab h2{max-width:695px}}
-@media(max-width:900px){.g-prog p{max-width:28ch}.g-cifra-carro span{line-height:1.3}}
+@media(max-width:900px){.g-cifra-carro span{line-height:1.3}}
 body.country-site[data-oficina] .g-blog h3,body.country-site[data-oficina] .g-blog h3 a{font-weight:600}
 body.country-site[data-oficina] .g-blog-top .g-ey{font-weight:400}
 /* Páginas internas (servicio y plaga) como globaltni.com/en: h1 67,68/900 (43 en celular), títulos de sección 38/800 (29 en celular), menos aire en la cabecera */
@@ -199,8 +226,8 @@ body.country-site[data-oficina]:not(:has(.cinema)) .g .g-cab h2{font-size:clamp(
    Si cambias un valor y el candado se pone rojo, el candado manda: no se sube. */
 /* Montserrat real de 400 y 800: el molde solo trae 600 y 900, y el cuerpo (400) y los títulos de 650/800 salían con el peso equivocado.
    Mismos archivos y rangos que usa globaltni (400: 1–549, 800: 650–849; 600 y 900 siguen siendo las del molde). */
-@font-face{font-family:Machote;font-weight:1 549;font-display:swap;src:url(/truly-nolen-cali-colombia/oficinas/assets/montserrat-latin-400-normal.woff2) format('woff2')}
-@font-face{font-family:Machote;font-weight:650 849;font-display:swap;src:url(/truly-nolen-cali-colombia/oficinas/assets/montserrat-latin-800-normal.woff2) format('woff2')}
+@font-face{font-family:Machote;font-weight:1 549;font-display:swap;src:url(../../assets/montserrat-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Machote;font-weight:750 849;font-display:swap;src:url(../../assets/montserrat-latin-800-normal.woff2) format('woff2')}
 /* Fondo de página y pie como el master: blanco y gris #f2f2f2 (72/36 de relleno en laptop, 44/28 en celular). */
 body.country-site[data-oficina]{background:#fff}
 body.country-site[data-oficina] .local-footer{background:#f2f2f2;padding-top:72px;padding-bottom:36px}
@@ -248,6 +275,8 @@ body.country-site[data-oficina] .blog-grid>.blog-card>div,body.country-site[data
 /* Pie como el master: la acuarela a todo el ancho de la pantalla (globaltni: 1440 de 1440 y 390 de 390) y sin un tercer «Conversemos»
    (ya está en la banda amarilla y en la columna de contacto). */
 body.country-site[data-oficina] .local-footer .footer-place{margin-inline:calc(50% - 50vw)}
+/* 100vw incluye la barra de desplazamiento: sin esto la página se mueve ~8 px a lo ancho */
+body{overflow-x:clip}
 body.country-site[data-oficina] .local-footer .footer-place img{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important}
 body.country-site[data-oficina] .local-footer .footer-intro .text-link{display:none}
 /* Encabezado en laptop chica (gate-replica «encabezado»): el logo no se encoge y los enlaces de menor uso (Nosotros, Contacto: ya están en el pie y en el botón)
@@ -449,45 +478,719 @@ body.country-site[data-oficina] #inicio .hero-text>p:not(.eyebrow){margin-top:8p
 body.country-site[data-oficina] main>:is(section,article,div):not(.cinema)::after{content:"";display:block;height:64px;grid-column:1/-1;flex-basis:100%}
 }
 @media(max-width:760px){body.country-site[data-oficina] .s-closing-actions{padding-right:92px}}
-</style><link rel="stylesheet" href="/truly-nolen-cali-colombia/landing/chat.css?v=56679acf6988"/><link rel="stylesheet" href="/truly-nolen-cali-colombia/machotes/assets/immersive.css?v=eae9ed883f63"/><script defer src="/truly-nolen-cali-colombia/machotes/assets/immersive.js?v=c9e8d807cdac"></script><script defer src="/truly-nolen-cali-colombia/landing/chat.js?v=70b56b58a619"></script><style>/* Truly Inbound recipe (rounds 8/9) applied to Cali, injected on every page. */
-html{scroll-padding-top:140px}
-@media(max-width:960px){html{scroll-padding-top:96px}}
-/* The catalog reading-progress bar is hidden in offices (it crossed out headings). */
+
+/* ===== Secciones corporativas de la portada (globaltni.com/en): saneamiento, TEPS, red internacional, franquicia e historia ===== */
+body.country-site[data-oficina] :is(.sanitization,.teps,.franchise){padding-block:72px;padding-inline:0}
+body.country-site[data-oficina] :is(.sanitization,.teps,.network,.franchise,.history) span:first-child{display:block;margin:0 0 16px;font-size:13px;font-weight:600;line-height:1.5}
+body.country-site[data-oficina] :is(.sanitization,.teps,.network,.franchise,.history) h2{margin:0 0 22px}
+body.country-site[data-oficina] :is(.sanitization,.teps,.network,.franchise,.history) p{font-size:17px;line-height:1.7;color:#5e5e5e;margin:0 0 18px;max-width:none}
+body.country-site[data-oficina] :is(.sanitization,.teps,.network,.franchise,.history) .button{display:inline-flex;align-items:center;padding:16px 25px;font-size:17px;font-weight:600;line-height:1.3;border-radius:4px;text-decoration:none;margin-top:6px}
+body.country-site[data-oficina] :is(.sanitization,.teps,.network,.franchise,.history) .text-link{display:inline-flex;align-items:center;padding:10px 0;font-size:17px;font-weight:600;color:inherit;text-decoration:none}
+body.country-site[data-oficina] .button-line{background:transparent!important;border:1px solid #bcbcbc;color:#010007}
+body.country-site[data-oficina] .sanitization{display:grid;grid-template-columns:minmax(0,558fr) minmax(0,682fr);gap:72px;align-items:start}
+body.country-site[data-oficina] .sanitization-visual{background:#f6f6f3;padding:34px 36px;border-top:3px solid #ffd800}
+body.country-site[data-oficina] .sanitization h3{margin:0 0 14px;font-size:18px;font-weight:600;line-height:1.4;letter-spacing:-.003em}
+body.country-site[data-oficina] .teps{border-top:1px solid #dedede}
+body.country-site[data-oficina] .teps-intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+body.country-site[data-oficina] .teps-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;margin:38px 0 32px;padding:0;border-top:1px solid #dedede;border-bottom:1px solid #dedede}
+body.country-site[data-oficina] .teps-flow li{padding:24px 24px 24px 0}
+body.country-site[data-oficina] .teps-flow li>span{display:block;margin:0 0 18px;font-size:13px;font-weight:600;color:#5e5e5e}
+body.country-site[data-oficina] .teps-flow h3{margin:0;font-size:22px;font-weight:600;line-height:1.25;letter-spacing:-.02em}
+body.country-site[data-oficina] .teps-flow strong{display:block;margin:18px 0 10px;font-size:14px;font-weight:700;line-height:1.5}
+body.country-site[data-oficina] .teps-flow p{margin:10px 0 0;font-size:15px;line-height:1.65;color:#565656}
+body.country-site[data-oficina] .program-overview summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-size:18px;cursor:pointer;list-style:none;border-bottom:1px solid #dedede}
+body.country-site[data-oficina] .program-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 40px;padding-top:20px}
+body.country-site[data-oficina] .program-items h3{margin:0 0 6px;font-size:16px;font-weight:600;line-height:1.4}
+body.country-site[data-oficina] .program-items p{margin:0 0 18px;font-size:15px;line-height:1.65}
+body.country-site[data-oficina] .network{background:#010007;color:#fff;padding-block:72px}
+body.country-site[data-oficina] .network .network-layout{display:grid;grid-template-columns:628fr 599fr;gap:85px;align-items:start}
+body.country-site[data-oficina] .network span:first-child{color:#d3d3d3}
+body.country-site[data-oficina] .network h2{color:#fff}
+body.country-site[data-oficina] .network p{color:#cbcbcb}
+body.country-site[data-oficina] .network .network-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;margin:28px 0 31px}
+body.country-site[data-oficina] .network .button{margin-top:0}
+body.country-site[data-oficina] .network h3{margin:0 0 10px;font-size:clamp(23px,2vw,28.8px);font-weight:600;line-height:1.24;letter-spacing:-.025em;color:#fff}
+body.country-site[data-oficina] .network .network-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:18px 0 10px}
+body.country-site[data-oficina] .network h4{margin:0 0 12px;font-size:15px;font-weight:800;line-height:1.4;color:#c0c0c0}
+body.country-site[data-oficina] .network ul{list-style:none;margin:0;padding:0}
+body.country-site[data-oficina] .network li a{display:inline-flex;align-items:center;min-height:36px;color:#fff;font-size:16px;text-decoration:none}
+body.country-site[data-oficina] .network-stats{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.25)}
+body.country-site[data-oficina] .network-stats>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+body.country-site[data-oficina] .network-stats strong{display:block;font-size:44px;font-weight:900;line-height:1.1;letter-spacing:-.02em;color:#fff}
+body.country-site[data-oficina] .network-stats span{display:block;margin:0;font-size:15px;color:#cbcbcb}
+body.country-site[data-oficina] .franchise .franchise-head{display:block;margin-bottom:34px;max-width:820px}
+body.country-site[data-oficina] .program-overview summary span:first-child{display:block;margin:0;font-size:18px;font-weight:400;line-height:1.6}
+body.country-site[data-oficina] .franchise-layout{display:grid;grid-template-columns:639fr 609fr;gap:64px;align-items:start}
+body.country-site[data-oficina] .franchise h3{margin:0 0 25px;font-size:clamp(23px,2vw,28.8px);font-weight:600;line-height:1.24;letter-spacing:-.025em}
+body.country-site[data-oficina] .franchise-points{list-style:none;margin:0;padding:0;border-top:1px solid #dedede}
+body.country-site[data-oficina] .franchise-points li{padding:20px 0;border-bottom:1px solid #dedede}
+body.country-site[data-oficina] .franchise-points strong{display:block;margin:0 0 6px;font-size:16px;font-weight:600}
+body.country-site[data-oficina] .franchise-points p{margin:0;font-size:16px}
+body.country-site[data-oficina] .franchise-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;margin-top:20px}
+body.country-site[data-oficina] .history{background:#e8e8e8;padding-block:72px}
+body.country-site[data-oficina] .history .history-layout{display:grid;grid-template-columns:559fr 683fr;gap:64px;align-items:center}
+body.country-site[data-oficina] .history .history-links{display:flex;flex-wrap:wrap;gap:0 28px}
+body.country-site[data-oficina] .history-timeline{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:14px}
+body.country-site[data-oficina] .history-timeline li{display:grid;grid-template-columns:110px 1fr;align-items:baseline;gap:16px;border-bottom:1px solid #cfcfcf;padding-bottom:12px}
+body.country-site[data-oficina] .history-timeline strong{font-size:32px;font-weight:800;line-height:1.2;letter-spacing:-.01em}
+body.country-site[data-oficina] .history-timeline p{margin:0}
+body.country-site[data-oficina] .history img{display:block;width:min(260px,60%);height:auto;margin:0 auto}
+@media(max-width:900px){
+body.country-site[data-oficina] :is(.sanitization,.teps-intro,.franchise-layout){grid-template-columns:1fr;gap:28px}
+body.country-site[data-oficina] .network .network-layout,body.country-site[data-oficina] .history .history-layout{grid-template-columns:1fr;gap:36px}
+body.country-site[data-oficina] .teps-flow{grid-template-columns:1fr 1fr}
+body.country-site[data-oficina] .program-items{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+body.country-site[data-oficina] :is(.sanitization,.teps,.franchise){padding-inline:0}
+body.country-site[data-oficina] :is(.sanitization,.teps,.network,.franchise,.history) h2{font-size:30px;line-height:1.2}
+body.country-site[data-oficina] :is(.sanitization,.teps,.franchise){padding-block:44px}
+body.country-site[data-oficina] :is(.network,.history){padding-block:44px}
+body.country-site[data-oficina] .teps-flow{grid-template-columns:1fr}
+body.country-site[data-oficina] .network .network-links{grid-template-columns:1fr 1fr}
+body.country-site[data-oficina] .network-stats strong{font-size:32px}
+body.country-site[data-oficina] .history-timeline li{grid-template-columns:84px 1fr}
+body.country-site[data-oficina] .history-timeline strong{font-size:26px}
+}
+
+/* La barra amarilla fija de «progreso de lectura» (immersive.js del catálogo) no existe en globaltni y cruzaba los títulos en las capturas
+   (la de TEPS, a 1440). En las oficinas se oculta; el catálogo no se toca. Lo vigila el candado «adornos». */
 body.country-site[data-oficina] .machote-reading-progress{display:none!important}
-/* One "Conversemos" per page: the footer link becomes "Volver arriba", shown only on the phone. */
-body.country-site[data-oficina] .local-footer .footer-intro .footer-top{display:inline-flex!important;align-items:center;min-height:44px;font-size:20px;font-weight:600;text-decoration:none;color:#010007}
-@media(min-width:761px){body.country-site[data-oficina] .local-footer .footer-intro .footer-top{display:none!important}}
-/* Pests in 3 wide columns (2 on tablet, 88px photo rows on the phone). */
-body.country-site[data-oficina] .g-plagas-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:56px 36px!important}
-@media(max-width:960px){body.country-site[data-oficina] .g-plagas-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;row-gap:48px!important}}
-@media(max-width:760px){body.country-site[data-oficina] .g-plagas-grid{display:flex!important;flex-direction:column;gap:0!important}body.country-site[data-oficina] .g-plagas-grid>article{display:grid!important;grid-template-columns:88px 1fr;column-gap:16px;align-items:start;padding:16px 0!important;border-top:1px solid #e3e1d8;min-height:0!important}body.country-site[data-oficina] .g-plagas-grid>article>.g-pl-fig{grid-row:1/span 4;width:88px;height:88px;margin:0!important;border-radius:6px;overflow:hidden;aspect-ratio:auto!important}body.country-site[data-oficina] .g-plagas-grid>article>.g-pl-fig img{width:88px!important;height:88px!important;object-fit:cover;aspect-ratio:auto!important}body.country-site[data-oficina] .g-plagas-grid>article>h3{margin:0 0 2px!important}body.country-site[data-oficina] .g-plagas-grid>article>.g-pl-sub{margin:0 0 6px!important}body.country-site[data-oficina] .g-plagas-grid>article>p{margin:0 0 4px!important;font-size:15px!important}body.country-site[data-oficina] .g-plagas-grid>article>.g-mas{margin:0!important;min-height:44px;display:inline-flex;align-items:center}}
-/* Services title at 46px on laptop widths too. */
-@media(min-width:961px){body.country-site[data-oficina] #servicios .g-cab h2{font-size:46px!important;line-height:1.1}}
-/* TEPS steps: 2 columns on tablet and small laptop so paragraphs are not squeezed. */
-@media(min-width:761px) and (max-width:1100px){body.country-site[data-oficina] .g-cols.g-cols-4{grid-template-columns:1fr 1fr!important;row-gap:28px}}
-/* Phone: room under the last link list so the Truly AI button never covers it. */
-@media(max-width:760px){body.country-site[data-oficina] .pest-copy:has(>.s-enlaces){padding-bottom:76px}}
-/* Phone: stronger shade under the commercial card title so white text reads over the yellow shirt. */
-@media(max-width:760px){body.country-site[data-oficina] .g-com-foto::after{background:linear-gradient(0deg,rgba(15,18,24,.9),rgba(15,18,24,.62) 75%,rgba(15,18,24,.2))}}
-/* Breadcrumbs: separators and current item on the same line as the 44px links. */
-body.country-site[data-oficina] :is(.s-intro nav,.pest-breadcrumb){display:flex;flex-wrap:wrap;align-items:center;column-gap:6px}
+/* Sello TEPS a la izquierda del título, con las medidas del master (tn-intl-design, site/a/home-editorial.css) */
+body.country-site[data-oficina] .teps-intro{grid-template-columns:112px minmax(0,1fr) minmax(0,1fr);gap:32px}
+body.country-site[data-oficina] .teps-intro .teps-seal{width:112px;height:112px;grid-column:1;grid-row:1;align-self:start}
+body.country-site[data-oficina] .teps-intro .teps-heading{grid-column:2;grid-row:1}
+body.country-site[data-oficina] .teps-intro .teps-description{grid-column:3;grid-row:1}
+@media(max-width:1023px){body.country-site[data-oficina] .teps-intro{grid-template-columns:88px minmax(0,1fr);gap:20px 26px}body.country-site[data-oficina] .teps-intro .teps-seal{width:88px;height:88px}body.country-site[data-oficina] .teps-intro .teps-description{grid-column:2;grid-row:2}}
+@media(max-width:620px){body.country-site[data-oficina] .teps-intro{grid-template-columns:64px minmax(0,1fr);gap:18px}body.country-site[data-oficina] .teps-intro .teps-seal{width:64px;height:64px}}
+/* Encabezado del programa como el del master: relleno 64/62 (40/38 en celular), título de 38 px desde 600 px, texto hasta 940 px. */
+body.country-site[data-oficina] section.g.g-programa{padding-block:64px 62px}
+body.country-site[data-oficina] .g-programa .g-cab{max-width:none;margin-bottom:34px}
+body.country-site[data-oficina] .g-programa .g-cab h2{max-width:none;font-size:38px;line-height:1.04;text-wrap:wrap}
+body.country-site[data-oficina] .g-programa .g-intro{max-width:940px;margin-top:16.5px;padding-bottom:3px;font-size:17px;line-height:1.65}
+@media(max-width:599px){
+ body.country-site[data-oficina] section.g.g-programa{padding-block:40px 38px}
+ body.country-site[data-oficina] .g-programa .g-cab{margin-bottom:24px}
+ body.country-site[data-oficina] .g-programa .g-cab h2{font-size:29px;line-height:1.2}
+ body.country-site[data-oficina] .g-programa .g-intro{margin-top:35px;font-size:16px;line-height:1.65}
+}
+/* Historia: foto real del carro arriba y línea de tiempo debajo, como el master */
+body.country-site[data-oficina] .history .history-visual img{display:block;width:100%;max-width:600px;height:auto;margin:0 0 28px}
+body.country-site[data-oficina] .history .history-car-link{display:block}
+
+/* Sectores de la página comercial (como globaltni.com/en/services/commercial/): fotos con pie a la izquierda, texto y lista a la derecha. */
+.g-sect-ind{border-top:1px solid var(--line);padding-top:20px;margin-bottom:8px}.g-sect-ind ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 32px}.g-sect-ind a{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:18px}.g-sect-art{display:grid;grid-template-columns:minmax(200px,260px) 1fr;gap:56px;padding:56px 0;border-top:1px solid var(--line);scroll-margin-top:120px}.g-sect-fotos{display:grid;gap:28px;align-content:start}.g-sect-fotos figure{margin:0}.g-sect-fotos img{display:block;width:100%;height:auto;border-radius:2px}.g-sect-fotos figcaption{margin-top:8px;font-size:14px;font-style:italic;color:var(--muted)}.g-sect-txt h3{margin:0 0 22px;font-size:clamp(30px,3.4vw,44px);line-height:1.08;letter-spacing:-.02em}.g-sect-txt p{color:var(--muted);font-size:18px;line-height:1.65;max-width:62ch;margin:0 0 18px}.g-sect-txt h4{margin:40px 0 0;padding-top:28px;border-top:1px solid var(--line);font-size:24px}.g-sect-lista{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}@media(max-width:900px){.g-sect-art{grid-template-columns:1fr;gap:28px}.g-sect-fotos{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}.g-sect-lista{grid-template-columns:1fr 1fr}}@media(max-width:560px){.g-sect-lista{grid-template-columns:1fr}}
+.g-sector-nota{margin:22px 0 0;color:var(--muted);font-size:16px;line-height:1.6}
+.g-sect-acciones{display:flex;flex-wrap:wrap;gap:12px 32px;margin:28px 0 0}.g-sect-cierre{border-top:1px solid var(--line);padding:56px 0 8px;max-width:760px}.g-sect-cierre h3{margin:0 0 16px;font-size:clamp(28px,3vw,40px);line-height:1.1}.g-sect-cierre p{color:var(--muted);font-size:18px;line-height:1.65;margin:0 0 24px}.g-sect-mas{border-top:1px solid var(--line);margin-top:48px;padding-top:40px}.g-sect-mas h3{margin:0 0 18px;font-size:24px}.g-sect-mas ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0 32px}.g-sect-mas a{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700}
+/* ===== Réplica de globaltni.com/en (4-nov-2026, dueño: «todo igual, una copia al 100»). Medidas tomadas en vivo con el
+   navegador (getComputedStyle) en 1440 y 390 px. Va al final y manda sobre lo anterior. ===== */
+/* Encabezado: franja gris 44 px + barra amarilla 102 px, pegado arriba (al bajar se va la franja y queda la barra). */
+html body.country-site[data-oficina]>.site-nav,html body.country-site[data-oficina][data-machote]:has(.cinema)>.site-nav{position:sticky!important;top:-44px!important;inset:auto!important;z-index:50!important;display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:0 28px!important;padding:0 44px!important;min-height:0!important;height:auto!important;background:#ffd800!important;box-shadow:none!important;border:0!important;border-bottom:1px solid #010007!important;color:#010007}
+html body.country-site[data-oficina]>.site-nav:before{display:none!important}
+body.country-site[data-oficina] .gt-utility{flex:0 0 calc(100% + 88px);margin:0 -44px;height:44px;padding:0 44px;box-sizing:border-box;background:#f2f2f2;display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:13px;font-weight:600;line-height:1.6;color:#010007}
+body.country-site[data-oficina] .gt-utility>div:not(.gt-social){display:flex;gap:17px;margin-left:auto;margin-right:auto}
+body.country-site[data-oficina] .gt-utility a{color:#010007;text-decoration:none;font-size:13px;font-weight:600;display:flex;align-items:center;min-height:38px}
+body.country-site[data-oficina] .gt-social{display:flex;gap:17px}
+body.country-site[data-oficina] .gt-social a{padding:5px;display:flex;align-items:center;color:#010007}
+body.country-site[data-oficina] .gt-social svg{width:17px;height:17px;display:block}
+html body.country-site[data-oficina] .site-nav>.brand{height:102px;display:flex!important;align-items:center;gap:13px;margin-right:auto}
+html body.country-site[data-oficina] .site-nav>.brand img{width:66px!important;height:82px!important;object-fit:contain}
+html body.country-site[data-oficina] .site-nav>.brand span{font-size:22px!important;font-weight:700!important;line-height:1.05;color:#010007;white-space:nowrap}
+html body.country-site[data-oficina] .site-nav>.brand small{display:block;font-size:13px!important;font-weight:500!important;margin-top:4px}
+html body.country-site[data-oficina] .site-nav .truly-portals{display:none!important}
+html body.country-site[data-oficina] .site-nav nav{gap:25px!important}
+html body.country-site[data-oficina] .site-nav nav>a,html body.country-site[data-oficina] .site-nav .nav-menu>summary{font-size:18px!important;font-weight:500!important;color:#010007!important;padding:10px 0!important;white-space:nowrap}
+html body.country-site[data-oficina] .site-nav>a.button.gt-cta{display:inline-flex!important;align-items:center;gap:16px;height:48px;padding:9px 18px!important;border-radius:4px!important;background:#010007!important;border-color:#010007!important;color:#fff!important;font-size:17px!important;font-weight:600!important;white-space:nowrap}
+html body.country-site[data-oficina] .site-nav>a.button.gt-cta span{font-size:20px;line-height:1}
+/* La foto/película empieza debajo del encabezado y ocupa el resto de la pantalla, sin velo claro arriba. */
+@media(min-width:1101px){html body.country-site[data-oficina] .cinema{height:calc(100vh - 127px)!important;min-height:580px!important}html body.country-site[data-oficina][data-machote] .cinema::after{background:linear-gradient(90deg,rgba(21,33,40,.65) 0,rgba(21,33,40,.6) 21%,transparent 54%),linear-gradient(0deg,rgba(21,33,40,.51),transparent 30%)!important}}
+/* Celular: solo la barra amarilla de 77 px (sin franja gris), como globaltni. */
+@media(max-width:960px){body.country-site[data-oficina] .gt-utility{display:none}html body.country-site[data-oficina]>.site-nav{top:0!important;padding:0 20px!important;gap:0 8px!important}html body.country-site[data-oficina] .site-nav>.brand{height:76px;gap:9px}html body.country-site[data-oficina]>.site-nav{min-height:77px!important}html body.country-site[data-oficina] .site-nav>.brand img{width:42px!important;height:58px!important}html body.country-site[data-oficina] .site-nav>.brand span{font-size:17px!important}html body.country-site[data-oficina] .site-nav>.brand small{font-size:10px!important}html body.country-site[data-oficina] .site-nav>a.button.gt-cta{display:none!important}html body.country-site[data-oficina] .cinema{height:calc(100vh - 77px)!important;min-height:740px!important}}
+/* Flecha del menú: el chevron fino y centrado de globaltni (12 px, a 9 px del texto). */
+html body.country-site[data-oficina] .site-nav .nav-menu>summary{display:inline-flex!important;align-items:center;gap:9px}
+html body.country-site[data-oficina] .site-nav .nav-menu>summary>span{display:inline-block;width:12px;height:12px;font-size:0!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5' fill='none' stroke='%23010007' stroke-width='1.5'/%3E%3C/svg%3E") center/12px no-repeat}
+/* Cierre amarillo como la franja «Talk to your local office.» de globaltni. */
+html body.country-site[data-oficina] .contact-band.gt-contact{display:block!important;background:#ffd800!important;padding:64px 0!important;margin:0!important;color:#010007;min-height:0!important}
+body.country-site[data-oficina] .gt-contact .contact-layout{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:80px;margin:0 64px;align-items:end;max-width:none}
+body.country-site[data-oficina] .gt-contact h2{font-size:57.6px!important;font-weight:600!important;line-height:1.12!important;letter-spacing:normal;margin:0!important;max-width:none}
+body.country-site[data-oficina] .gt-contact .contact-intro p{font-size:20px!important;line-height:1.55!important;margin:28px 0 0!important;max-width:520px;color:#010007}
+body.country-site[data-oficina] .gt-contact .contact-actions{display:flex;flex-direction:column;gap:19px;padding:0 0 4px}
+body.country-site[data-oficina] .gt-contact .button.button-dark{display:flex!important;justify-content:space-between;align-items:center;gap:28px;width:100%;box-sizing:border-box;padding:23px 26px!important;border-radius:4px!important;background:#010007!important;border:1px solid transparent!important;color:#fff!important;font-size:20px!important;font-weight:600!important;line-height:1.3;min-height:0}
+body.country-site[data-oficina] .gt-contact .button.button-dark::after{content:"→";font-size:22px;line-height:1}
+body.country-site[data-oficina] .gt-contact .text-link{display:flex!important;justify-content:space-between;align-items:center;gap:22px;align-self:flex-start;min-width:344px;padding:12px 0!important;margin:12px 0 0!important;border-bottom:1px solid #010007!important;font-size:17px!important;font-weight:600!important;line-height:1.4;color:#010007!important;text-decoration:none!important}
+body.country-site[data-oficina] .gt-contact .text-link::after{content:"→";font-size:20px;line-height:1}
+@media(max-width:760px){html body.country-site[data-oficina] .contact-band.gt-contact{padding:44px 0!important}body.country-site[data-oficina] .gt-contact .contact-layout{grid-template-columns:1fr;gap:33px;margin:0 22px}body.country-site[data-oficina] .gt-contact h2{font-size:34px!important}body.country-site[data-oficina] .gt-contact .contact-intro p{font-size:17px!important;margin-top:22px!important}body.country-site[data-oficina] .gt-contact .button.button-dark{margin-top:27px;padding:20px 23px!important;font-size:18px!important;gap:20px}body.country-site[data-oficina] .gt-contact .text-link{min-width:0;align-self:stretch;font-size:16px!important;gap:18px}}
+/* Pie como globaltni: papel #f2f2f2 con línea negra arriba; logo + lema + «Volver arriba»; 6 columnas; acuarela; ©. */
+html body.country-site[data-oficina] .country-footer.local-footer{background:#f2f2f2!important;border-top:1px solid #010007!important;padding:72px 0 36px!important;color:#010007}
+html body.country-site[data-oficina] .local-footer .footer-intro{display:grid!important;grid-template-columns:112px minmax(0,1fr) auto;gap:38px;align-items:center;margin:0 64px!important;padding:0 0 32px!important;border-bottom:1px solid #cdcdcd!important;max-width:none}
+html body.country-site[data-oficina] .local-footer .footer-intro .brand{display:grid}
+html body.country-site[data-oficina] .local-footer .footer-intro .brand img{width:102px!important;height:126px!important;object-fit:contain;margin:2px 5px}
+html body.country-site[data-oficina] .local-footer .footer-intro .brand span{display:none!important}
+html body.country-site[data-oficina] .local-footer .footer-intro p{font-size:18px!important;line-height:1.6!important;color:#585858!important;font-weight:400!important;margin:0!important;max-width:none}
+html body.country-site[data-oficina] .local-footer .footer-contact{display:flex;align-items:center;gap:18px;min-height:48px;font-size:20px;font-weight:600;color:#010007;text-decoration:none}
+html body.country-site[data-oficina] .local-footer .footer-contact span{font-size:25px;color:#666}
+html body.country-site[data-oficina] .local-footer .footer-columns{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:24px!important;margin:0 64px!important;padding:36px 0 10px!important;border:0!important;max-width:none}
+html body.country-site[data-oficina] .local-footer .pie-col>summary{font-size:17px!important;font-weight:600!important;line-height:1.4!important;margin:0 0 10px!important;min-height:58px;display:flex;align-items:flex-start;color:#010007;list-style:none}
+html body.country-site[data-oficina] .local-footer .pie-col>summary::-webkit-details-marker{display:none}
+html body.country-site[data-oficina] .local-footer .pie-col nav a{display:flex!important;padding:6px 0!important;font-size:16px!important;font-weight:400!important;line-height:1.5!important;color:#4a4a4a!important;text-decoration:none!important;border:0!important;min-height:44px;align-items:center}
+html body.country-site[data-oficina] .local-footer .pie-col address{margin:16px 0 0;font-style:normal;font-size:14px;line-height:1.75;color:#585858}
+html body.country-site[data-oficina] .local-footer .footer-place{margin:0 0 -8px!important;padding:0!important;width:100%;max-width:none}
+html body.country-site[data-oficina] .local-footer .footer-place img{width:100%!important;max-width:none!important;max-height:none!important;height:518px!important;object-fit:cover;object-position:center bottom;display:block}
+html body.country-site[data-oficina] .local-footer .footer-place figcaption{display:none!important}
+html body.country-site[data-oficina] .local-footer .footer-legal{display:flex!important;align-items:center;gap:30px;margin:0 64px!important;padding:16px 0 0!important;border-top:1px solid #cdcdcd!important;font-size:14px!important;line-height:1.6;color:#585858!important;background:#f2f2f2;max-width:none}
+html body.country-site[data-oficina] .local-footer .footer-legal :is(p,a){font-size:14px!important;color:#585858!important}
+@media(max-width:760px){html body.country-site[data-oficina] .country-footer.local-footer{padding:44px 0 28px!important}html body.country-site[data-oficina] .local-footer .footer-intro{grid-template-columns:94px minmax(0,1fr);gap:18px 25px;margin:0 22px!important;padding-bottom:26px!important}html body.country-site[data-oficina] .local-footer .footer-intro .brand img{width:89px!important;height:112px!important}html body.country-site[data-oficina] .local-footer .footer-intro p{font-size:16px!important}html body.country-site[data-oficina] .local-footer .footer-contact{grid-column:1/-1;justify-content:space-between;font-size:18px}html body.country-site[data-oficina] .local-footer .footer-columns{display:block!important;margin:0 22px!important;padding:20px 0 8px!important}html body.country-site[data-oficina] .local-footer .pie-col{border-bottom:1px solid #c7c7c7}html body.country-site[data-oficina] .local-footer .pie-col>summary{font-size:19px!important;min-height:62px;margin:0!important;align-items:center}html body.country-site[data-oficina] .local-footer .pie-col nav{padding-bottom:18px}html body.country-site[data-oficina] .local-footer .pie-col nav a{font-size:17px!important;padding:8px 0!important}html body.country-site[data-oficina] .local-footer .footer-place img{height:auto!important}html body.country-site[data-oficina] .local-footer .footer-legal{margin:0 22px!important;flex-wrap:wrap;gap:12px 30px}}
+html body.country-site[data-oficina] .local-footer .footer-intro{border-top:0!important}
+@media(min-width:761px){html body.country-site[data-oficina] .local-footer .pie-col{border:0!important}}
+body.country-site[data-oficina] .gt-contact h2{max-width:760px!important}
+html body.country-site[data-oficina] .contact-band.gt-contact::before,html body.country-site[data-oficina] .contact-band.gt-contact::after{display:none!important;content:none!important}
+@media(max-width:760px){html body.country-site[data-oficina] .local-footer .pie-col{border-top:0!important;border-bottom:1px solid #c7c7c7!important}html body.country-site[data-oficina] .local-footer .pie-col>summary{padding:0!important;min-height:62px!important}}
+/* Texto de la portada como el de globaltni (car-heading + car-action + car-routes), medido en 1440 y 390. */
+@media(min-width:1101px){
+html body.country-site[data-oficina][data-machote] .cinema::after{background:linear-gradient(90deg,rgba(16,24,32,.79) 0,rgba(16,24,32,.5) 27%,transparent 57%),linear-gradient(0deg,rgba(16,24,32,.667),transparent 24%)!important}
+html body.country-site[data-oficina] .cinema .hero-text{position:absolute!important;top:27.25%!important;left:64px!important;right:auto!important;bottom:auto!important;width:410px!important;max-width:410px!important;transform:none!important;margin:0!important;padding:0!important;z-index:1;text-align:left}
+html body.country-site[data-oficina] .cinema .hero-text .eyebrow{font-size:14px!important;font-weight:400!important;line-height:1.5!important;letter-spacing:normal!important;margin:0 0 18px!important;color:#fff!important}
+html body.country-site[data-oficina] .cinema .hero-text .eyebrow span{font-size:14px!important;font-weight:400!important}
+html body.country-site[data-oficina] .cinema .hero-text h1{font-size:69.12px!important;font-weight:900!important;line-height:1.04!important;letter-spacing:-.025em!important;margin:0!important;max-width:none!important;color:#fff!important}
+html body.country-site[data-oficina] .cinema .hero-action{margin-top:21px}
+html body.country-site[data-oficina] .cinema .hero-action>p{font-size:18px!important;line-height:1.55!important;margin:0 0 24px!important;max-width:none!important;color:#fff!important}
+html body.country-site[data-oficina] .cinema .hero-action>.button{display:inline-flex!important;align-items:center;gap:10px;font-size:16px!important;font-weight:600!important;line-height:1.3!important;padding:14px 22px!important;border-radius:4px!important;min-height:57px;box-sizing:border-box}
+html body.country-site[data-oficina] .cinema .hero-premium{display:block!important;margin-top:16px!important;font-size:12px!important;font-weight:400!important;line-height:1.5!important;letter-spacing:normal!important;color:#fff!important}
+html body.country-site[data-oficina] .cinema>.hero-routes{position:absolute!important;left:64px!important;right:100px!important;top:auto!important;bottom:18px!important;display:flex!important;gap:0!important;margin:0!important;padding:0!important;z-index:1}
+html body.country-site[data-oficina] .cinema>.hero-routes a{font-size:13px!important;font-weight:500!important;line-height:1.4!important;padding:12px 22px 9px 0!important;min-height:48px;box-sizing:border-box;display:inline-flex!important;align-items:flex-start;gap:4px;color:#fff!important}
+html body.country-site[data-oficina] .cinema>.hero-routes a span{font-size:17px!important;line-height:1.4!important}
+}
+@media(max-width:760px){
+html body.country-site[data-oficina][data-machote] .cinema::after{background:linear-gradient(180deg,rgba(16,24,32,.62) 0,rgba(16,24,32,.28) 24%,transparent 40%),linear-gradient(0deg,rgba(16,24,32,.94) 0,rgba(16,24,32,.64) 22%,transparent 41%)!important}
+html body.country-site[data-oficina] .cinema .hero-text{display:contents!important}
+html body.country-site[data-oficina] .cinema .hero-heading{position:absolute;top:30px;left:24px;right:24px;z-index:1}
+html body.country-site[data-oficina] .cinema .hero-text .eyebrow,html body.country-site[data-oficina] .cinema .hero-text .eyebrow span{font-size:12px!important;line-height:1.5!important;padding-right:30px;margin:0 0 14px!important;color:#fff!important}
+html body.country-site[data-oficina] .cinema .hero-text h1{font-size:46.02px!important;letter-spacing:-.025em!important;color:#fff!important}
+html body.country-site[data-oficina] .cinema .hero-action{position:absolute;top:488px;left:24px;right:24px;margin:0;z-index:1}
+html body.country-site[data-oficina] .cinema .hero-action>p{font-size:16px!important;line-height:1.5!important;margin:0 0 18px!important}
+html body.country-site[data-oficina] .cinema .hero-action>.button{font-size:14px!important;padding:12px 18px!important;min-height:53px}
+html body.country-site[data-oficina] .cinema .hero-premium{font-size:10px!important;margin-top:12px!important}
+html body.country-site[data-oficina] .cinema>.hero-routes{left:24px!important;right:110px!important;bottom:16px!important;justify-content:space-between;gap:10px!important}
+html body.country-site[data-oficina] .cinema>.hero-routes a{font-size:10px!important;padding:10px 0!important;line-height:1.4!important}
+html body.country-site[data-oficina] .cinema>.hero-routes a span{font-size:15px!important}}
+@media(max-width:760px){html body.country-site[data-oficina] .cinema .hero-heading{position:absolute!important;top:30px!important;left:24px!important;right:24px!important;margin:0!important;transform:none!important}html body.country-site[data-oficina] .cinema .hero-action{position:absolute!important;top:488px!important;left:24px!important;right:24px!important;margin:0!important;transform:none!important}html body.country-site[data-oficina] .cinema>.hero-routes{top:auto!important;bottom:16px!important;transform:none!important;height:auto!important}html body.country-site[data-oficina] .cinema .hero-heading :is(h1,p,span){text-shadow:none!important}}
+@media(max-width:760px){html body.country-site[data-oficina] .cinema>.hero-routes{display:flex!important;flex-wrap:nowrap!important;grid-template-columns:none!important;border-top:1px solid rgba(255,255,255,.36)!important;padding-top:0!important}html body.country-site[data-oficina] .cinema>.hero-routes a{flex:0 0 auto!important;width:auto!important;opacity:1!important;color:#fff!important;border:0!important;white-space:nowrap}}
+/* En francés los tres enlaces no caben en los 256 px que deja el chat: el tercero baja (no se monta sobre el chat). */
+@media(max-width:760px){html body.country-site[data-oficina] .cinema>.hero-routes{flex-wrap:wrap!important;justify-content:flex-start!important;gap:0 14px!important}}
+/* Sanitización como globaltni: texto a la izquierda; foto + «Un protocolo…» con línea gris arriba a la derecha. */
+html body.country-site[data-oficina] section.sanitization{display:grid!important;grid-template-columns:558fr 682fr!important;gap:72px!important;padding:72px 0!important;margin:0 64px!important;align-items:center;max-width:none!important}
+html body.country-site[data-oficina] .sanitization-visual{background:transparent!important;border:0!important;padding:0!important;align-self:start}
+html body.country-site[data-oficina] .sanitization-visual img{display:block;width:100%;height:auto;aspect-ratio:1783/1082;object-fit:cover}
+html body.country-site[data-oficina] .sanitization-environments{padding:22px 0 0;border-top:1px solid #dedede}
+html body.country-site[data-oficina] .sanitization-environments h3{font-size:18px!important;font-weight:600!important;line-height:1.4!important;margin:0 0 14px!important}
+html body.country-site[data-oficina] .sanitization-environments p{font-size:15px!important;line-height:1.65!important;margin:8px 0 0!important;color:#4c4c4c!important}
+html body.country-site[data-oficina] .sanitization-copy .button{display:inline-flex!important;gap:28px;padding:16px 25px!important;margin-top:15px!important;border:1px solid #bcbcbc!important;border-radius:4px!important;background:transparent!important;color:#010007!important;font-size:17px!important;font-weight:600!important}
+@media(max-width:760px){html body.country-site[data-oficina] section.sanitization{display:flex!important;flex-direction:column;gap:36px!important;padding:44px 0!important;margin:0 22px!important}html body.country-site[data-oficina] .sanitization-copy .button{font-size:16px!important;padding:15px 20px!important;gap:20px}}
+/* Historia como globaltni: enlaces uno debajo del otro; línea de tiempo en 3 columnas con línea amarilla arriba. */
+html body.country-site[data-oficina] .history-links{display:flex!important;flex-direction:column!important;align-items:flex-start;gap:0!important}
+html body.country-site[data-oficina] .history-links .text-link{display:flex!important;gap:22px;padding:10px 0!important;font-size:17px!important;font-weight:600!important;border:0!important}
+html body.country-site[data-oficina] .history-timeline{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important;padding:25px 0 0!important;margin:0!important;border-top:1px solid #ffd800!important;list-style:none}
+html body.country-site[data-oficina] .history-timeline li{display:block!important;padding:0!important;margin:0!important;border:0!important}
+html body.country-site[data-oficina] .history-timeline strong{display:inline!important;font-size:32px!important;font-weight:800!important;line-height:1.6!important}
+html body.country-site[data-oficina] .history-timeline p{font-size:15px!important;line-height:1.55!important;margin:8px 0 0!important;color:#565656!important}
+@media(max-width:760px){html body.country-site[data-oficina] .history-timeline{grid-template-columns:1fr!important;gap:0!important;padding:0!important}html body.country-site[data-oficina] .history-timeline li{display:grid!important;grid-template-columns:86px 1fr;gap:20px;padding:20px 0!important;border-bottom:1px solid #ffd800!important}html body.country-site[data-oficina] .history-timeline strong{font-size:30px!important;line-height:1.2!important;display:block!important}html body.country-site[data-oficina] .history-timeline p{font-size:16px!important;margin:0!important}}
+/* Plagas como globaltni: foto 3:2 sobre gris claro, «Ver la guía →» visible al pie de cada tarjeta. */
+html body.country-site[data-oficina] .g-plagas-grid .g-mas{display:flex!important;justify-content:space-between;padding:17px 0 0!important;font-size:15px!important;font-weight:700!important;line-height:1.6;color:#010007!important;opacity:1!important;visibility:visible!important}
+/* Celular: la línea del © deja libre la esquina del chat (el botón de Truly AI en reposo no tapa «Accesibilidad»). */
+@media(max-width:760px){html body.country-site[data-oficina] .local-footer .footer-legal{padding-right:96px!important;padding-bottom:12px!important}html body.country-site[data-oficina] .local-footer .footer-legal nav{display:flex;flex-wrap:wrap;gap:6px 22px}}
+
+/* Páginas internas: globaltni pone la línea de arriba del pie en gris #d8d8d8 (en la portada va negra). */
+html body.country-site[data-oficina]:not(:has(.cinema)) .country-footer.local-footer{border-top-color:#d8d8d8!important}
+/* La línea del © deja libre la esquina del chat en todos los anchos (el botón de Truly AI en reposo no tapa «Accesibilidad»). */
+html body.country-site[data-oficina] .local-footer .footer-legal{padding-right:120px!important}
+/* Últimas diferencias del candado estricto (4-nov-2026). */
+html body.country-site[data-oficina] .gt-contact h2{letter-spacing:-.035em!important}
+@media(max-width:1100px){html body.country-site[data-oficina] .cinema .hero-premium{font-weight:400!important}html body.country-site[data-oficina] .cinema .hero-text .eyebrow,html body.country-site[data-oficina] .cinema .hero-text .eyebrow span{font-weight:400!important}}
+@media(max-width:760px){html body.country-site[data-oficina] .teps-flow h3{line-height:25px!important}}
+html body.country-site[data-oficina] .local-footer .pie-tel{display:block;margin:10px 0 0;font-size:13px;font-weight:600;color:#585858}
+/* Pasos de TEPS en acordeón, como globaltni (computadora: abiertos y fijos; celular: el 01 abierto, el resto con +). */
+body.country-site[data-oficina] .teps-step>summary{list-style:none;cursor:default}
+body.country-site[data-oficina] .teps-step>summary::-webkit-details-marker{display:none}
+body.country-site[data-oficina] .teps-flow .flow-number{display:block;margin:0 0 18px;font-size:13px;font-weight:600;color:#5e5e5e}
+@media(max-width:760px){
+html body.country-site[data-oficina] .teps-flow{display:block!important;margin:28px 0 0!important;border-top:1px solid #dedede}
+html body.country-site[data-oficina] .teps-flow li{padding:0!important;border-bottom:1px solid #dedede}
+html body.country-site[data-oficina] .teps-step>summary{display:grid;grid-template-columns:38px 1fr 20px;align-items:center;min-height:61px;padding:14px 0;cursor:pointer}
+html body.country-site[data-oficina] .teps-step>summary::after{content:"+";font-size:22px;line-height:1;text-align:right}
+html body.country-site[data-oficina] .teps-step[open]>summary::after{content:"−"}
+html body.country-site[data-oficina] .teps-flow .flow-number{margin:0;font-size:11px}
+html body.country-site[data-oficina] .teps-step-copy{padding:0 0 22px 38px}
+html body.country-site[data-oficina] .teps-flow strong{margin:4px 0 10px!important}
+html body.country-site[data-oficina] .teps .teps-intro{display:block!important}
+html body.country-site[data-oficina] .teps .teps-description{margin:22px 0 0!important;padding:0!important;max-width:none!important}
+html body.country-site[data-oficina] .teps .teps-description .button{width:auto!important;display:inline-flex!important;white-space:nowrap}}
+@media(max-width:760px){
+html body.country-site[data-oficina] .teps .teps-intro{display:grid!important;grid-template-columns:64px minmax(0,1fr)!important;column-gap:18px!important;align-items:start}
+html body.country-site[data-oficina] .teps .teps-intro .teps-seal{width:64px!important;height:64px!important;margin:0!important}
+html body.country-site[data-oficina] .teps .teps-description{grid-column:1/-1}
+html body.country-site[data-oficina] .teps-step>summary{grid-template-columns:40px minmax(0,1fr) 20px!important;column-gap:0!important}
+html body.country-site[data-oficina] .teps-step h3{margin:0!important;max-width:none!important;min-width:0;font-size:22px!important}
+html body.country-site[data-oficina] .teps-step-copy{padding-left:40px!important}}
+@media(max-width:760px){html body.country-site[data-oficina] .teps .teps-description{margin-top:12px!important}html body.country-site[data-oficina] .teps .teps-heading{margin-bottom:0!important;padding-bottom:0!important}}
+@media(max-width:760px){html body.country-site[data-oficina] .sanitization-copy .button{width:auto!important;justify-content:flex-start!important;text-align:left!important}}
+
+/* Ancho intermedio como globaltni (961–1199 px, medido a 1024): franja gris sin lema, barra de 96 px con el logo solo,
+   menú a 16 px y el botón negro; recién por debajo de 961 px pasa a «Menu». */
+@media(min-width:961px) and (max-width:1199px){
+html body.country-site[data-oficina]>.site-nav{padding:0 26px!important;gap:0 17px!important;top:-44px!important}
+body.country-site[data-oficina] .gt-utility{display:flex;flex:0 0 calc(100% + 52px);margin:0 -26px;padding:0 30px}
+body.country-site[data-oficina] .gt-utility>span{display:none}
+body.country-site[data-oficina] .gt-utility>div:not(.gt-social){margin-left:0}
+html body.country-site[data-oficina] .site-nav>.brand{height:96px}
+html body.country-site[data-oficina] .site-nav>.brand img{width:55px!important;height:74px!important}
+html body.country-site[data-oficina] .site-nav>.brand span{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important}
+html body.country-site[data-oficina] .site-nav nav{gap:14px!important}
+html body.country-site[data-oficina] .site-nav nav>a,html body.country-site[data-oficina] .site-nav .nav-menu>summary{font-size:16px!important}
+html body.country-site[data-oficina] .site-nav>a.button.gt-cta{display:inline-flex!important;font-size:16px!important;height:48px}
+html body.country-site[data-oficina] .country-menu-toggle{display:none!important}}
+@media(min-width:761px) and (max-width:960px){html body.country-site[data-oficina]>.site-nav{min-height:85px!important}}
+/* «Hecho por Catalizadora» como globaltni: 12 px, gris, caja de 516 px alineada a la derecha (a la izquierda en celular). */
+html body.country-site[data-oficina] .local-footer .maker-credit{width:516px;max-width:calc(100% - 128px);margin:8px 64px 0!important;font-size:12px!important;line-height:18px;color:#686868!important;text-align:right}
+html body.country-site[data-oficina] .local-footer .maker-credit a{color:#686868!important;text-decoration:none}
+@media(max-width:1199px){html body.country-site[data-oficina] .local-footer .maker-credit{margin-left:40px!important}}
+@media(max-width:760px){html body.country-site[data-oficina] .local-footer .maker-credit{width:auto;max-width:none;margin:8px 22px 0!important;text-align:left}}
+@media(max-width:760px){html body.country-site[data-oficina] .local-footer .maker-credit{padding-right:96px;padding-bottom:12px}}
+@media(max-width:760px){html body.country-site[data-oficina] .local-footer .maker-credit{display:inline-block!important;width:auto!important;max-width:calc(100% - 140px)!important;padding:0!important}}
+/* Computadora: los pasos de TEPS como globaltni (número arriba, título debajo, a la izquierda; línea vertical entre pasos,
+   relleno izquierdo de 24 px en los pasos 2–4 y sin línea inferior en cada paso). El acordeón solo actúa en celular. */
+@media(min-width:761px){
+html body.country-site[data-oficina] .teps-step>summary{display:block!important}
+html body.country-site[data-oficina] .teps-step>summary h3{text-align:left!important;margin:0!important}
+html body.country-site[data-oficina] .teps-step>summary::after{content:none!important}
+html body.country-site[data-oficina] .teps-flow li{border-bottom:0!important}
+html body.country-site[data-oficina] .teps-flow li+li{padding-left:24px!important;border-left:1px solid #d9d9d9!important}
+html body.country-site[data-oficina] .teps-step-copy,html body.country-site[data-oficina] .teps-step-copy strong,html body.country-site[data-oficina] .teps-step-copy p{border:0!important}}
+@media(min-width:761px){html body.country-site[data-oficina] .teps-step,html body.country-site[data-oficina] .teps-flow li>details{border:0!important;box-shadow:none!important}html body.country-site[data-oficina] .teps-step-copy{border-bottom:0!important;padding-bottom:0!important}}
+/* Encabezado por ancho (4-nov-2026, medido contra globaltni.com/en). La regla base de arriba lleva el selector
+   «[data-machote]:has(.cinema)», que pesa más y pisaba las de tableta y celular en la portada: por eso aquí cada
+   regla repite ese mismo selector. Medidas de globaltni: 961–1199 relleno 26 y menú 16 px; 761–960 alto 85, logo
+   58×75 en x=24, nombre 21 px, «Menu ≡» 17/400 sin borde; ≤760 alto 77, logo 42×58 en x=20. */
+@media(min-width:961px) and (max-width:1199px){
+html body.country-site[data-oficina]>.site-nav,html body.country-site[data-oficina][data-machote]:has(.cinema)>.site-nav{padding:0 26px!important}
+html[lang] body.country-site[data-oficina][data-oficina] .site-nav nav>a,html[lang] body.country-site[data-oficina][data-oficina] .site-nav .nav-menu>summary{font-size:16px!important}}
+@media(min-width:761px) and (max-width:960px){
+html body.country-site[data-oficina]>.site-nav,html body.country-site[data-oficina][data-machote]:has(.cinema)>.site-nav{padding:0 24px!important;min-height:84px!important}
+html body.country-site[data-oficina][data-oficina] .site-nav>.brand{height:84px}
+html body.country-site[data-oficina][data-oficina] .site-nav>.brand img{width:58px!important;height:75px!important}
+html body.country-site[data-oficina][data-oficina] .site-nav>.brand span{font-size:21px!important}
+html body.country-site[data-oficina][data-oficina] .country-menu-toggle{border:0!important;background:transparent!important;font-size:17px!important;font-weight:400!important}}
+@media(max-width:760px){
+html body.country-site[data-oficina]>.site-nav,html body.country-site[data-oficina][data-machote]:has(.cinema)>.site-nav{padding:0 20px!important;min-height:77px!important}}
+/* Al bajar, globaltni sigue amarillo: el <header> pasa a blanco .96, pero la capa nav-shell (#ffd800) lo tapa entero.
+   Medido el 4-nov-2026 en 1440 y 900; por eso aquí no se cambia el fondo al bajar. */
+/* Plagas en tableta (medido en globaltni el 4-nov-2026): desde 961 px una sola fila con todas las tarjetas; de 761 a 960,
+   tres columnas; separación 24 px. Antes caía a 2 columnas con fotos de ~440 px. */
+@media(min-width:961px) and (max-width:1100px){html body.country-site[data-oficina] .g-plagas-grid{grid-template-columns:repeat(var(--n,5),minmax(0,1fr))!important;gap:48px 24px!important}}
+@media(min-width:761px) and (max-width:960px){html body.country-site[data-oficina] .g-plagas-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:48px 24px!important}}
+/* TEPS · desplegable «Formación, supervisión y respuesta» igual que globaltni (medido abierto y cerrado, 1440 y 390,
+   4-nov-2026): rótulo 16/500 (14 en celular) con «+»/«−» de 24 px; dentro, 6 filas plegables con ícono y «+» que gira. */
+html body.country-site[data-oficina] .teps .program-overview{margin:0;padding:0;border:0;border-bottom:1px solid #dedede}
+html body.country-site[data-oficina] .teps .program-overview>summary{display:flex!important;align-items:center;gap:24px;padding:22px 0!important;border:0!important;list-style:none;cursor:pointer;font-size:18px;font-weight:400}
+html body.country-site[data-oficina] .teps .program-overview>summary::-webkit-details-marker{display:none}
+html body.country-site[data-oficina] .teps .program-overview>summary::after{content:"+";margin-left:auto;font-size:24px;font-weight:400;line-height:1}
+html body.country-site[data-oficina] .teps .program-overview[open]>summary::after{content:"−"}
+html body.country-site[data-oficina] .teps .program-label{display:block;margin:0;font-size:16px!important;font-weight:500!important;line-height:24px!important;color:#010007}
+html body.country-site[data-oficina] .teps .program{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 32px;margin:0 0 22px;padding:0}
+html body.country-site[data-oficina] .teps .program details{border-top:1px solid #d9d9d9;border-bottom:0}
+html body.country-site[data-oficina] .teps .program details[open]{background:#f6f6f6}
+html body.country-site[data-oficina] .teps .program summary{display:flex;align-items:center;gap:12px;padding:18px 16px;min-height:72px;list-style:none;cursor:pointer}
+html body.country-site[data-oficina] .teps .program details[open] summary{padding:18px 28px}
+html body.country-site[data-oficina] .teps .program summary::-webkit-details-marker{display:none}
+html body.country-site[data-oficina] .teps .program summary h3{flex:1;margin:0!important;padding:0!important;border:0!important;font-size:16px!important;font-weight:600!important;line-height:22.4px!important;letter-spacing:normal!important;color:#010007}
+html body.country-site[data-oficina] .teps .program-icon{display:grid;place-items:center;width:28px;height:28px;flex:0 0 28px;color:#010007}
+html body.country-site[data-oficina] .teps .program-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+html body.country-site[data-oficina] .teps .program .expand{font-size:21px;font-weight:400;line-height:1;transition:transform .2s}
+html body.country-site[data-oficina] .teps .program details[open] .expand{transform:rotate(45deg)}
+html body.country-site[data-oficina] .teps .program details>p{margin:0;padding:0 16px 20px;font-size:15px!important;line-height:24.75px!important;color:#5e5e5e}
+@media(max-width:760px){html body.country-site[data-oficina] .teps .program{display:block;grid-template-columns:1fr}html body.country-site[data-oficina] .teps .program-overview>summary{font-size:17px}html body.country-site[data-oficina] .teps .program-label{font-size:14px!important;line-height:21px!important}}
+html body.country-site[data-oficina] .teps .program .expand{display:block;width:auto!important;height:auto!important;padding:0!important;margin:0!important;flex:0 0 auto}
+html body.country-site[data-oficina] .teps .program summary{border-bottom:0!important}
+html body.country-site[data-oficina] .teps .program details:last-child{border-bottom:1px solid #d9d9d9}
+/* Menú de celular y tableta (≤960) como globaltni (medido abierto a 390 el 4-nov-2026): panel a todo el ancho y alto bajo
+   el encabezado, fondo blanco, renglones de 58 px con 20/600 y raya #dedede, flecha a la derecha; al final, botón negro
+   «Hablemos →», «Accesos» (13/400 gris) y redes. El botón pasa a «Cerrar» + X. */
+html body.country-site[data-oficina] .gt-menu-extra,html body.country-site[data-oficina] .country-menu-toggle .gt-m-cerrar,html body.country-site[data-oficina] .country-menu-toggle .gt-m-i2{display:none}
+@media(max-width:960px){html body.country-site[data-oficina] .country-menu-toggle{display:inline-flex;align-items:center;gap:7px}}
+html body.country-site[data-oficina] .country-menu-toggle svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
+html body.country-site[data-oficina] .country-menu-toggle[aria-expanded="true"] .gt-m-abrir,html body.country-site[data-oficina] .country-menu-toggle[aria-expanded="true"] .gt-m-i1{display:none}
+html body.country-site[data-oficina] .country-menu-toggle[aria-expanded="true"] .gt-m-cerrar{display:inline}
+html body.country-site[data-oficina] .country-menu-toggle[aria-expanded="true"] .gt-m-i2{display:inline}
+@media(max-width:960px){
+html body.country-site[data-oficina] .site-nav nav#country-navigation.is-open{position:fixed!important;top:77px!important;left:0!important;right:0!important;bottom:0!important;width:auto!important;height:auto!important;max-height:none!important;margin:0!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;overflow-y:auto;background:#fff!important;padding:12px 22px 32px!important;border:0!important;box-shadow:none!important;z-index:49}
+html body.country-site[data-oficina] .site-nav nav#country-navigation>a,html body.country-site[data-oficina] .site-nav nav#country-navigation>details>summary{display:flex!important;justify-content:space-between;align-items:center;width:100%;min-height:58px;padding:0!important;margin:0!important;font-size:20px!important;font-weight:600!important;line-height:1.3;color:#010007!important;border:0!important;border-bottom:1px solid #dedede!important;background:none!important}
+html body.country-site[data-oficina] .site-nav nav#country-navigation>details{width:100%;border:0!important}
+html body.country-site[data-oficina] .site-nav nav#country-navigation .country-dropdown{position:static!important;width:auto!important;display:flex;flex-direction:column;padding:6px 0 14px!important;margin:0!important;border:0!important;border-bottom:1px solid #dedede!important;box-shadow:none!important;background:none!important}
+html body.country-site[data-oficina] .site-nav nav#country-navigation .country-dropdown a{display:flex;align-items:center;min-height:44px;padding:0!important;border:0!important;font-size:16px!important;font-weight:500!important;color:#010007!important}
+html body.country-site[data-oficina] .site-nav nav#country-navigation .gt-menu-extra{display:block;padding-top:22px}
+html body.country-site[data-oficina] .gt-menu-cta{display:inline-flex!important;align-items:center;gap:21px;height:54px;padding:0 21px!important;border-radius:4px!important;background:#010007!important;border:1px solid #010007!important;color:#fff!important;font-size:16px!important;font-weight:600!important}
+html body.country-site[data-oficina] .gt-menu-cta span{font-size:22px;line-height:1}
+html body.country-site[data-oficina] .gt-menu-label{margin:22px 0 4px!important;font-size:13px!important;font-weight:400!important;color:#686868!important}
+html body.country-site[data-oficina] .gt-menu-accesos{display:flex;flex-wrap:wrap;gap:0 22px}
+html body.country-site[data-oficina] .gt-menu-accesos a{display:inline-flex;align-items:center;min-height:46px;font-size:16px!important;font-weight:600!important;color:#010007!important}
+html body.country-site[data-oficina] .gt-menu-redes{display:flex!important;gap:33px;margin-top:22px;padding:16px 14px 0;border-top:1px solid #dedede}
+html body.country-site[data-oficina] .gt-menu-redes svg{width:17px;height:17px}}
+@media(min-width:761px) and (max-width:960px){html body.country-site[data-oficina] .site-nav nav#country-navigation.is-open{top:85px!important}}
+@media(max-width:960px){
+html body.country-site[data-oficina][data-oficina] .site-nav nav#country-navigation .gt-menu-cta{gap:20px;padding:15px 20px!important;font-size:16px!important;font-weight:600!important}
+html body.country-site[data-oficina][data-oficina] .site-nav nav#country-navigation .gt-menu-accesos a{min-height:46px;padding:0!important;border:0!important}
+html body.country-site[data-oficina][data-oficina] .site-nav nav#country-navigation .gt-menu-redes{gap:6px;padding:14px 0 0!important}
+html body.country-site[data-oficina][data-oficina] .site-nav nav#country-navigation .gt-menu-redes a{display:grid;place-items:center;width:44px;height:44px;padding:5px!important;border:0!important}}
+@media(max-width:960px){html body.country-site[data-oficina][data-oficina] .site-nav nav#country-navigation .gt-menu-redes a{height:44px!important;min-height:0!important;line-height:1}}
+@media(max-width:960px){html body.country-site[data-oficina][data-oficina] .site-nav nav#country-navigation .gt-menu-cta{height:auto!important;flex-shrink:0;line-height:22.4px}html body.country-site[data-oficina][data-oficina] .site-nav nav#country-navigation .gt-menu-cta span{font-size:22px;line-height:1.4}}
+/* Desplegables de computadora (≥961) como el panel de globaltni (medido abierto a 1440, 4-nov-2026): blanco a todo el
+   ancho bajo el encabezado, padding 34/64, frase 34/400 + enlace 17/600 a la izquierda, opciones 2×2 con título 21/600 y
+   descripción 16/400 gris; el menú abierto queda subrayado. */
+@media(min-width:961px){
+html body.country-site[data-oficina] .site-nav nav .nav-menu{position:static!important}
+html body.country-site[data-oficina] .site-nav nav .nav-menu[open]>summary{box-shadow:inset 0 -3px #010007}
+html body.country-site[data-oficina] .site-nav nav .gt-mega{position:absolute!important;top:100%!important;left:0!important;right:0!important;width:auto!important;display:grid!important;grid-template-columns:414fr 828fr;gap:70px;padding:34px 64px!important;margin:0!important;background:#fff!important;border:0!important;border-top:1px solid #dedede!important;border-bottom:1px solid #d6d6d6!important;box-shadow:0 28px 56px rgba(1,0,7,.28)!important;z-index:60}
+html body.country-site[data-oficina] .gt-mega .mega-intro p{margin:0 0 23px;font-size:34px!important;font-weight:400!important;line-height:37.4px!important;color:#010007;max-width:315px}
+html body.country-site[data-oficina] .gt-mega .mega-intro .text-link{display:inline-flex!important;align-items:center;gap:22px;padding:10px 0!important;border:0!important;font-size:17px!important;font-weight:600!important;line-height:23.8px;color:#010007!important;text-decoration:none}
+html body.country-site[data-oficina] .gt-mega .mega-links{display:grid;grid-template-columns:1fr 1fr;gap:13px 40px;align-content:start}
+html body.country-site[data-oficina] .site-nav nav .gt-mega .mega-links a{display:flex!important;flex-direction:column;gap:5px;padding:13px 17px!important;border:0!important;min-height:0!important;background:none!important}
+html body.country-site[data-oficina] .gt-mega .mega-links a:hover{background:#f6f6f6!important}
+html body.country-site[data-oficina] .gt-mega .mega-links strong{font-size:21px;font-weight:600;line-height:33.6px;color:#010007}
+html body.country-site[data-oficina] .gt-mega .mega-links span{font-size:16px;font-weight:400;line-height:24px;color:#5e5e5e}}
+/* En celular el panel queda dentro del menú: sin la frase grande, solo las opciones con su título. */
+@media(max-width:960px){html body.country-site[data-oficina] .gt-mega .mega-intro p,html body.country-site[data-oficina] .gt-mega .mega-links span{display:none}html body.country-site[data-oficina] .gt-mega .mega-intro .text-link{display:flex;min-height:44px;align-items:center;font-size:16px!important;font-weight:600!important}html body.country-site[data-oficina] .site-nav nav#country-navigation .gt-mega .mega-links a{display:flex;align-items:center;min-height:44px;font-size:16px!important;font-weight:500!important}html body.country-site[data-oficina] .gt-mega .mega-links strong{font-weight:500}}
+/* «Montserrat Display» de globaltni: los pesos 1–649 cargan el archivo de 600 y 650–849 el de 800 (su @font-face). Lo usa en
+   la frase grande de los desplegables y en «Trusted by recognized brands» (21 px). Mismo archivo que publica globaltni
+   (/assets/montserrat-latin-600-normal.woff2, sha256 d857325c…). */
+@font-face{font-family:MachoteDisplay;font-weight:1 649;font-display:swap;src:url(../../assets/montserrat-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:MachoteDisplay;font-weight:650 849;font-display:swap;src:url(../../assets/montserrat-latin-800-normal.woff2) format('woff2')}
+html body.country-site[data-oficina] .gt-mega .mega-intro p{font-family:MachoteDisplay,Machote,Arial,sans-serif!important;letter-spacing:-.014em}
+@media(min-width:961px){html body.country-site[data-oficina] .site-nav nav .gt-mega .mega-links a{align-items:flex-start!important;text-align:left!important}}
+/* Red internacional con el marcado y las medidas de globaltni (1440, 4-nov-2026). */
+html body.country-site[data-oficina] .network .network-confidence{margin:25px 0 0;padding:22px 0 0;border-top:1px solid #707070}
+html body.country-site[data-oficina] .network .network-confidence p{margin:0 0 12px;font-family:MachoteDisplay,Machote,Arial,sans-serif;font-size:21px;font-weight:400;line-height:26.25px;color:#fff}
+html body.country-site[data-oficina] .network .network-confidence span{display:block;font-size:15px;line-height:24.75px;color:#d2d2d2}
+html body.country-site[data-oficina] .network .office-directory h3{margin:0;font-size:28.8px;font-weight:600;line-height:35.712px;color:#fff}
+html body.country-site[data-oficina] .network .office-directory>p{margin:13px 0 0;font-size:15px;line-height:24.75px;color:#cecece}
+html body.country-site[data-oficina] .network .office-regions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;margin:30px 0 0}
+html body.country-site[data-oficina] .network .office-regions h4{margin:0 0 12px;font-size:15px;font-weight:800;line-height:21px;color:#c0c0c0}
+html body.country-site[data-oficina] .network .office-regions a{display:flex;justify-content:space-between;gap:15px;padding:9px 0;font-size:18px;font-weight:400;line-height:28.8px;color:#fff;border-bottom:1px solid #5c5c5c;text-decoration:none}
+html body.country-site[data-oficina] .network .office-directory>.text-link{display:inline-flex;gap:22px;margin:18px 0 0;padding:10px 0;font-size:17px;font-weight:600;line-height:23.8px;color:#fff}
+html body.country-site[data-oficina] .network .corporate-scope{margin:25px 0 0;font-size:15px;line-height:24.75px;color:#d2d2d2}
+html body.country-site[data-oficina] .network .network-numbers{display:grid;grid-template-columns:repeat(3,114px);gap:24px;margin:12px 104px 0 105px}
+html body.country-site[data-oficina] .network .network-numbers strong{display:block;font-size:44px;font-weight:900;line-height:48.4px;color:#fff}
+html body.country-site[data-oficina] .network .network-numbers span{display:block;margin:12px 0 0;font-size:16px;line-height:25.6px;color:#d3d3d3}
+html body.country-site[data-oficina] .network .text-link.light{display:flex;gap:22px;margin:12px 0 0;padding:10px 0;font-size:17px;font-weight:600;line-height:23.8px;color:#fff}
+/* Botones con flecha como globaltni: texto a la izquierda, flecha en su <span> a la derecha, separación 28, relleno 16/25. */
+html body.country-site[data-oficina] main a.button:has(>span[aria-hidden]){display:inline-flex!important;justify-content:space-between;align-items:center;gap:28px;padding:16px 25px!important;font-size:17px!important;font-weight:600!important;line-height:22.1px!important}
+html body.country-site[data-oficina] main a.button>span[aria-hidden]{font-size:22px;line-height:1.4}
+html body.country-site[data-oficina] main a.text-link:has(>span[aria-hidden]){gap:22px}
+/* Recursos · columna de preguntas como globaltni (1440, 4-nov-2026): subtítulo gris, filas con raya arriba, «+»/«−» de
+   20 px (el abierto muestra «−»), respuesta 17/29.75 y los dos enlaces al final. */
+html body.country-site[data-oficina] .g-faq>h3{font-size:28.8px!important;font-weight:600!important;line-height:35.712px!important;margin:0!important}
+html body.country-site[data-oficina] .g-faq .faq-intro{margin:18px 0 25px!important;font-size:16px!important;line-height:25.6px!important;color:#5e5e5e!important}
+html body.country-site[data-oficina] .g-faq details{border-top:1px solid #c8c8c8!important;border-bottom:0!important}
+html body.country-site[data-oficina] .g-faq summary{display:flex!important;justify-content:space-between;gap:24px;padding:22px 0!important;font-size:16px!important;font-weight:500!important;line-height:24px!important;list-style:none}
+html body.country-site[data-oficina] .g-faq summary>span{font-size:0!important;width:auto;flex:0 0 auto}
+html body.country-site[data-oficina] .g-faq summary>span::after{content:"+";font-size:20px;font-weight:400;line-height:30px}
+html body.country-site[data-oficina] .g-faq details[open] summary>span::after{content:"−"}
+html body.country-site[data-oficina] .g-faq details>p{margin:0!important;padding:0 30px 25px 0!important;font-size:17px!important;line-height:29.75px!important;color:#5e5e5e!important}
+html body.country-site[data-oficina] .g-faq>.text-link{display:flex!important;gap:22px;margin:17px 0 0;padding:10px 0;font-size:17px;font-weight:600;line-height:23.8px;color:#010007}
+html body.country-site[data-oficina] .g-faq>.text-link.video-library{margin-top:0}
+/* Flechas en su <span>: la regla del rótulo de sección («span:first-child» a 13 px) también las tomaba. Tamaños de globaltni. */
+html body.country-site[data-oficina] main a.button>span[aria-hidden]{font-size:22px!important;line-height:28.6px!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important;margin:0!important;vertical-align:baseline!important}
+html body.country-site[data-oficina] main a.text-link>span[aria-hidden]{font-size:20px!important;line-height:28px!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important;margin:0!important}
+html body.country-site[data-oficina] .network .office-regions a>span[aria-hidden]{font-size:18px!important;line-height:28.8px!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;margin:0!important}
+html body.country-site[data-oficina] .network .office-directory{padding-bottom:24px;border-bottom:1px solid #737373}
+html body.country-site[data-oficina] .g-faq>.text-link,html body.country-site[data-oficina] .g-faq>.text-link>span{text-decoration:none!important;border-bottom:0!important}
+/* Red en tableta y celular (globaltni a 390, 4-nov-2026): una columna de países, cifras en 3 columnas de 99 px, botón a todo el ancho. */
+@media(max-width:1199px){html body.country-site[data-oficina] .network .network-numbers{margin:12px 0 0;grid-template-columns:repeat(3,minmax(0,114px))}}
+@media(max-width:760px){
+html body.country-site[data-oficina] .network .network-confidence p{font-size:22px;line-height:27.5px}
+html body.country-site[data-oficina] .network .office-directory h3{font-size:23px;line-height:28.52px}
+html body.country-site[data-oficina] .network .office-regions{grid-template-columns:1fr;gap:18px;margin-top:22px}
+html body.country-site[data-oficina] .network .office-regions a{font-size:17px;line-height:27.2px;gap:5px}
+html body.country-site[data-oficina] .network .network-numbers{grid-template-columns:repeat(3,minmax(0,99px));gap:14px;padding:0 10px;margin:12px 0 0}
+html body.country-site[data-oficina] .network .network-numbers strong{font-size:34px;line-height:37.4px}
+html body.country-site[data-oficina] .network .network-numbers span{margin-top:8px;font-size:11px;line-height:17.6px}
+html body.country-site[data-oficina] .network a.button:has(>span[aria-hidden]){display:flex!important;width:100%;gap:20px;padding:15px 20px!important;font-size:16px!important;line-height:22.4px!important}}
+html body.country-site[data-oficina] main a.button>span[aria-hidden],html body.country-site[data-oficina] main a.text-link>span[aria-hidden]{color:inherit!important;opacity:1!important}
+html body.country-site[data-oficina] .gt-mega .mega-intro p{padding:0!important;margin:0 0 23px!important}
+/* Zonas en la página de hogares como las 3 cajas de globaltni (residential, 1440, 4-nov-2026): fondo #f5f4ef, raya
+   izquierda de 4 px (amarillo #ffd800, rojo #e82227, verde #2b7a4b), relleno 16/20, 19/500. */
+html body.country-site[data-oficina] .s-zona{background:#f5f4ef!important;border-left:4px solid #ffd800!important;border-radius:0!important;padding:16px 20px!important;margin:0 0 14px!important;font-size:19px!important;font-weight:500!important;line-height:31.35px!important;color:#18231d!important}
+html body.country-site[data-oficina] .s-zona-rojo{border-left-color:#e82227!important}
+html body.country-site[data-oficina] .s-zona-verde{border-left-color:#2b7a4b!important}
+html body.country-site[data-oficina] .s-zona strong{font-weight:700}
+@media(max-width:760px){html body.country-site[data-oficina] .s-zona{font-size:17px!important;line-height:27px!important}}
+/* Sección actual y menú abierto como globaltni: raya negra de 2 px, a 4 px del borde inferior del rótulo (4-nov-2026). */
+@media(min-width:961px){
+html body.country-site[data-oficina] .site-nav nav>.nav-menu>summary,html body.country-site[data-oficina] .site-nav nav>a{position:relative}
+html body.country-site[data-oficina] .site-nav nav .nav-menu[open]>summary{box-shadow:none!important}
+html body.country-site[data-oficina] .site-nav nav>.nav-menu[open]>summary::after,html body.country-site[data-oficina] .site-nav nav [data-current-section="true"]::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:#010007}}
+/* Índice del blog como globaltni /es/journal/ (1440, 4-nov-2026). */
+html body.country-site[data-oficina] .journal-wrap>nav{display:flex;gap:12px;padding:30px 0;font-size:13px;line-height:20.8px;color:#5e5e5e}
+html body.country-site[data-oficina] .journal-wrap>nav a{color:#5e5e5e}
+html body.country-site[data-oficina] .journal-heading{display:grid;grid-template-columns:minmax(0,946fr) minmax(0,310fr);gap:56px;align-items:end;padding:42px 0 68px;border-bottom:1px solid #dedede}
+html body.country-site[data-oficina] .journal-heading h1{margin:0;font-size:67.68px;font-weight:900;line-height:71.064px;letter-spacing:-.012em;color:#18231d}
+html body.country-site[data-oficina] .journal-heading p{margin:0;padding:0 0 5px;font-size:19px;line-height:31.35px;color:#18231d}
+html body.country-site[data-oficina] .journal-story{display:grid;grid-template-columns:150px minmax(0,1fr) 280px;gap:40px;align-items:center;padding:52px 0;border-bottom:1px solid #dedede}
+html body.country-site[data-oficina] .story-edition{display:grid;gap:12px;align-self:start;font-size:13px;line-height:20.8px;color:#5e5e5e}
+html body.country-site[data-oficina] .story-edition>span:first-child{margin:0 0 15px;font-family:MachoteDisplay,Machote,Arial,sans-serif;font-size:36px;font-weight:700;line-height:36px;color:#010007}
+html body.country-site[data-oficina] .story-edition .story-topic{font-size:13px;color:#5e5e5e}
+html body.country-site[data-oficina] .story-copy h2{margin:0;font-size:37px;font-weight:800;line-height:41.81px;letter-spacing:-.01em;color:#18231d}
+html body.country-site[data-oficina] .story-copy h2 a{color:inherit;text-decoration:none}
+html body.country-site[data-oficina] .story-copy p{margin:20px 0 14px;font-size:19px;line-height:31.35px;color:#5e5e5e}
+html body.country-site[data-oficina] .story-copy .text-link{display:inline-flex;gap:22px;padding:10px 0;font-size:15px;font-weight:600;line-height:21px;color:#18231d}
+html body.country-site[data-oficina] .story-image{margin:0}
+html body.country-site[data-oficina] .story-image img{display:block;width:100%;height:auto;object-fit:contain}
+@media(max-width:960px){html body.country-site[data-oficina] .journal-heading{grid-template-columns:1fr;gap:18px;padding:24px 0 40px}html body.country-site[data-oficina] .journal-heading h1{font-size:46px;line-height:50px}
+html body.country-site[data-oficina] .journal-story{grid-template-columns:1fr;gap:18px;padding:36px 0}html body.country-site[data-oficina] .story-edition{grid-template-columns:auto auto 1fr;align-items:baseline}html body.country-site[data-oficina] .story-edition>span:first-child{margin:0;font-size:28px}
+html body.country-site[data-oficina] .story-copy h2{font-size:27px;line-height:32px}html body.country-site[data-oficina] .story-copy p{font-size:17px;line-height:28px}html body.country-site[data-oficina] .story-image-link{order:-1}}
+/* Cierre de las páginas internas como globaltni (1440 y 390, 4-nov-2026): banda amarilla con la foto del técnico de Truly
+   abajo a la derecha (/assets/contact-technician-20260924.webp de globaltni), título 57.6/800 con 64 px de margen. */
+html body.country-site[data-oficina] .s-closing{background:#ffd800!important;padding:70px 0 0!important}
+html body.country-site[data-oficina] .s-closing>.wrap{max-width:1312px;min-height:250px;padding:64px 430px 134px 64px!important;background:url(/truly-nolen-cali-colombia/oficinas/assets/contacto-tecnico-truly.webp) no-repeat 95% 100%/auto 88%!important}
+html body.country-site[data-oficina] .s-closing h2{margin:0 0 24px!important;font-family:MachoteDisplay,Machote,Arial,sans-serif;font-size:57.6px!important;font-weight:800!important;line-height:62.208px!important;color:#18231d}
+html body.country-site[data-oficina] .s-closing h2+p{margin:0 0 26px!important;font-size:19px!important;line-height:31.35px!important;color:#18231d}
+html body.country-site[data-oficina] .s-closing .s-closing-actions{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+html body.country-site[data-oficina] .s-closing .button{display:flex!important;gap:28px;padding:16px 23px!important;font-size:15px!important;font-weight:600!important}
+html body.country-site[data-oficina] .s-closing .text-link{display:flex;gap:22px;padding:10px 0;font-size:15px;font-weight:600;color:#18231d}
+@media(max-width:760px){html body.country-site[data-oficina] .s-closing>.wrap{padding:28px 22px 210px 28px!important;background-size:auto 205px!important;background-position:calc(100% - 18px) 100%!important}html body.country-site[data-oficina] .s-closing h2{font-size:30px!important;line-height:34px!important}}
+/* Miga de las internas como globaltni: 13/20.8 gris (4-nov-2026). */
+html body.country-site[data-oficina] :is(.s-intro,.ct-breadcrumb)>nav,html body.country-site[data-oficina] .ct-breadcrumb nav{display:flex;flex-wrap:wrap;gap:12px;font-size:13px!important;line-height:20.8px!important;color:#5e5e5e}
+html body.country-site[data-oficina] :is(.s-intro,.ct-breadcrumb) nav a{color:#5e5e5e}
+html body.country-site[data-oficina] .ct-breadcrumb{padding-top:30px;padding-bottom:0}
+html body.country-site[data-oficina] .story-copy .text-link{text-decoration:none!important;border-bottom:0!important}
+/* Preguntas plegables de artículos y páginas como globaltni (journal, 1440, 4-nov-2026): título 30/800, «+»/«−» 22 px, raya abajo. */
+html body.country-site[data-oficina] details.ux-answer{border:0!important;border-bottom:1px solid #d0d0d0!important}
+html body.country-site[data-oficina] details.ux-answer>summary{display:flex!important;justify-content:space-between;align-items:center;gap:24px;padding:28px 0 20px!important;list-style:none;cursor:pointer}
+html body.country-site[data-oficina] details.ux-answer>summary::-webkit-details-marker{display:none}
+html body.country-site[data-oficina] details.ux-answer>summary::after{content:"+";flex:0 0 auto;font-size:22px;font-weight:400;line-height:1}
+html body.country-site[data-oficina] details.ux-answer[open]>summary::after{content:"−"}
+html body.country-site[data-oficina] details.ux-answer>summary h3{margin:0!important;font-size:30px!important;font-weight:800!important;line-height:1.2!important}
+html body.country-site[data-oficina] details.ux-answer>article p{font-size:19px!important;line-height:31.35px!important;color:#18231d}
+@media(max-width:760px){html body.country-site[data-oficina] details.ux-answer>summary h3{font-size:21px!important}html body.country-site[data-oficina] details.ux-answer>article p{font-size:17px!important;line-height:28px!important}}
+html body.country-site[data-oficina] details.ux-answer>summary h3{padding-left:18px!important}
+/* «En esta página» de las guías de plagas como globaltni: cerrado al abrir la página, 14/700, raya arriba y abajo #d0d0d0,
+   «+» de 20 px que pasa a «−» al abrir (4-nov-2026). */
+html body.country-site[data-oficina] .pest-index{border-top:1px solid #d0d0d0!important;border-bottom:1px solid #d0d0d0!important}
+html body.country-site[data-oficina] .pest-index>summary{display:flex!important;justify-content:space-between;align-items:center;padding:18px 0!important;font-size:14px!important;font-weight:700!important;list-style:none;cursor:pointer}
+html body.country-site[data-oficina] .pest-index>summary::-webkit-details-marker{display:none}
+html body.country-site[data-oficina] .pest-index>summary>span{font-size:0!important}
+html body.country-site[data-oficina] .pest-index>summary>span::after{content:"+";font-size:20px;font-weight:400}
+html body.country-site[data-oficina] .pest-index[open]>summary>span::after{content:"−"}
+/* Hero en celular como globaltni (390, 4-nov-2026; el dueño pidió «como el de Truly, que tiene las dos»): arriba velo claro
+   (#f7f6f1 .81→.57 al 22 %, nada al 38 %) con rótulo y título oscuros rgb(23,33,42); abajo velo oscuro con frase, botón y
+   enlaces en blanco. Posiciones de globaltni: rótulo 30, título 62, frase 512, botón 578, enlaces al fondo. */
+@media(max-width:760px){
+html body.country-site[data-oficina][data-machote] .cinema::after,html body.country-site[data-oficina] .cinema::after{background:linear-gradient(180deg,rgba(247,246,241,.808) 0,rgba(247,246,241,.565) 22%,transparent 38%),linear-gradient(0deg,rgba(16,24,32,.94) 0,rgba(16,24,32,.64) 22%,transparent 41%)!important}
+html body.country-site[data-oficina] .cinema .hero-heading .eyebrow,html body.country-site[data-oficina] .cinema .hero-heading h1{color:rgb(23,33,42)!important;text-shadow:none!important}
+html body.country-site[data-oficina] .cinema .hero-heading h1{margin-top:14px!important}
+html body.country-site[data-oficina] .cinema .hero-action{top:512px!important}
+html body.country-site[data-oficina] .cinema>.hero-routes{position:absolute!important;left:24px!important;right:110px!important;top:auto!important;bottom:16px!important;margin:0!important;z-index:2}}
+/* Carro de la historia: al pasar el mouse avanza y se inclina, como globaltni (.7s, 18 px, −1°). */
+html body.country-site[data-oficina] .history-car-link{display:block;padding:20px 0 34px;overflow:hidden;border-radius:4px}
+html body.country-site[data-oficina] .history-car-link img{transition:transform .7s cubic-bezier(.18,.65,.25,1)}
+html body.country-site[data-oficina] .history-car-link:is(:hover,:focus-visible) img{transform:translateX(18px) rotate(-1deg)}
+@media(prefers-reduced-motion:reduce){html body.country-site[data-oficina] .history-car-link img{transition:none}}
+@media(max-width:760px){
+html body.country-site[data-oficina] .cinema .hero-heading .eyebrow *{color:rgb(23,33,42)!important;text-shadow:none!important}
+html body.country-site[data-oficina] .cinema>.hero-routes{right:96px!important;flex-wrap:nowrap!important;justify-content:space-between!important;gap:8px!important;height:48px}
+html body.country-site[data-oficina] .cinema>.hero-routes a{padding:10px 0!important;white-space:nowrap;min-height:48px}}
+/* Nombre de la marca en el encabezado como globaltni (medido 1440 y 390, 4-nov-2026): «Truly Nolen» −0.01em; subtítulo
+   (país) con letras separadas .055em (.03em en celular), línea 1.4 y 5 px arriba (3 en celular). */
+html body.country-site[data-oficina] .site-nav>.brand span{letter-spacing:-.01em!important;line-height:1.05!important}
+html body.country-site[data-oficina] .site-nav>.brand small{letter-spacing:.055em!important;line-height:1.4!important;margin-top:5px!important}
+@media(max-width:960px){html body.country-site[data-oficina] .site-nav>.brand span{line-height:1.15!important}html body.country-site[data-oficina] .site-nav>.brand small{letter-spacing:.03em!important;margin-top:3px!important}}
+/* Encabezado pegado al bajar, como globaltni: en computadora se esconde solo la franja gris (top −44) y queda la amarilla;
+   en tableta y celular queda entero (top 0). La regla base traía «inset:auto» después de «top» y lo anulaba (4-nov-2026). */
+html body.country-site[data-oficina]>.site-nav,html body.country-site[data-oficina][data-machote]:has(.cinema)>.site-nav{position:sticky!important;top:-44px!important;bottom:auto!important;left:auto!important;right:auto!important}
+@media(max-width:960px){html body.country-site[data-oficina]>.site-nav,html body.country-site[data-oficina][data-machote]:has(.cinema)>.site-nav{top:0!important}}
+/* Buscador como globaltni (la lupa se llama .gt-buscar: immersive.js del catálogo convierte todo .search-open en botón del chat)
+   */
+/* Buscador como globaltni (1440 y 390, 4-nov-2026): lupa de 21 px en un botón de 48; ventana de 680 px con «¿Qué está
+   buscando?» 36/600, cerrar redondo gris de 44, campo de 54 px, contador 12 px y resultados con su categoría a la derecha. */
+html body.country-site[data-oficina] .site-nav .gt-buscar{border:0;background:none;width:48px;min-height:48px;display:grid;place-items:center;padding:1px 6px;color:#010007;cursor:pointer}
+html body.country-site[data-oficina] .site-nav .gt-buscar span{display:none}
+html body.country-site[data-oficina] .site-nav .gt-buscar svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.5}
+html body.country-site[data-oficina] .search-dialog{width:min(680px,calc(100% - 34px));max-height:85dvh;border:0;border-radius:7px;padding:31px 34px 25px;color:#010007;background:#fff;box-shadow:0 35px 90px #0100074d}
+html body.country-site[data-oficina] .search-dialog::backdrop{background:#01000766;backdrop-filter:blur(5px)}
+html body.country-site[data-oficina] .search-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}
+html body.country-site[data-oficina] .search-heading h2{margin:0;font-size:36px;font-weight:600;line-height:1.05;color:#010007}
+html body.country-site[data-oficina] .search-close{border:0;background:#efefef;width:44px;height:44px;font-size:28px;border-radius:50%;flex-shrink:0;cursor:pointer;color:#010007}
+html body.country-site[data-oficina] .search-dialog label{font-size:12px;display:block;margin-bottom:10px}
+html body.country-site[data-oficina] .search-dialog input{width:100%;min-height:54px;border:1px solid #aeaeae;border-radius:3px;padding:12px 14px;font-size:16px;font-family:inherit}
+html body.country-site[data-oficina] .search-count{font-size:12px;color:#5e5e5e;margin:16px 0 6px}
+html body.country-site[data-oficina] .search-results{list-style:none;margin:0;padding:0}
+html body.country-site[data-oficina] .search-results a{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #dedede;padding:13px 4px;min-height:54px;font-size:16px;color:#010007;text-decoration:none}
+html body.country-site[data-oficina] .search-results small{font-size:11px;color:#5e5e5e;white-space:nowrap}
+@media(max-width:960px){
+html body.country-site[data-oficina] .site-nav nav#country-navigation .gt-buscar{width:100%;min-height:60px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dedede;padding:10px 0;font-size:20px;font-weight:600}
+html body.country-site[data-oficina] .site-nav nav#country-navigation .gt-buscar span{display:inline}
+html body.country-site[data-oficina] .search-dialog{width:calc(100% - 24px);max-height:calc(100svh - 48px);padding:22px}
+html body.country-site[data-oficina] .search-heading h2{font-size:28px}
+html body.country-site[data-oficina] .search-results a{font-size:15px}
+html body.country-site[data-oficina] .search-results small{font-size:10px}}
+/* Correcciones de la pasada del ojo de diseño (4-nov-2026). */
+@media(max-width:760px){html body.country-site[data-oficina][data-oficina] .cinema .hero-heading .eyebrow span,html body.country-site[data-oficina][data-oficina] .cinema .hero-heading .eyebrow *{color:rgb(23,33,42)!important}}
+/* Plagas en una fila con 6 tarjetas (globaltni tiene 5): de 961 a 1100 los títulos bajan a 20 px para que no se parta ninguna palabra. */
+html body.country-site[data-oficina] .g-plagas-grid h3{overflow-wrap:normal!important;word-break:normal!important;hyphens:manual!important}
+@media(min-width:961px) and (max-width:1100px){html body.country-site[data-oficina] .g-plagas-grid:has(>article:nth-child(6)) h3{font-size:20px!important;line-height:1.25!important}}
+/* Miga de las guías de plagas: 13/20.8 gris, sin negrita, en una línea, como servicios, blog y globaltni. */
+html body.country-site[data-oficina] .pest-breadcrumb,html body.country-site[data-oficina] .pest-breadcrumb *{font-size:13px!important;line-height:20.8px!important;font-weight:400!important;color:#5e5e5e!important}
+html body.country-site[data-oficina] .pest-breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 12px}
+html body.country-site[data-oficina] .pest-breadcrumb a{min-height:0!important}
+/* Pestañas entre plagas en celular: en filas, sin desplazarse ni cortarse, como globaltni. */
+@media(max-width:760px){html body.country-site[data-oficina] .pest-families{display:flex!important;flex-wrap:wrap!important;overflow:visible!important;white-space:normal!important;gap:4px 18px}}
+/* Banda de cifras como globaltni (/es/, 1440, 4-nov-2026): relleno 40/64, raya solo abajo, 4 columnas 302/332/302/377 con
+   separadores grises y 36 px de relleno; cuarta columna con el carro 100×65 y dos líneas (17/500 y 12/400). */
+@media(min-width:961px){
+html body.country-site[data-oficina] .g-cifras{padding:40px 64px!important;border-top:0!important;border-bottom:1px solid rgb(226,227,222)!important}
+html body.country-site[data-oficina] .g-cifras-in{display:grid!important;grid-template-columns:302fr 332fr 302fr 377fr!important;gap:0!important;max-width:1312px;margin:0 auto!important;padding:0!important}
+html body.country-site[data-oficina] .g-cifras-in>div{padding:0 36px!important;border:0!important;border-left:1px solid rgb(217,221,215)!important;margin:0!important;min-width:0}
+html body.country-site[data-oficina] .g-cifras-in>div:first-child{padding:0 36px 0 0!important;border-left:0!important}
+html body.country-site[data-oficina] .g-cifras-in>div>b{font-size:39px!important;font-weight:500!important;line-height:44.85px!important;color:rgb(34,40,36)!important}
+html body.country-site[data-oficina] .g-cifras-in>div>span{font-size:19px!important;font-weight:500!important;line-height:24.7px!important;color:rgb(34,40,36)!important}
+html body.country-site[data-oficina] .g-cifras-in>div>small{display:block!important;margin:9px 0 0!important;font-size:14px!important;font-weight:400!important;line-height:21.7px!important;color:rgb(91,98,92)!important}
+html body.country-site[data-oficina] .g-cifras-in>.g-cifra-carro{display:flex!important;align-items:center!important;gap:18px!important;padding:0 0 0 36px!important}
+html body.country-site[data-oficina] .g-cifra-carro img{width:100px!important;height:65px!important;flex:0 0 100px;object-fit:contain}
+html body.country-site[data-oficina] .g-cifra-carro>span{display:block!important;font-size:17px!important;font-weight:500!important;line-height:23.8px!important;color:rgb(34,40,36)!important;white-space:nowrap}
+html body.country-site[data-oficina] .g-cifra-carro>span small{display:block!important;margin:5px 0 0!important;font-size:12px!important;font-weight:400!important;line-height:18.6px!important;color:rgb(91,98,92)!important}}
+@media(min-width:961px){html body.country-site[data-oficina] .g-cifras-in>div>span{margin-left:.3em!important}html body.country-site[data-oficina] .g-cifras-in>div{min-height:85px}html body.country-site[data-oficina] .g-cifra-carro>span{letter-spacing:normal!important}}
+html body.country-site[data-oficina] .g-com-foto em{display:flex!important;justify-content:space-between!important;align-items:center;gap:22px;font-style:normal}html body.country-site[data-oficina] .g-com-foto em>span{font-size:20px!important}
+/* Zonas de la portada como globaltni (#residencial, 1440): imagen 659×495 (contain) y texto, columnas 659/589, separación 64, relleno 72. */
+@media(min-width:961px){html body.country-site[data-oficina] .g-zonas{padding:72px 0!important}html body.country-site[data-oficina] .g-zonas-grid{display:grid!important;grid-template-columns:659fr 589fr!important;gap:64px!important;max-width:1312px;margin:0 auto!important;align-items:center}
+html body.country-site[data-oficina] .g-zonas-fig{margin:0!important}html body.country-site[data-oficina] .g-zonas-fig img{width:100%!important;height:auto!important;max-height:495px;object-fit:contain!important;border-radius:0!important}}
+/* Pesos de letra como globaltni (su @font-face, 4-nov-2026): 1–549 → archivo 400, 550–749 → 600, 750–849 → 800,
+   850–1000 → 900. Antes 650–849 iba al 800 y todo lo de peso 700 salía más negro que en globaltni. */
+@font-face{font-family:Machote;font-weight:550 749;font-display:swap;src:url(../../assets/montserrat-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Machote;font-weight:750 849;font-display:swap;src:url(../../assets/montserrat-latin-800-normal.woff2) format('woff2')}
+/* TEPS como globaltni: el paso sin relleno extra arriba, número 13/600 con 18 px abajo y título de máximo 240 px (se parte como el suyo). */
+@media(min-width:761px){html body.country-site[data-oficina] .teps-step>summary{padding:0!important;font-size:18px!important;font-weight:400!important;line-height:28.8px!important}
+html body.country-site[data-oficina] .teps-flow .flow-number{line-height:13px!important;margin:0 0 18px!important}
+html body.country-site[data-oficina] .teps-flow h3{max-width:240px}
+html body.country-site[data-oficina] .teps-step-copy p{padding-bottom:0!important}}
+/* Carrito del chat como el de globaltni: 112×108, a 16 px de la derecha y 12 px de abajo. */
+html body.country-site[data-oficina] .machote-chat-host .tia{right:16px!important;bottom:12px!important}html body.country-site[data-oficina] .machote-chat-host .tia-fab{width:112px!important;height:108px!important}
+/* Piezas del carrito del chat como globaltni (botón 112×108): carro 108×70 abajo a la izquierda (x2, y38) y globo «Chat»
+   68×36 arriba a la derecha (x44, y0). */
+html body.country-site[data-oficina] .machote-chat-host .tia-fab{position:relative!important}
+html body.country-site[data-oficina] .machote-chat-host .tia-fab .tia-carro{position:absolute!important;left:2px!important;top:38px!important;width:108px!important;height:70px!important;object-fit:contain}
+html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt{position:absolute!important;left:44px!important;top:0!important;width:68px!important;height:36px!important}
+html body.country-site[data-oficina][data-oficina] .machote-chat-host .tia-fab img.tia-carro{width:108px!important;height:70px!important;max-width:none!important;max-height:none!important;min-width:0!important}
+@media(max-width:760px){html body.country-site[data-oficina] .machote-chat-host .tia{right:10px!important;bottom:10px!important}
+html body.country-site[data-oficina] .machote-chat-host .tia-fab{width:88px!important;height:89px!important}
+html body.country-site[data-oficina][data-oficina] .machote-chat-host .tia-fab img.tia-carro{left:1px!important;top:33px!important;width:86px!important;height:56px!important}
+html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt{left:26px!important;top:0!important;width:62px!important;height:32px!important}}
+html body.country-site[data-oficina] .g-zonas-lista li::before{width:9px!important;height:9px!important}html body.country-site[data-oficina] .g-zonas-lista li.g-z-verde::before{background:rgb(110,110,110)!important}html body.country-site[data-oficina] .g-zonas-lista li.g-z-rojo::before{background:rgb(232,34,39)!important}
+/* Ilustración del pie como globaltni: a todo el ancho, 1440×720 (proporción 2:1), pegada abajo. */
+html body.country-site[data-oficina] .local-footer .footer-place{margin:0 calc(50% - 50vw) -8px!important;width:100vw!important;max-width:none!important}
+html body.country-site[data-oficina] .local-footer .footer-place img{display:block;width:100%!important;height:auto!important;aspect-ratio:2/1;max-height:none!important;object-fit:fill!important}
+@media(min-width:961px){html body.country-site[data-oficina] .g-zonas{padding:72px 64px!important}}
+html body.country-site[data-oficina] .pest-breadcrumb a{display:inline-flex!important;align-items:center;min-height:44px!important}
+@media(min-width:961px){html body.country-site[data-oficina] .site-nav nav .nav-menu:not([open]) .gt-mega{display:none!important}
+html body.country-site[data-oficina] .site-nav nav .gt-mega{grid-template-columns:minmax(0,414fr) minmax(0,828fr)!important}
+html body.country-site[data-oficina] .gt-mega .mega-links{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}}
+@media(min-width:961px){html body.country-site[data-oficina] .g-cifra-carro>span{white-space:normal!important;min-width:0}html body.country-site[data-oficina] .g-cifras-in>.g-cifra-carro{min-width:0}}
+/* Como globaltni: el paisaje del pie se ve recortado por arriba (contenedor 518 de 1440 de ancho, imagen 2:1 pegada abajo). */
+html body.country-site[data-oficina] .local-footer .footer-place{height:calc(100vw * 518 / 1440)!important;overflow:hidden!important;display:flex!important;flex-direction:column;justify-content:flex-end}
+html body.country-site[data-oficina] .local-footer .footer-place img{flex:0 0 auto}
+/* Globo «Chat» del carrito como el de globaltni (.tn-chat-cue, 4-nov-2026): borde 1 px, esquinas 12 (10 en celular),
+   «Chat» en Montserrat 14/700 (13 en celular) centrado, y piquito de 9 px inclinado (skewY −38°), sin borde. */
+html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt{display:grid!important;place-items:center!important;border:1px solid #010007!important;border-radius:12px!important;background:#ffd800!important;font-size:0!important}
+html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt::before{font-family:Machote,Montserrat,Arial,sans-serif!important;font-size:14px!important;font-weight:700!important;line-height:14px!important;color:#010007!important}
+html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt::after{width:9px!important;height:9px!important;bottom:-6px!important;left:37px!important;border:0!important;background:#ffd800!important;transform:skewY(-38deg)!important}
+@media(max-width:760px){html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt{border-radius:10px!important}html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt::before{font-size:13px!important;line-height:13px!important}html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt::after{left:31px!important}}
+html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt::after{border:0!important;border-right:1px solid #010007!important;border-bottom:1px solid #010007!important}
+html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt{padding:11px 13px!important;align-content:start!important;place-items:start center!important}
+@media(max-width:760px){html body.country-site[data-oficina] .machote-chat-host .tia-fab-txt{padding:10px 13px!important}}
+/* Hero en computadora como globaltni (.car-copy, 4-nov-2026): el bloque de texto anclado ABAJO a 115 px; con ventanas de
+   760 px de alto o menos, a 100 px, título 54 px y frase con márgenes 16/20 (si no, «Servicio premium» pisa los enlaces). */
+@media(min-width:1101px){html body.country-site[data-oficina] .cinema .hero-text{top:auto!important;bottom:115px!important}}
+@media(min-width:1101px) and (max-height:760px){html body.country-site[data-oficina] .cinema .hero-text{bottom:100px!important}
+html body.country-site[data-oficina] .cinema .hero-text h1{font-size:54px!important}
+html body.country-site[data-oficina] .cinema .hero-action{margin-top:16px!important}html body.country-site[data-oficina] .cinema .hero-action>p{margin-bottom:20px!important}}
+/* Hogares: las 3 zonas como globaltni (#zonas, su marcado y sus reglas, 4-nov-2026): se ocultan los párrafos de contexto y las
+   tres líneas de zona van en cajas (roja, amarilla, verde en español). */
+html body.country-site[data-oficina] section.s-lead-pair:has(+#zonas) .s-prose p:nth-child(n+3),html body.country-site[data-oficina] #zonas .s-prose p:nth-child(-n+2),html body.country-site[data-oficina] #zonas .s-prose p:nth-child(7){display:none!important}
+html body.country-site[data-oficina] #zonas .s-prose p:nth-child(3),html body.country-site[data-oficina] #zonas .s-prose p:nth-child(4),html body.country-site[data-oficina] #zonas .s-prose p:nth-child(5){background:#f5f4ef;border-inline-start:4px solid #ffd800;padding:16px 20px;border-radius:6px;margin-bottom:14px;font-weight:500}
+html body.country-site[data-oficina] #zonas .s-prose p:nth-child(3){border-inline-start-color:#e82227}
+html body.country-site[data-oficina] #zonas .s-prose p:nth-child(4){border-inline-start-color:#ffd800}
+html body.country-site[data-oficina] #zonas .s-prose p:nth-child(5){border-inline-start-color:#2b7a4b}
+/* Secciones de las páginas copiadas de globaltni: la raya de arriba; rellenos y medidas los pone el ajuste medido. */ html body.country-site[data-oficina] .gt-copia .s-section{border-top:1px solid rgb(216,216,216)}
+/* Página comercial copiada de globaltni: sus medidas mandan sobre las reglas generales del sitio (1440, 4-nov-2026). */
+html body.country-site[data-oficina] .ct-commercial .ct-hero h1{font-family:MachoteDisplay,Machote,Arial,sans-serif!important;font-size:67.68px!important;font-weight:900!important;line-height:71.064px!important}
+html body.country-site[data-oficina] .ct-commercial .ct-hero-photo figcaption{display:none!important}
+html body.country-site[data-oficina] .ct-commercial .ct-sector h2{font-family:MachoteDisplay,Machote,Arial,sans-serif!important;font-size:46px!important;font-weight:800!important;line-height:49.68px!important;max-width:none!important}
+html body.country-site[data-oficina] .ct-commercial :is(.ct-prose p,.ct-facilities li,.ct-kicker,.ct-intro){font-size:19px!important;line-height:31.35px!important;font-weight:400!important}
+html body.country-site[data-oficina] .ct-commercial .ct-facilities h3{font-family:MachoteDisplay,Machote,Arial,sans-serif!important;font-size:24px!important;font-weight:800!important;line-height:28.8px!important}
+@media(max-width:760px){html body.country-site[data-oficina] .ct-commercial .ct-hero h1{font-size:46px!important;line-height:1.05!important}html body.country-site[data-oficina] .ct-commercial .ct-sector h2{font-size:32px!important;line-height:1.1!important}html body.country-site[data-oficina] .ct-commercial :is(.ct-prose p,.ct-facilities li,.ct-kicker,.ct-intro){font-size:17px!important;line-height:28px!important}}
+@media(max-width:760px){html body.country-site[data-oficina] .ct-commercial .ct-hero h1{font-size:43px!important;line-height:45.15px!important}html body.country-site[data-oficina] .ct-commercial .ct-sector h2{font-size:34px!important;line-height:37.4px!important}html body.country-site[data-oficina] .ct-commercial :is(.ct-prose p,.ct-facilities li,.ct-kicker,.ct-intro){font-size:19px!important;line-height:31.35px!important}}
+/* Página comercial copiada de globaltni: lo que las reglas generales del sitio le cambiaban (medido elemento por elemento con
+   scripts/comparar-identico.mjs, 4-nov-2026). */
+html body.country-site[data-oficina] .ct-commercial .ct-breadcrumb{padding:24px 0!important}
+html body.country-site[data-oficina] .ct-commercial h1{letter-spacing:-.012em!important}
+html body.country-site[data-oficina] .ct-commercial h2{letter-spacing:-.003em!important}
+html body.country-site[data-oficina] .ct-commercial a.button{font-size:15px!important;line-height:19.5px!important;padding:16px 23px!important;border:1px solid transparent!important}
+html body.country-site[data-oficina] .ct-commercial img{border-radius:0!important;object-fit:fill!important}
+/* Franja de cifras en celular = globaltni .tn-brand-band a 390 (medido 5-nov-2026, ojo de diseño): sin el respiro genérico
+   de 64 px (línea de main>section::after), textos chicos 12/18,6 con ancho 125, y la firma del carro en bloque 13/18,2 + 11/17,05. */
+@media(max-width:760px){
+html body.country-site[data-oficina][data-oficina] .g-cifras::after{display:none!important}
+html body.country-site[data-oficina][data-oficina] .g-cifras-in{padding:30px 24px!important;gap:26px 0!important}
+html body.country-site[data-oficina][data-oficina] .g-cifras-in>div>b{line-height:34.5px!important}
+html body.country-site[data-oficina][data-oficina] .g-cifras-in>div:not(.g-cifra-carro)>span{line-height:19.5px!important}
+html body.country-site[data-oficina][data-oficina] .g-cifras-in>div{min-height:98px}
+html body.country-site[data-oficina][data-oficina] .g-cifras-in>div>small{font-size:12px!important;line-height:18.6px!important;max-width:125px;margin-top:7px!important}
+html body.country-site[data-oficina][data-oficina] .g-cifras-in>.g-cifra-carro{display:block!important;padding:0 0 0 20px!important}
+html body.country-site[data-oficina][data-oficina] .g-cifra-carro img{width:62px!important;height:40px!important;margin:0 0 4px!important}
+html body.country-site[data-oficina][data-oficina] .g-cifra-carro>span{display:block!important;font-size:13px!important;line-height:18.2px!important;font-weight:500!important}
+html body.country-site[data-oficina][data-oficina] .g-cifra-carro>span small{display:block!important;font-size:11px!important;line-height:17.05px!important;margin:5px 0 0!important;max-width:125px}
+}
+/* «Un programa para su espacio.»: globaltni lo pone en «Montserrat Display» 650, que carga el archivo de 800 (medido 1440,
+   5-nov-2026: ancho del texto 574 px contra 554 con Machote 650 → archivo 600). MachoteDisplay 650-849 = ese mismo archivo. */
+html body.country-site[data-oficina] .g-programa .g-cab h2{font-family:MachoteDisplay,Machote,Arial,sans-serif!important}
+/* «En esta página» de las plagas = globaltni (/es/pests/cockroaches/, medido 1440 y 390, 5-nov-2026): caja gris 240 con
+   relleno lateral de 24 px; cerrada, la lista no ocupa lugar. */
+html body.country-site[data-oficina] details.pest-index{background:rgb(240,240,240)!important;padding:0 24px!important}
+html body.country-site[data-oficina] details.pest-index:not([open])>ol{display:none!important}
+/* Flecha de «Explore el servicio comercial» en la foto de operación = globaltni (.photo-label a span: en línea, al final del
+   enlace con space-between, 16/24). Una regla genérica de flechas la dejaba absoluta bajo el título (5-nov-2026). */
+html body.country-site[data-oficina] a.g-com-foto em>span[aria-hidden]{position:static!important;inset:auto!important;width:auto!important;height:auto!important;font-size:16px!important;line-height:24px!important;transform:none!important}
+/* Laptop chica (961-1100): el hero también mide la pantalla menos el encabezado, como globaltni (1024x900 → 773 px,
+   medido 5-nov-2026). Antes la regla arrancaba en 1101 y aquí ocupaba los 900 completos. */
+@media(min-width:961px) and (max-width:1100px){html body.country-site[data-oficina] .cinema{height:calc(100vh - 127px)!important;min-height:580px!important}}
+/* Commerces de Francia (CT_CSS, página comercial de globaltni con bloques propios debajo), ojo de diseño 5-nov-2026:
+   - los bloques propios (s-section) van al mismo ancho que .ct-wrap de globaltni y con su tinta;
+   - «Chaque activité mérite de l'attention.» como «Every industry deserves attention.» (574 px, Display 800, 44 px);
+   - .ct-related va oculto en todos los anchos, igual que en globaltni y en la copia en español. */
+html body.country-site[data-oficina]:has(.ct-commercial) main .wrap.s-section{width:min(1248px,calc(100% - 112px))!important;max-width:none!important;margin-inline:auto!important;padding-inline:0!important}
+@media(max-width:1199px){html body.country-site[data-oficina]:has(.ct-commercial) main .wrap.s-section{width:calc(100% - 80px)!important}}
+@media(max-width:959px){html body.country-site[data-oficina]:has(.ct-commercial) main .wrap.s-section{width:calc(100% - 48px)!important}}
+@media(max-width:620px){html body.country-site[data-oficina]:has(.ct-commercial) main .wrap.s-section{width:calc(100% - 40px)!important}}
+html body.country-site[data-oficina]:has(.ct-commercial) main .wrap.s-section h2{color:rgb(1,0,7)!important}
+html body.country-site[data-oficina] .ct-commercial .ct-other h2{max-width:574px!important;font-family:MachoteDisplay,Machote,Arial,sans-serif!important;font-weight:800!important}
+@media(min-width:1200px){html body.country-site[data-oficina] .ct-commercial .ct-other h2{font-size:44px!important}}
+html body.country-site[data-oficina] .ct-commercial .ct-related{display:none!important}
+</style><link rel="stylesheet" href="/truly-nolen-cali-colombia/landing/chat.css?v=56679acf6988"/><link rel="stylesheet" href="/truly-nolen-cali-colombia/machotes/assets/immersive.css?v=eae9ed883f63"/><script defer src="/truly-nolen-cali-colombia/machotes/assets/immersive.js?v=c9e8d807cdac"></script><script defer src="/truly-nolen-cali-colombia/landing/chat.js?v=70b56b58a619"></script><style>/* Cali only (5-nov-2026). Everything else comes from the reference, which is already the globaltni.com/es replica
+   (recipe R1/R19: general !important rules of the site would override the measured replica, so they were removed;
+   the 4-nov version is in respaldos/2026-11-05-antes-receta-5nov/src/receta.css). */
 /* Cut-out pest photos (white background) get a soft frame so they do not look like empty boxes. */
 body.country-site[data-oficina] .g-pl-fig:has(img[src*="rata-truly"],img[src*="cucaracha-americana-foto"]){background:#f3f2ee}
 body.country-site[data-oficina] .g-pl-fig img:is([src*="rata-truly"],[src*="cucaracha-americana-foto"]){object-fit:contain!important;mix-blend-mode:multiply;padding:8%}
-
-/* receta 4-nov-2026: the footer watercolor uses 100vw (counts the scrollbar) -> 8 px sideways scroll; clip it.
-   Sector anchors land below the sticky header. */
-body{overflow-x:clip}
-[id^="sector-"],#indice,#otros-sectores{scroll-margin-top:96px}
-</style></head><body class="country-site jardin" data-machote="cali" data-oficina="cali"><style>.aviso-borrador{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:2147483000;max-width:calc(100% - 32px);text-align:center;background:#17212a;color:#f7f6f1;font:600 13px/1.4 system-ui,-apple-system,sans-serif;padding:9px 13px;border-radius:6px}@media(max-width:760px){.aviso-borrador{top:72px;bottom:auto;left:0;right:0;transform:none;max-width:none;border-radius:0;padding:7px 16px;font-size:12px}}</style><div role="note" class="aviso-borrador">Vista previa · sitio en preparación, todavía no está terminado</div><a class="skip" href="#contenido">Saltar al contenido</a><header class="site-nav"><a class="brand" href="/truly-nolen-cali-colombia/oficinas/cali/#inicio"><img src="/truly-nolen-cali-colombia/tn-emblema.png" alt=""/><span>Truly Nolen <small data-preview-office>Cali</small></span></a><button class="menu-toggle country-menu-toggle" type="button" aria-expanded="false" aria-controls="country-navigation">Menú <span aria-hidden="true">☰</span></button><nav id="country-navigation" aria-label="Navegación"><!-- my-truly:start --><div class="truly-portals" aria-label="Portales Truly"><a class="my-truly-access" href="https://vip.trulynoleninternational.com/" target="_blank" rel="noopener noreferrer">My Truly</a><a class="inside-truly-access" href="https://www.trulynoleninternational.com/TrulyInside/index.asp?lng=1" target="_blank" rel="noopener noreferrer">Inside Truly</a></div><!-- my-truly:end --><details class="nav-menu"><summary>Servicios <span aria-hidden="true">⌄</span></summary><div class="country-dropdown"><a href="/truly-nolen-cali-colombia/oficinas/cali/#servicios">Ver servicios</a><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/hogares/">Hogares</a><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/comercios/">Comercios</a><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/industria/">Industria</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#metodo">Cómo trabajamos</a></div></details><details class="nav-menu"><summary>Plagas <span aria-hidden="true">⌄</span></summary><div class="country-dropdown"><a href="/truly-nolen-cali-colombia/oficinas/cali/#plagas">Ver guía de plagas</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/zancudos/">Zancudos</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/ratas-y-ratones/">Ratas y ratones</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/cucarachas/">Cucarachas</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/hormigas/">Hormigas</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/comejen/">Comején</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/alacranes/">Alacranes</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#consulta">No sé qué plaga es</a></div></details><a href="/truly-nolen-cali-colombia/oficinas/cali/#cobertura">Cobertura</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#nosotros">Nosotros</a><a href="/truly-nolen-cali-colombia/oficinas/cali/blog/">Blog</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#contacto">Contacto</a><a class="mobile-contact" href="/truly-nolen-cali-colombia/oficinas/cali/#preguntas">Preguntas frecuentes</a></nav><a class="button" href="/truly-nolen-cali-colombia/oficinas/cali/#contacto">Solicitar atención</a></header><main id="contenido"><section class="wrap s-intro"><nav aria-label="Ruta"><a href="/truly-nolen-cali-colombia/oficinas/cali/">Inicio</a><span aria-hidden="true">/</span>Accesibilidad</nav><h1>Accesibilidad</h1></section><section class="wrap s-section s-prose"><p>Puedes recorrer este sitio con el teclado, ampliar el texto y usar la preferencia de movimiento reducido de tu dispositivo. Si tu dispositivo pide reducir el movimiento, se muestra una imagen fija. Si encuentras una dificultad de acceso, cuéntasela a Truly AI en el chat.</p></section><section id="contacto" class="s-closing"><div class="wrap"><h2>Cuéntanos qué necesitas proteger.</h2><p>Todo empieza por contarnos qué viste. Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><div class="s-closing-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="https://wa.me/15202145675" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a><a class="text-link" href="/truly-nolen-cali-colombia/oficinas/cali/#consulta">Consultar cobertura →</a></div></div></section></main><footer class="country-footer local-footer" aria-label="Pie de página"><div class="footer-intro"><a class="brand" href="/truly-nolen-cali-colombia/oficinas/cali/"><img src="/truly-nolen-cali-colombia/tn-emblema.png" alt=""/><span>Truly Nolen <small data-preview-office>Cali</small></span></a><p>Cuidamos lo que<br/>más te importa.</p><a class="text-link footer-top" href="#contenido">Volver arriba ↑</a></div><div class="footer-columns"><details class="pie-col" open><summary>Servicios</summary><nav aria-label="Servicios del pie"><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/hogares/">Hogares</a><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/comercios/">Comercios</a><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/industria/">Industria</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#consulta">Otras consultas</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#metodo">Cómo trabajamos</a></nav></details><details class="pie-col" open><summary>Guía de plagas</summary><nav aria-label="Guía de plagas del pie"><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/zancudos/">Zancudos</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/ratas-y-ratones/">Ratas y ratones</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/cucarachas/">Cucarachas</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/hormigas/">Hormigas</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/comejen/">Comején</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/alacranes/">Alacranes</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#consulta">Consultar por otra plaga</a></nav></details><details class="pie-col" open><summary>Truly Nolen Cali</summary><nav aria-label="Truly Nolen"><a href="/truly-nolen-cali-colombia/oficinas/cali/#nosotros">Nuestra forma de cuidar</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#metodo">Cómo trabajamos</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#cobertura">Consultar cobertura</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#preguntas">Preguntas frecuentes</a><a href="/truly-nolen-cali-colombia/oficinas/cali/blog/">Blog</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#contacto">Solicitar atención</a></nav></details><div class="footer-office"><h2>Hablemos</h2><p data-preview-office>Cali</p><p>Carrera 25 # 5 Oeste – 167, Barrio Cristales</p><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a></div></div><figure class="footer-place"><img src="/truly-nolen-cali-colombia/oficinas/cali/assets/footer-cali.webp" alt="Torre de Cali y los cerros de Cali, Colombia. Ilustración" width="1774" height="887" decoding="async"/><figcaption>Cali · Torre de Cali</figcaption></figure><div class="footer-legal"><p>© Truly Nolen · Cali</p><nav aria-label="Información legal"><a href="/truly-nolen-cali-colombia/oficinas/cali/privacidad/">Privacidad</a><a href="/truly-nolen-cali-colombia/oficinas/cali/terminos/">Términos de uso</a><a href="/truly-nolen-cali-colombia/oficinas/cali/accesibilidad/">Accesibilidad</a></nav></div></footer><script defer src="/truly-nolen-cali-colombia/oficinas/assets/pie.js"></script><!-- immersive:start --><div class="machote-chat-host"><div class="tia" data-chat data-quiet="true" data-storage-scope="oficina-cali">
-<div class="tia-nudge" hidden><button class="tia-nudge-x" type="button" aria-label="Descartar invitación"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button><button class="tia-nudge-open" type="button"><span class="tia-marca tia-marca--saludo" style="--tia-px:32px" aria-hidden="true"><i class="tia-disco"></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12c0-7 6-8 8 0s8 7 8 0-6-8-8 0-8 7-8 0Z"/></svg></span><span><b>¿Hablamos?</b><span>Truly AI te responde al instante</span></span></button></div>
+/* Cali has an office: its address and phone in the closing band and in the footer "Hablemos" column. */
+body.country-site[data-oficina] .contact-intro .g-oficina{margin-top:12px;font-size:16px}
+body.country-site[data-oficina] .contact-intro .g-oficina a{color:inherit}
+body.country-site[data-oficina] .local-footer .pie-oficina{display:block;margin-top:8px;line-height:1.4}
+</style></head><body class="country-site jardin" data-machote="cali" data-oficina="cali"><style>.aviso-borrador{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:2147483000;max-width:calc(100% - 32px);text-align:center;background:#17212a;color:#f7f6f1;font:600 13px/1.4 system-ui,-apple-system,sans-serif;padding:9px 13px;border-radius:6px}@media(max-width:760px){.aviso-borrador{top:72px;bottom:auto;left:0;right:0;transform:none;max-width:none;border-radius:0;padding:7px 16px;font-size:12px}}</style><div role="note" class="aviso-borrador">Vista previa · sitio en preparación, todavía no está terminado</div><a class="skip" href="#contenido">Saltar al contenido</a><header class="site-nav"><div class="gt-utility"><span>Experiencia internacional. Servicio local.</span><div><a href="https://www.trulynoleninternational.com/TrulyInside/index.asp?lng=1" target="_blank" rel="noopener noreferrer">Inside Truly</a><a href="https://vip.trulynoleninternational.com/" target="_blank" rel="noopener noreferrer">My Truly</a></div><div class="gt-social" aria-label="Truly Nolen International"><a aria-label="Facebook" href="https://www.facebook.com/TrulyNolenINT" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M14 21v-8h3l.5-4H14V7c0-1 .3-2 2-2h2V1.5C17 1.2 16 1 15 1c-3.5 0-5 2-5 5v3H7v4h3v8z"/></svg></a><a aria-label="Instagram" href="https://www.instagram.com/trulynoleninternational/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><rect fill="none" height="18" rx="5" stroke="currentColor" stroke-width="2" width="18" x="3" y="3"/><circle cx="12" cy="12" fill="none" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2"/></svg></a><a aria-label="LinkedIn" href="https://www.linkedin.com/company/truly-nolen-international/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h4v12H4zM6 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h4v1.7c.6-1 1.9-2 3.9-2 4 0 4.6 2.6 4.6 6V21h-4v-5.6c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21h-4z"/></svg></a></div></div><a class="brand" href="/truly-nolen-cali-colombia/oficinas/cali/#inicio"><img src="/truly-nolen-cali-colombia/tn-emblema.png" alt=""/><span>Truly Nolen <small data-preview-office>Cali</small></span></a><button class="menu-toggle country-menu-toggle" type="button" aria-expanded="false" aria-controls="country-navigation"><span class="gt-m-abrir">Menú</span><span class="gt-m-cerrar">Cerrar</span><svg aria-hidden="true" viewBox="0 0 24 24"><path class="gt-m-i1" d="M 3 7h 18M 3 17h 18"/><path class="gt-m-i2" d="M 6 6L 18 18M 18 6L 6 18"/></svg></button><nav id="country-navigation" aria-label="Navegación"><!-- my-truly:start --><div class="truly-portals" aria-label="Portales Truly"><a class="my-truly-access" href="https://vip.trulynoleninternational.com/" target="_blank" rel="noopener noreferrer">My Truly</a><a class="inside-truly-access" href="https://www.trulynoleninternational.com/TrulyInside/index.asp?lng=1" target="_blank" rel="noopener noreferrer">Inside Truly</a></div><!-- my-truly:end --><details class="nav-menu"><summary>Servicios <span aria-hidden="true">⌄</span></summary><div class="country-dropdown gt-mega"><div class="mega-intro"><p>Cuidar comienza por entender su espacio.</p><a class="text-link" href="/truly-nolen-cali-colombia/oficinas/cali/#servicios">Explorar servicios <span aria-hidden="true">→</span></a></div><div class="mega-links"><a href="/truly-nolen-cali-colombia/oficinas/cali/#teps"><strong>Sistema TEPS</strong><span>Evaluación, documentación y seguimiento.</span></a><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/comercios/"><strong>Comercial</strong><span>Protección para los retos de cada sector.</span></a><a href="/truly-nolen-cali-colombia/oficinas/cali/#sanitizacion"><strong>Sanitización</strong><span>Control microbiano en ambientes interiores.</span></a><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/hogares/"><strong>Residencial</strong><span>Un programa para toda su casa.</span></a></div></div></details><details class="nav-menu"><summary>Plagas <span aria-hidden="true">⌄</span></summary><div class="country-dropdown gt-mega"><div class="mega-intro"><p>Conozca a los visitantes que no invitó.</p><a class="text-link" href="/truly-nolen-cali-colombia/oficinas/cali/#plagas">Ver guías de plagas <span aria-hidden="true">→</span></a></div><div class="mega-links"><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/zancudos/"><strong>Zancudos</strong><span>Información e identificación de la plaga.</span></a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/ratas-y-ratones/"><strong>Ratas y ratones</strong><span>Información e identificación de la plaga.</span></a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/cucarachas/"><strong>Cucarachas</strong><span>Información e identificación de la plaga.</span></a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/hormigas/"><strong>Hormigas</strong><span>Información e identificación de la plaga.</span></a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/comejen/"><strong>Comején</strong><span>Información e identificación de la plaga.</span></a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/alacranes/"><strong>Alacranes</strong><span>Información e identificación de la plaga.</span></a><a href="/truly-nolen-cali-colombia/oficinas/cali/#consulta"><strong>No sé qué plaga es</strong><span>Ayuda para identificarla.</span></a></div></div></details><a href="/truly-nolen-cali-colombia/oficinas/cali/#cobertura">Cobertura</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#nosotros">Nosotros</a><a href="/truly-nolen-cali-colombia/oficinas/cali/blog/">Blog</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#contacto">Contacto</a><a class="mobile-contact" href="/truly-nolen-cali-colombia/oficinas/cali/#preguntas">Preguntas frecuentes</a><button class="gt-buscar" type="button" aria-label="Buscar en el sitio"><span>Buscar</span><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m 16 16 5 5"></path></svg></button><div class="gt-menu-extra"><a class="button gt-menu-cta" href="/truly-nolen-cali-colombia/oficinas/cali/#contacto">Hablemos <span aria-hidden="true">→</span></a><p class="gt-menu-label">Accesos</p><div class="gt-menu-accesos"><a href="https://www.trulynoleninternational.com/TrulyInside/index.asp?lng=1" target="_blank" rel="noopener noreferrer">Inside Truly</a><a href="https://vip.trulynoleninternational.com/" target="_blank" rel="noopener noreferrer">My Truly</a></div><div class="gt-social gt-menu-redes" aria-label="Truly Nolen International"><a aria-label="Facebook" href="https://www.facebook.com/TrulyNolenINT" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M14 21v-8h3l.5-4H14V7c0-1 .3-2 2-2h2V1.5C17 1.2 16 1 15 1c-3.5 0-5 2-5 5v3H7v4h3v8z"/></svg></a><a aria-label="Instagram" href="https://www.instagram.com/trulynoleninternational/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><rect fill="none" height="18" rx="5" stroke="currentColor" stroke-width="2" width="18" x="3" y="3"/><circle cx="12" cy="12" fill="none" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2"/></svg></a><a aria-label="LinkedIn" href="https://www.linkedin.com/company/truly-nolen-international/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h4v12H4zM6 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h4v1.7c.6-1 1.9-2 3.9-2 4 0 4.6 2.6 4.6 6V21h-4v-5.6c0-1.4 0-3.2-2-3.2s-2.3 1.5-2.3 3.1V21h-4z"/></svg></a></div></div></nav><a class="button gt-cta" href="/truly-nolen-cali-colombia/oficinas/cali/#contacto">Hablemos <span aria-hidden="true">→</span></a></header><main id="contenido"><section class="wrap s-intro"><nav aria-label="Ruta"><a href="/truly-nolen-cali-colombia/oficinas/cali/">Inicio</a><span aria-hidden="true">/</span>Accesibilidad</nav><h1>Accesibilidad</h1></section><section class="wrap s-section s-prose"><p>Puede recorrer este sitio con el teclado, ampliar el texto y usar la preferencia de movimiento reducido de su dispositivo. Si su dispositivo pide reducir el movimiento, se muestra una imagen fija. Si encuentra una dificultad de acceso, cuénteselo a Truly AI en el chat.</p></section><section id="contacto" class="s-closing"><div class="wrap"><h2>Cuéntenos qué necesita proteger.</h2><p>Todo empieza con contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p><div class="s-closing-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="https://wa.me/15202145675" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a><a class="text-link" href="/truly-nolen-cali-colombia/oficinas/cali/#consulta">Consultar cobertura →</a></div></div></section></main><footer class="country-footer local-footer" aria-label="Pie de página"><div class="footer-intro"><a class="brand" href="/truly-nolen-cali-colombia/oficinas/cali/"><img src="/truly-nolen-cali-colombia/tn-emblema.png" alt=""/><span>Truly Nolen <small data-preview-office>Cali</small></span></a><p>Control de plagas.<br/>Control microbiológico.<br/>Una visión internacional.</p><a class="footer-contact" href="#">Volver al inicio <span aria-hidden="true">↑</span></a></div><div class="footer-columns"><details class="pie-col" open><summary>Servicios</summary><nav aria-label="Servicios del pie"><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/hogares/">Hogares</a><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/comercios/">Comercios</a><a href="/truly-nolen-cali-colombia/oficinas/cali/servicios/industria/">Industria</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#consulta">Otras consultas</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#metodo">Cómo trabajamos</a></nav></details><details class="pie-col" open><summary>Guía de plagas</summary><nav aria-label="Guía de plagas del pie"><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/zancudos/">Zancudos</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/ratas-y-ratones/">Ratas y ratones</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/cucarachas/">Cucarachas</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/hormigas/">Hormigas</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/comejen/">Comején</a><a href="/truly-nolen-cali-colombia/oficinas/cali/plagas/alacranes/">Alacranes</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#consulta">Consultar por otra plaga</a></nav></details><details class="pie-col" open><summary>Truly Nolen Cali</summary><nav aria-label="Truly Nolen"><a href="/truly-nolen-cali-colombia/oficinas/cali/#nosotros">Nuestra forma de cuidar</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#metodo">Cómo trabajamos</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#cobertura">Consultar cobertura</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#preguntas">Preguntas frecuentes</a><a href="/truly-nolen-cali-colombia/oficinas/cali/blog/">Blog</a><a href="/truly-nolen-cali-colombia/oficinas/cali/#contacto">Solicitar atención</a></nav></details><details class="pie-col" open><summary>Hablemos</summary><nav aria-label="Hablemos"><a href="/truly-nolen-cali-colombia/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><span class="pie-oficina">Carrera 25 # 5 Oeste – 167, Barrio Cristales, Cali</span></nav></details><details class="pie-col" open><summary>Síganos</summary><nav aria-label="Síganos"><a href="https://www.facebook.com/TrulyNolenINT" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/trulynoleninternational/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.linkedin.com/company/truly-nolen-international/" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav></details></div><figure class="footer-place"><img src="/truly-nolen-cali-colombia/oficinas/assets/pie-comunidad-truly.webp" alt="Comunidad ilustrada con casas, comercios, jardines y un carro amarillo de servicio" width="1440" height="720" decoding="async" loading="lazy"/></figure><div class="footer-legal"><p>© Truly Nolen · Cali</p><nav aria-label="Información legal"><a href="/truly-nolen-cali-colombia/oficinas/cali/privacidad/">Privacidad</a><a href="/truly-nolen-cali-colombia/oficinas/cali/terminos/">Términos de uso</a><a href="/truly-nolen-cali-colombia/oficinas/cali/accesibilidad/">Accesibilidad</a></nav></div><p class="maker-credit">Hecho por <a href="https://catalizadora.ai" target="_blank" rel="noopener noreferrer">Catalizadora</a></p></footer><script defer src="/truly-nolen-cali-colombia/oficinas/assets/pie.js"></script><dialog class="search-dialog" aria-labelledby="search-title"><div class="search-heading"><h2 id="search-title">¿Qué está buscando?</h2><button class="search-close" type="button" aria-label="Cerrar búsqueda">×</button></div><label for="site-search">Busque servicios, plagas o artículos</label><input autocomplete="off" id="site-search" type="search" placeholder="Por ejemplo: comercios o alacranes"/><p aria-live="polite" class="search-count"></p><ul class="search-results"></ul></dialog><script type="application/json" id="gt-buscar-indice">{"items":[["Hogares","","/oficinas/cali/servicios/hogares/","Servicios"],["Comercios","","/oficinas/cali/servicios/comercios/","Servicios"],["Industria","","/oficinas/cali/servicios/industria/","Servicios"],["Zancudos y dengue","","/oficinas/cali/plagas/zancudos/","Guía de plagas"],["Ratas y ratones","","/oficinas/cali/plagas/ratas-y-ratones/","Guía de plagas"],["Cucarachas","","/oficinas/cali/plagas/cucarachas/","Guía de plagas"],["Hormigas","","/oficinas/cali/plagas/hormigas/","Guía de plagas"],["Comején","","/oficinas/cali/plagas/comejen/","Guía de plagas"],["Alacranes","","/oficinas/cali/plagas/alacranes/","Guía de plagas"],["Cómo acabar con los zancudos en casa: guía para Cali","Para acabar con los zancudos en casa hay que quitarles el agua donde se crían. Le contamos qué lavar, tapar y botar cada semana, según la Alcaldía de Cali.","/oficinas/cali/blog/como-acabar-con-los-zancudos-en-casa/","Blog"],["Cómo eliminar el comején: señales y qué hacer","El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tiene y dónde está la colonia. Le contamos sus señales y cómo evitar que vuelva.","/oficinas/cali/blog/como-eliminar-el-comejen/","Blog"],["Cómo evitar las ratas en casa y en su negocio","Las ratas llegan donde encuentran comida y basura. Le contamos por qué son un riesgo para la salud en Cali y qué pide la norma para guardar las basuras.","/oficinas/cali/blog/como-evitar-ratas-en-casa/","Blog"],["Por qué el insecticida ya no mata a las cucarachas","En Cali se encontraron cucarachas alemanas resistentes a un insecticida común. Le contamos qué significa y por qué echar más del mismo producto no sirve.","/oficinas/cali/blog/cucarachas-resistentes-en-cali/","Blog"],["Cobertura","","/oficinas/cali/#cobertura","Inicio"],["Nosotros","","/oficinas/cali/#nosotros","Inicio"],["Preguntas frecuentes","","/oficinas/cali/#preguntas","Inicio"],["Contacto","","/oficinas/cali/#contacto","Inicio"]],"textos":{"uno":"1 resultado","varios":"{n} resultados","cero":"Sin resultados. Pruebe con otra palabra."}}</script><script defer src="/truly-nolen-cali-colombia/oficinas/assets/buscar.js"></script><!-- immersive:start --><div class="machote-chat-host"><div class="tia" data-chat data-quiet="true" data-storage-scope="oficina-cali">
+<div class="tia-nudge" hidden><button class="tia-nudge-x" type="button" aria-label="Descartar invitación"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button><button class="tia-nudge-open" type="button"><span class="tia-marca tia-marca--saludo" style="--tia-px:32px" aria-hidden="true"><i class="tia-disco"></i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12c0-7 6-8 8 0s8 7 8 0-6-8-8 0-8 7-8 0Z"/></svg></span><span><b>¿Hablamos?</b><span>Truly AI le responde</span></span></button></div>
 <div class="tia-panel" id="tia-panel" role="dialog" aria-label="Truly AI" aria-hidden="true">
 <div class="tia-head"><span class="tia-marca tia-marca--neutral" style="--tia-px:40px" aria-hidden="true"><img class="tia-carro" src="/truly-nolen-cali-colombia/oficinas/assets/carro-truly.png" alt="" width="56" height="38"/></span><div class="tia-id"><b>Truly AI</b><span class="tia-stat"><i aria-hidden="true"></i><span data-estado>En línea ahora</span></span></div><button class="tia-x tia-reset" type="button" aria-label="Conversación nueva" title="Conversación nueva" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button><button class="tia-x tia-close" type="button" aria-label="Cerrar el chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
 <div class="tia-body"><div class="tia-hilo" data-hilo aria-live="polite"></div><div class="tia-atajos" data-atajos><button type="button" class="tia-atajo">Vi una plaga en mi casa</button><button type="button" class="tia-atajo">Necesito proteger mi negocio</button></div>
-<form class="tia-form"><input class="tia-campo" type="text" placeholder="Escríbele a Truly AI…" aria-label="Escríbele a Truly AI…" autocomplete="off" enterkeyhint="send" maxlength="800"><button class="tia-send" type="submit" aria-label="Enviar" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button></form></div>
+<form class="tia-form"><input class="tia-campo" type="text" placeholder="Escríbale a Truly AI…" aria-label="Escríbale a Truly AI…" autocomplete="off" enterkeyhint="send" maxlength="800"><button class="tia-send" type="submit" aria-label="Enviar" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button></form></div>
 <div class="tia-foot"><a class="tia-wa" href="https://wa.me/15202145675" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 5 5.1-1.3A10 10 0 1 0 12 2Z"/></svg>Seguir por WhatsApp</a></div>
 </div>
-<button class="tia-fab" type="button" aria-expanded="false" aria-haspopup="dialog" aria-controls="tia-panel" aria-label="Abrir el chat con Truly AI"><img class="tia-carro" src="/truly-nolen-cali-colombia/oficinas/assets/carro-truly.png" alt="" width="64" height="43"/><span class="tia-fab-txt">Asistente<small>Conversa aquí</small></span><svg class="tia-fx" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="tia-badge" hidden aria-label="Respuesta nueva">1</span></button>
+<button class="tia-fab" type="button" aria-expanded="false" aria-haspopup="dialog" aria-controls="tia-panel" aria-label="Abrir el chat con Truly AI"><img class="tia-carro" src="/truly-nolen-cali-colombia/oficinas/assets/carro-truly.png" alt="" width="64" height="41"/><span class="tia-fab-txt">Asistente<small>Converse aquí</small></span><svg class="tia-fx" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="tia-badge" hidden aria-label="Respuesta nueva">1</span></button>
 </div>
-<script id="tia-textos" type="application/json">{"nombre": "Truly AI", "enLinea": "En línea ahora", "escribiendo": "Truly AI está escribiendo…", "saludo": "¡Hola! Soy Truly AI, de Truly Nolen Cali. Cuéntame qué necesitas proteger y te oriento en el siguiente paso.", "campo": "Escríbele a Truly AI…", "enviar": "Enviar", "abrir": "Abrir el chat con Truly AI", "cerrar": "Cerrar el chat", "nueva": "Conversación nueva", "invita": "¿Hablamos?", "invitaSub": "Truly AI te responde al instante", "descartar": "Descartar invitación", "atajos": ["Vi una plaga en mi casa", "Necesito proteger mi negocio"], "wa": "Seguir por WhatsApp", "caido": "No pude conectarme. Intenta enviar tu mensaje de nuevo en unos instantes.", "trabado": "No pude conectarme. Intenta enviar tu mensaje de nuevo en unos instantes.", "noLeidos": "Respuesta nueva"}</script>
-<script id="tia-contexto" type="text/plain">Truly Nolen Cali public website. Truly Nolen has NO local office in Cali yet: never claim or imply a local office, address, local phone, coverage area, technicians, schedules, availability, prices or guarantees. Help visitors describe their pest situation (homes, businesses or industry): what they see, where, since when, type of space, children or pets. Explain the general Truly Nolen approach (listen, evaluate, propose, follow up) and what information helps. For service requests explain that Truly Nolen will review the request and confirm whether and how it can be attended. My Truly opens the separate VIP portal; Inside Truly opens the internal portal. No access to customer account data. Do not claim the chat stores no data. Language: Calin Spanish, warm and professional, always tú, never voseo or usted.</script></div><noscript><p class="chat-noscript">Activa JavaScript para conversar con Truly AI.</p></noscript><!-- immersive:end --></body></html>
+<script id="tia-textos" type="application/json">{"nombre": "Truly AI", "enLinea": "En línea ahora", "escribiendo": "Truly AI está escribiendo…", "saludo": "¡Hola! Soy Truly AI, de Truly Nolen Cali. Cuénteme qué necesita proteger y le oriento en el siguiente paso.", "campo": "Escríbale a Truly AI…", "enviar": "Enviar", "abrir": "Abrir el chat con Truly AI", "cerrar": "Cerrar el chat", "nueva": "Conversación nueva", "invita": "¿Hablamos?", "invitaSub": "Truly AI le responde", "descartar": "Descartar invitación", "atajos": ["Vi una plaga en mi casa", "Necesito proteger mi negocio"], "wa": "Seguir por WhatsApp", "caido": "No pude conectarme. Intente enviar su mensaje de nuevo en unos instantes.", "trabado": "No pude conectarme. Intente enviar su mensaje de nuevo en unos instantes.", "noLeidos": "Respuesta nueva"}</script>
+<script id="tia-contexto" type="text/plain">Truly Nolen Cali public website. Truly Nolen has NO local office in Cali yet: never claim or imply a local office, address, local phone, coverage area, technicians, schedules, availability, prices or guarantees. Help visitors describe their pest situation (homes, businesses or industry): what they see, where, since when, type of space, children or pets. Explain the general Truly Nolen approach (listen, evaluate, propose, follow up) and what information helps. For service requests explain that Truly Nolen will review the request and confirm whether and how it can be attended. My Truly opens the separate VIP portal; Inside Truly opens the internal portal. No access to customer account data. Do not claim the chat stores no data. Language: Calin Spanish, warm and professional, always usted, never tú or voseo.</script></div><noscript><p class="chat-noscript">Active JavaScript para conversar con Truly AI.</p></noscript><!-- immersive:end --></body></html>

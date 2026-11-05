@@ -45,7 +45,7 @@ const RESUMEN = {
   cucarachas: 'La cucaracha alemana, pequeña y de cocina, y la americana, la más grande. En Cali ya se encontraron cepas resistentes a un insecticida.',
   hormigas: 'En centros de salud del Valle del Cauca, incluido Cali, la hormiga loca y la hormiga fantasma fueron las más comunes, y llevaban bacterias.',
   comejen: 'En Cali las especies más frecuentes son la de madera seca y una subterránea que sube por tubitos de barro.',
-  alacranes: 'Aparecen más con las lluvias y el calor. Revisa zapatos y ropa, y tapa las rejillas con malla.',
+  alacranes: 'Aparecen más con las lluvias y el calor. Revise zapatos y ropa, y tape las rejillas con malla.',
 };
 
 const BLOG = {
@@ -53,22 +53,22 @@ const BLOG = {
     slug: 'como-acabar-con-los-zancudos-en-casa',
     tema: 'Zancudos',
     titulo: 'Cómo acabar con los zancudos en casa: guía para Cali',
-    resumen: 'Para acabar con los zancudos en casa hay que quitarles el agua donde se crían. Te contamos qué lavar, tapar y botar cada semana, según la Alcaldía de Cali.',
+    resumen: 'Para acabar con los zancudos en casa hay que quitarles el agua donde se crían. Le contamos qué lavar, tapar y botar cada semana, según la Alcaldía de Cali.',
     img: 'cali-blog-como-acabar-con-los-zancudos-en-casa.webp',
   },
   comejen: {
     slug: 'como-eliminar-el-comejen',
     tema: 'Comején',
     titulo: 'Cómo eliminar el comején: señales y qué hacer',
-    resumen: 'El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tienes y dónde está la colonia. Te contamos sus señales y cómo evitar que vuelva.',
+    resumen: 'El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tiene y dónde está la colonia. Le contamos sus señales y cómo evitar que vuelva.',
     img: 'cali-blog-como-eliminar-el-comejen.webp',
   },
   ratas: {
     slug: 'como-evitar-ratas-en-casa',
     ref: 'blog/como-eliminar-el-comejen',
     tema: 'Ratas y ratones',
-    titulo: 'Cómo evitar las ratas en casa y en tu negocio',
-    resumen: 'Las ratas llegan donde encuentran comida y basura. Te contamos por qué son un riesgo para la salud en Cali y qué pide la norma para guardar las basuras.',
+    titulo: 'Cómo evitar las ratas en casa y en su negocio',
+    resumen: 'Las ratas llegan donde encuentran comida y basura. Le contamos por qué son un riesgo para la salud en Cali y qué pide la norma para guardar las basuras.',
     img: 'cali-plaga-rata-truly.webp',
   },
   cucarachas: {
@@ -76,7 +76,7 @@ const BLOG = {
     ref: 'blog/como-eliminar-el-comejen',
     tema: 'Cucarachas',
     titulo: 'Por qué el insecticida ya no mata a las cucarachas',
-    resumen: 'En Cali se encontraron cucarachas alemanas resistentes a un insecticida común. Te contamos qué significa y por qué echar más del mismo producto no sirve.',
+    resumen: 'En Cali se encontraron cucarachas alemanas resistentes a un insecticida común. Le contamos qué significa y por qué echar más del mismo producto no sirve.',
     img: 'cali-blog-cucaracha-alemana-truly.webp',
   },
 };
@@ -110,31 +110,25 @@ const VE_IMG = {
 export const PORTADA = {
   ref: '',
   title: 'Truly Nolen Cali | Control de plagas',
-  desc: 'Control de plagas en Cali para hogares, comercios e industrias. Escríbele a Truly AI y te orientamos en el siguiente paso.',
+  desc: 'Control de plagas en Cali para hogares, comercios e industrias. Escríbale a Truly AI y le orientamos en el siguiente paso.',
+  // 5-nov-2026: the Venezuela reference is already the globaltni.com/es replica (recipe R1-R19, in "usted").
+  // Only Cali content changes here; the corporate texts (sectors, zones, TEPS, network, history) stay as globaltni's (R2).
   replace: [
-    // receta 4-nov (6c): one row per globaltni sector, each to its own anchor; Industria keeps its own page
-    ["<div class=\"g-sectores\"><a class=\"g-sector\" href=\"/oficinas/venezuela/servicios/comercios/\"><span><h3>Alimentos y comercio</h3><p>Supermercados, hipermercados, centros de distribución, locales de comida rápida, restaurantes, panaderías</p></span><span aria-hidden=\"true\">→</span></a><a class=\"g-sector\" href=\"/oficinas/venezuela/servicios/comercios/\"><span><h3>Salud</h3><p>Laboratorios de diagnóstico, hospitales, centros de asistencia prolongada, centros de atención de emergencias, centros de rehabilitación, consultorios médicos</p></span><span aria-hidden=\"true\">→</span></a><a class=\"g-sector\" href=\"/oficinas/venezuela/servicios/industria/\"><span><h3>Industria</h3><p>Inspección, monitoreo y registros para plantas, galpones y almacenes.</p></span><span aria-hidden=\"true\">→</span></a></div>", `<div class="g-sectores"><a class="g-sector" href="${ROOT}servicios/comercios/#sector-salud"><span><h3>Salud</h3><p>Hospitales, clínicas, laboratorios, hogares geriátricos y consultorios.</p></span><span aria-hidden="true">→</span></a><a class="g-sector" href="${ROOT}servicios/comercios/#sector-alimentos"><span><h3>Venta de alimentos</h3><p>Supermercados, panaderías, restaurantes y comidas rápidas.</p></span><span aria-hidden="true">→</span></a><a class="g-sector" href="${ROOT}servicios/comercios/#sector-logistica"><span><h3>Logística</h3><p>Bodegas, transporte de carga, agentes de carga y operadores logísticos.</p></span><span aria-hidden="true">→</span></a><a class="g-sector" href="${ROOT}servicios/industria/"><span><h3>Industria</h3><p>Inspección, monitoreo y registros para plantas, bodegas y centros logísticos.</p></span><span aria-hidden="true">→</span></a></div>`],
-    ['Para tu casa, tu apartamento o tu quinta.', 'Para tu casa, tu apartamento o tu finca.'],
-    ['alt="Casa moderna en Caracas vista desde arriba: el interior en rojo, el perímetro en amarillo y el jardín en verde"', 'alt="Casa moderna en Cali vista desde arriba, con los Farallones al fondo: el interior en rojo, el perímetro en amarillo y el jardín en verde"'],
-    ['venezuela-casa-zonas.webp', 'cali-casa-zonas.webp'],
-    ['ve-comercio-panaderia-mj-6af3bdde-2.webp', 'cali-comercio-panaderia.webp'],
-    ['tu operación: panaderías, restaurantes, bodegones, farmacias y oficinas.', 'tu operación: salud, venta de alimentos, logística e industria.'],
-    ['Las que más vemos en Venezuela.', 'Las que más vemos en Cali.'],
+    // recipe 6c / R9: each sector row goes to its own anchor in Comercios; Industria keeps its own page
+    ['<a class="g-sector" href="/oficinas/venezuela/servicios/comercios/"><span><h3>Salud</h3>', `<a class="g-sector" href="${ROOT}servicios/comercios/#healthcare"><span><h3>Salud</h3>`],
+    ['<a class="g-sector" href="/oficinas/venezuela/servicios/comercios/"><span><h3>Comercio de alimentos</h3>', `<a class="g-sector" href="${ROOT}servicios/comercios/#food-processing"><span><h3>Comercio de alimentos</h3>`],
+    ['<a class="g-sector" href="/oficinas/venezuela/servicios/comercios/"><span><h3>Logística</h3>', `<a class="g-sector" href="${ROOT}servicios/comercios/#logistics"><span><h3>Logística</h3>`],
+    // Cali's own commercial photo (Venezuela's Unsplash photo is not reused: recipe rule 5)
+    ['ve-operacion-unsplash-u7egjbn8tzk.webp?v=d0b31cb363c3', 'cali-comercio-panaderia.webp'],
     ...PLAGAS.flatMap((p) => [[VE_RESUMEN[p.slug], RESUMEN[p.slug]], [VE_IMG[p.slug], p.img]]),
-    ['ve-blog-como-eliminar-el-comejen.webp', BLOG.zancudos.img],
+    ['ve-blog-como-eliminar-el-comejen.webp?v=3745f6a88d9a', BLOG.zancudos.img],
     ['Del blog · 29 de octubre de 2026', `Del blog · ${FECHA_TXT}`],
     ['blog/como-eliminar-el-comejen/', `blog/${BLOG.zancudos.slug}/`],
     ['Cómo eliminar el comején: señales y qué hacer', BLOG.zancudos.titulo],
-    ['El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tienes y dónde está la colonia. Te contamos sus señales y cómo evitar que vuelva.', BLOG.zancudos.resumen],
-    ['Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p>', 'Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p>'],
-    ['Indica tu estado, municipio y el tipo de espacio.', 'Indica tu comuna o corregimiento, tu barrio y el tipo de espacio.'],
-    ['data-n1="Estado" data-n2="Municipio"', 'data-n1="Comuna o corregimiento" data-n2="Barrio"'],
-    ['Comparte tu estado y municipio para revisar si podemos atenderte y coordinar el siguiente paso.', 'Comparte tu comuna o corregimiento y tu barrio para revisar si podemos atenderte y coordinar el siguiente paso.'],
-    ['<label>Estado<select', '<label>Comuna o corregimiento<select'],
-    [SELECT_VE, `<select name="n1" required><option value="">Elegir</option>${COMUNAS.map((c) => `<option>${c}</option>`).join('')}</select>`],
-    ['<label>Municipio<input name="n2" autocomplete="address-level2"/>', '<label>Barrio<input name="n2" autocomplete="address-level3"/>'],
-    ['maxlength="4" pattern="[0-9]{4}"', 'maxlength="6" pattern="[0-9]{6}"'],
-    ['Quiero saber si atienden en mi zona. Mi estado y municipio: ', 'Quiero saber si atienden en mi zona. Mi comuna y mi barrio: '],
+    ['El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tiene y dónde está la colonia. Le contamos qué señales deja y cómo evitar que vuelva.', BLOG.zancudos.resumen],
+    ['Indique su estado, municipio y el tipo de espacio.', 'Indique su comuna o corregimiento, su barrio y el tipo de espacio.'],
+    // Cali has an office (annex F): its address and phone in the closing band
+    ['Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p>', 'Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p>'],
   ],
 };
 
@@ -233,7 +227,7 @@ const comercios = {
       rows: [
         ['Tu actividad', 'Indica qué tipo de negocio tienes y si manipulas alimentos.'],
         ['Tus horarios', 'Cuéntanos a qué hora abres y cierras, y cuándo se puede trabajar sin clientes.'],
-        ['Lo que observas', 'Describe las señales, dónde las ves y desde cuándo.'],
+        ['Lo que observas', 'Describa las señales, dónde las ve y desde cuándo.'],
       ],
     }),
     ],
@@ -249,10 +243,10 @@ const comercios = {
 const industria = {
   ref: 'servicios/industria',
   title: 'Control de plagas para industrias en Cali | Truly Nolen Cali',
-  desc: 'Control de plagas para plantas de alimentos, bodegas y centros logísticos en Cali y municipios vecinos. Escríbele a Truly AI.',
+  desc: 'Control de plagas para plantas de alimentos, bodegas y centros logísticos en Cali y municipios vecinos. Escríbale a Truly AI.',
   main: servicePage({
     nombre: 'Servicio industrial',
-    lead: { h2: 'Un programa que parte de conocer tu operación.', text: 'Plantas de alimentos, bodegas y centros logísticos en Cali y sus municipios vecinos. Primero entendemos cómo funciona tu operación y después definimos el programa.', para: 'Plantas de alimentos y bebidas, laboratorios, bodegas, centros de distribución y operadores logísticos.', incluye: 'Inspección de las áreas de producción, almacenamiento y perímetro, control según los riesgos de la operación y registros de cada visita.', sigue: 'Informe de hallazgos, recomendaciones y visitas de seguimiento según el programa acordado.', nota: 'Antes de empezar recibes una propuesta con el alcance y las condiciones para tu operación.', img: 'cali-industria.webp', alt: 'Bodega industrial en Cali' },
+    lead: { h2: 'Un programa que parte de conocer su operación.', text: 'Plantas de alimentos, bodegas y centros logísticos en Cali y sus municipios vecinos. Primero entendemos cómo funciona su operación y después definimos el programa.', para: 'Plantas de alimentos y bebidas, laboratorios, bodegas, centros de distribución y operadores logísticos.', incluye: 'Inspección de las áreas de producción, almacenamiento y perímetro, control según los riesgos de la operación y registros de cada visita.', sigue: 'Informe de hallazgos, recomendaciones y visitas de seguimiento según el programa acordado.', nota: 'Antes de empezar recibe una propuesta con el alcance y las condiciones para su operación.', img: 'cali-industria.webp', alt: 'Bodega industrial en Cali' },
     bloques: [
     tabla({
       ey: 'Lo que pide la norma',
@@ -285,13 +279,13 @@ const industria = {
       ey: 'Antes de conversar',
       h2: 'Qué conviene contarnos.',
       rows: [
-        ['Tu operación', 'Indica qué produces o almacenas y en qué municipio está la planta.'],
-        ['Tus auditorías', 'Cuéntanos si necesitas registros para la autoridad sanitaria o para tus clientes.'],
-        ['Lo que observas', 'Describe las señales, dónde las ves y desde cuándo.'],
+        ['Su operación', 'Indique qué produce o almacena y en qué municipio está la planta.'],
+        ['Sus auditorías', 'Cuéntenos si necesita registros para la autoridad sanitaria o para sus clientes.'],
+        ['Lo que observas', 'Describa las señales, dónde las ve y desde cuándo.'],
       ],
     }),
     ],
-    preguntas: [['¿Cómo se define el programa?', 'Con una visita de evaluación. Según lo que se encuentre y lo que pida tu operación, se propone la frecuencia, los puntos de control y los registros.']],
+    preguntas: [['¿Cómo se define el programa?', 'Con una visita de evaluación. Según lo que se encuentre y lo que pida su operación, se propone la frecuencia, los puntos de control y los registros.']],
     fuentesList: [F.res2674, F.dec1843, F.ley9],
   }),
 };
@@ -309,7 +303,7 @@ const plaga = (slug, { title, desc, lead, secciones, serv, fuentesList }) => ({
 const zancudos = plaga('zancudos', {
   title: 'Zancudos y dengue en Cali | Truly Nolen Cali',
   desc: 'El zancudo Aedes aegypti transmite el dengue en Cali. Dónde se cría, qué hacer cada semana y cifras de la Alcaldía.',
-  hero: { h1: 'El criadero está más cerca<br/>de lo que crees.' },
+  hero: { h1: 'El criadero está más cerca<br/>de lo que cree.' },
   secciones: [
     tabla({
       ey: 'Dónde se cría',
@@ -331,7 +325,7 @@ const zancudos = plaga('zancudos', {
     }),
     tabla({
       ey: 'Rutina de cada semana',
-      h2: 'Lava, tapa<br/>y bota.',
+      h2: 'Lave, tape<br/>y bote.',
       rows: [
         ['Lavar y cepillar', 'La Alcaldía pide lavar y cepillar tanques, cubetas y floreros al menos dos veces a la semana.', ['Tanques y cubetas.', 'Floreros.']],
         ['Tapar y voltear', 'Tapar bien los recipientes con agua y voltear lo que no se use.', ['Baldes y tanques tapados.', 'Platos de las materas con arena.']],
@@ -372,16 +366,16 @@ const ratas = plaga('ratas-y-ratones', {
       ],
     }),
     tabla({
-      ey: 'En tu casa o negocio',
-      h2: 'Quítales comida<br/>y refugio.',
+      ey: 'En su casa o negocio',
+      h2: 'Quíteles comida<br/>y refugio.',
       rows: [
-        ['Basuras', 'La Ley 9 de 1979 pide guardar las basuras en recipientes que impidan la proliferación de insectos y roedores (artículo 28).', ['Canecas tapadas.', 'Saca la basura en el horario de recolección.']],
+        ['Basuras', 'La Ley 9 de 1979 pide guardar las basuras en recipientes que impidan la proliferación de insectos y roedores (artículo 28).', ['Canecas tapadas.', 'Saque la basura en el horario de recolección.']],
         ['Restos de comida', 'No dejar comida al alcance, ni dentro ni fuera de la casa.', ['Alacenas cerradas.', 'Comida de mascotas guardada.']],
         ['Señales', 'Lo que conviene revisar y fotografiar.', ['Excrementos y roeduras.', 'Madrigueras en zonas verdes.']],
       ],
     }),
   ],
-  serv: { h2: 'Cierra el paso<br/>donde estén.', cuales: ['hogares', 'comercios', 'industria'] },
+  serv: { h2: 'Cierre el paso<br/>donde estén.', cuales: ['hogares', 'comercios', 'industria'] },
   fuentesList: [F.lepto, F.roedores2023, F.roedores2026, F.ley9, F.fotoRata],
   starts: [
     ['Escucho ruidos en el techo', 'Escucho ruidos en el techo o en el cielo raso y creo que son ratas.'],
@@ -472,7 +466,7 @@ const hormigas = plaga('hormigas', {
 
 const comejen = plaga('comejen', {
   title: 'Comején en Cali | Truly Nolen Cali',
-  desc: 'Comején en Cali: las dos especies más frecuentes, sus señales y cómo proteger la madera de tu casa.',
+  desc: 'Comején en Cali: las dos especies más frecuentes, sus señales y cómo proteger la madera de su casa.',
   hero: { h1: 'Cuando se ve,<br/>ya lleva tiempo.' },
   secciones: [
     tabla({
@@ -503,7 +497,7 @@ const comejen = plaga('comejen', {
       ],
     }),
   ],
-  serv: { h2: 'Revisemos tu<br/>madera.', cuales: ['hogares', 'industria'] },
+  serv: { h2: 'Revisemos su<br/>madera.', cuales: ['hogares', 'industria'] },
   fuentesList: [F.termitasCali, F.ucipm, F.kuru, F.dec1843, F.fotoComejen],
   starts: [
     ['Encontré bolitas finas', 'Encontré bolitas finas cerca de un mueble de madera. ¿Es comején?'],
@@ -515,7 +509,7 @@ const comejen = plaga('comejen', {
 const alacranes = plaga('alacranes', {
   title: 'Alacranes en Cali | Truly Nolen Cali',
   desc: 'Alacranes en Cali y el Valle del Cauca: cuándo aparecen, cómo prevenirlos en casa y qué hacer ante una picadura.',
-  hero: { h1: 'Se esconden donde<br/>no miras.' },
+  hero: { h1: 'Se esconden donde<br/>no mira.' },
   secciones: [
     tabla({
       ey: 'Lo que hay que saber',
@@ -533,7 +527,7 @@ const alacranes = plaga('alacranes', {
     }),
     tabla({
       ey: 'En casa',
-      h2: 'Cierra el paso.',
+      h2: 'Cierre el paso.',
       rows: [
         ['Ropa y zapatos', 'Revisar los zapatos y la ropa que estuvieron en el suelo.', ['Zapatos sacudidos.', 'Ropa del suelo revisada.']],
         ['Rejillas', 'Taparlas con tela o malla metálica en el baño, la cocina y el lavadero.', ['Rejillas con malla.', 'Burletes en las puertas.']],
@@ -545,8 +539,8 @@ const alacranes = plaga('alacranes', {
       h2: 'Qué hacer.',
       rows: [
         ['Hielo', 'Poner hielo en la zona de la picadura.'],
-        ['Sin remedios caseros', 'No te pongas remedios caseros: ve al médico.'],
-        ['El alacrán', 'Si puedes hacerlo sin riesgo, llévalo en un frasco para identificarlo.'],
+        ['Sin remedios caseros', 'No se ponga remedios caseros: vaya al médico.'],
+        ['El alacrán', 'Si puede hacerlo sin riesgo, llévelo en un frasco para identificarlo.'],
       ],
     }),
   ],
@@ -564,10 +558,11 @@ const blogIndex = {
   ref: 'blog',
   title: 'Blog de control de plagas en Cali | Truly Nolen Cali',
   desc: 'Guías sobre las plagas de Cali, con cada dato respaldado por su fuente.',
+  // 5-nov-2026: same markup as the reference blog index (journal list of globaltni), Cali articles.
   main: [
-    `<section class="section blog-head"><a class="text-link" href="${ROOT}">← Volver al inicio</a><p class="eyebrow">Blog · Cali</p><h1>Blog de control de plagas</h1><p>Guías sobre las plagas de aquí, con cada dato respaldado por su fuente.</p></section>`,
-    `<section class="section blog-lista"><div class="blog-grid">${blogCard(BLOG.zancudos, 'blog-card blog-featured')}${blogCard(BLOG.comejen)}${blogCard(BLOG.ratas)}${blogCard(BLOG.cucarachas)}</div></section>`,
-    cierreBlog(),
+    `<section class="wrap journal-wrap"><nav aria-label="Ruta"><a href="${ROOT}">Inicio</a><span aria-hidden="true">/</span>Blog de control de plagas</nav><header class="journal-heading"><h1>Blog de control de plagas</h1><p class="s-prose">Guías sobre las plagas de Cali, con cada dato respaldado por su fuente.</p></header></section>`,
+    `<section class="wrap journal-wrap"><div class="journal-stories">${[BLOG.zancudos, BLOG.comejen, BLOG.ratas, BLOG.cucarachas].map((b, i) => `<article class="journal-story"><div class="story-edition"><span>${String(i + 1).padStart(2, '0')}</span>${FECHA}<span class="story-topic">${b.tema}</span></div><div class="story-copy"><h2><a href="${ROOT}blog/${b.slug}/">${b.titulo}</a></h2><p>${b.resumen}</p><a class="text-link" href="${ROOT}blog/${b.slug}/">Leer el artículo <span aria-hidden="true">→</span></a></div><a class="story-image-link" href="${ROOT}blog/${b.slug}/" tabindex="-1" aria-hidden="true"><figure class="story-image"><img src="${A(b.img)}" alt="" loading="lazy"/></figure></a></article>`).join('')}</div></section>`,
+    `<section id="contacto" class="contact-band gt-contact" aria-labelledby="contact-title"><span id="consulta"></span><span id="cobertura"></span><div class="wrap contact-layout"><div class="contact-intro"><h2 id="contact-title">Cuéntenos qué necesita proteger.</h2><p>Todo empieza con contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p></div><div class="contact-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="https://wa.me/15202145675" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`,
   ].join(''),
 };
 
@@ -590,11 +585,11 @@ const postZancudos = articulo(BLOG.zancudos, {
 <p>A mayo de 2025, los equipos de la Alcaldía habían inspeccionado 12.924 depósitos de agua en Cali y 562 tenían larvas. Es decir, el criadero no está lejos: está en el patio, en el lavadero o en la terraza.</p>
 <h2>La rutina de cada semana, según la Alcaldía de Cali</h2>
 <p>La Secretaría de Salud Pública de Cali publicó estas recomendaciones en mayo de 2025, durante la temporada de lluvias:</p>
-<ul><li><strong>Lava y cepilla</strong> tanques, cubetas y floreros al menos dos veces a la semana. Cepillar importa: según la Alcaldía, los huevos pueden sobrevivir varios meses en superficies secas y nacen cuando vuelven a mojarse.</li><li><strong>Tapa bien</strong> los recipientes que almacenan agua.</li><li><strong>Voltea</strong> los objetos que no estés usando y puedan acumular agua, como baldes o juguetes.</li><li><strong>Bota</strong> llantas, botellas, latas y otros inservibles que puedan convertirse en criaderos.</li></ul>
+<ul><li><strong>Lave y cepille</strong> tanques, cubetas y floreros al menos dos veces a la semana. Cepillar importa: según la Alcaldía, los huevos pueden sobrevivir varios meses en superficies secas y nacen cuando vuelven a mojarse.</li><li><strong>Tape bien</strong> los recipientes que almacenan agua.</li><li><strong>Voltee</strong> los objetos que no esté usando y puedan acumular agua, como baldes o juguetes.</li><li><strong>Bote</strong> llantas, botellas, latas y otros inservibles que puedan convertirse en criaderos.</li></ul>
 <p>En diciembre de 2025 la Alcaldía agregó otras medidas: poner arena en los platos de las materas, usar toldillo, poner mallas en puertas y ventanas, y aplicarse repelente.</p>
 <h2>Cuándo pedir ayuda</h2>
-<p>Si aun con la rutina sigues viendo muchos zancudos, puede haber un criadero que no has encontrado: una canal del techo tapada, un tanque sin tapa o agua acumulada en un rincón del patio. Ahí sirve una revisión con ojos de experto.</p>
-<p>Escríbele a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Cuéntale qué ves y dónde, y te orienta en el siguiente paso. En la <a href="${ROOT}plagas/zancudos/">guía de zancudos</a> están las cifras de la Alcaldía.</p>`,
+<p>Si aun con la rutina sigue viendo muchos zancudos, puede haber un criadero que no ha encontrado: una canal del techo tapada, un tanque sin tapa o agua acumulada en un rincón del patio. Ahí sirve una revisión con ojos de experto.</p>
+<p>Escríbale a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Cuéntele qué ve y dónde, y le orienta en el siguiente paso. En la <a href="${ROOT}plagas/zancudos/">guía de zancudos</a> están las cifras de la Alcaldía.</p>`,
   preguntas: [
     ['¿Cada cuánto debo lavar los tanques?', 'La Alcaldía de Cali recomienda lavar y cepillar tanques, cubetas y floreros al menos dos veces a la semana.'],
     ['¿Basta con tapar el tanque?', 'Ayuda, pero no basta. También hay que voltear lo que no se usa, botar inservibles y revisar materas y canales. Según la Alcaldía, los huevos sobreviven meses en superficies secas, por eso hay que lavar y cepillar.'],
@@ -607,25 +602,25 @@ const postComejen = articulo(BLOG.comejen, {
   lectura: 5,
   alt: 'Comején sobre madera dañada, rodeado de las bolitas finas de su excremento',
   otro: BLOG.zancudos,
-  cuerpo: `<p>¿Cómo eliminar el comején de tu casa? Primero hay que saber qué tipo tienes y dónde está la colonia, y después tratar ese punto. La guía de la Universidad de California (UC IPM) advierte que los pesticidas caseros contra las termitas «generalmente no son efectivos».</p>
+  cuerpo: `<p>¿Cómo eliminar el comején de su casa? Primero hay que saber qué tipo tiene y dónde está la colonia, y después tratar ese punto. La guía de la Universidad de California (UC IPM) advierte que los pesticidas caseros contra las termitas «generalmente no son efectivos».</p>
 <h2>En Cali hay dos tipos de comején y no se tratan igual</h2>
 <p>Un estudio presentado en 2011 en la Conferencia Internacional de Plagas Urbanas (ICUP), con muestras depositadas en el Museo de Entomología de la Universidad del Valle, encontró que las especies más frecuentes en Cali son <em>Cryptotermes brevis</em> y <em>Heterotermes convexinotatus</em>.</p>
 <ul><li><strong>Comején de madera seca</strong> (<em>Cryptotermes brevis</em>): según la revista forestal Kurú (Costa Rica), coloniza «piezas de madera tanto estructural como decorativa, así como diversas partes de muebles».</li><li><strong>Comején subterráneo</strong> (<em>Heterotermes convexinotatus</em>): según UC IPM (California), llega a la madera por «tubos de refugio de tierra».</li></ul>
-<p>UC IPM lo resume así: «El manejo de cada especie de termitas es diferente». Por eso el primer paso es saber cuál tienes, antes de comprar cualquier producto.</p>
+<p>UC IPM lo resume así: «El manejo de cada especie de termitas es diferente». Por eso el primer paso es saber cuál tiene, antes de comprar cualquier producto.</p>
 <h2>Las señales del comején</h2>
-<ul><li><strong>Tubitos de barro</strong> en paredes y techos: según el estudio de 2011, así se nota el daño del comején subterráneo en Cali.</li><li><strong>Bolitas finas</strong> cerca de la madera: según Kurú (Costa Rica), son «los desechos fecales del comején» de madera seca. No las barras antes de fotografiarlas, porque ayudan a identificarlo.</li><li><strong>Insectos con alas</strong> cerca de ventanas y bombillos. UC IPM aclara que ver enjambres de termitas voladoras «no siempre significa» que tu casa esté infestada.</li></ul>
+<ul><li><strong>Tubitos de barro</strong> en paredes y techos: según el estudio de 2011, así se nota el daño del comején subterráneo en Cali.</li><li><strong>Bolitas finas</strong> cerca de la madera: según Kurú (Costa Rica), son «los desechos fecales del comején» de madera seca. No las barra antes de fotografiarlas, porque ayudan a identificarlo.</li><li><strong>Insectos con alas</strong> cerca de ventanas y bombillos. UC IPM aclara que ver enjambres de termitas voladoras «no siempre significa» que su casa esté infestada.</li></ul>
 <h2>Cómo eliminar el comején: primero se ubica la colonia</h2>
 <p>La guía de UC IPM dice que hace falta «una inspección cuidadosa» para detectar y contener los daños y las colonias y aprovechar mejor los tratamientos localizados. Si el comején ya entró a la casa, propone:</p>
 <ol><li>Destruir los tubos de barro que el comején subterráneo haya construido entre el suelo y la madera.</li><li>Quitar la madera infestada y eliminar el exceso de humedad.</li></ol>
-<p>En Colombia, los inmunizantes de madera son de los pocos productos que la norma permite en categorías toxicológicas altas (Decreto 1843 de 1991, artículo 114). Por eso no es un trabajo para hacer con productos comprados por tu cuenta.</p>
+<p>En Colombia, los inmunizantes de madera son de los pocos productos que la norma permite en categorías toxicológicas altas (Decreto 1843 de 1991, artículo 114). Por eso no es un trabajo para hacer con productos comprados por su cuenta.</p>
 <h2>La madera que toca el suelo es la puerta del comején subterráneo</h2>
 <p>Para que no vuelva, UC IPM recomienda mantener la madera lejos de la tierra y seca: usar bases de concreto para lo que toque el suelo, retirar madera vieja y restos enterrados cerca de la casa, y reparar grietas y filtraciones.</p>
-<h2>Truly AI te ayuda a dar el primer paso hoy mismo</h2>
-<p>Fotografía las señales y anota dónde están: puertas, marcos, closets o muebles. Con eso ya puedes escribirle a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Te orienta en el siguiente paso. Si quieres repasar las señales, entra a la <a href="${ROOT}plagas/comejen/">guía de comején</a>.</p>`,
+<h2>Truly AI le ayuda a dar el primer paso hoy mismo</h2>
+<p>Fotografíe las señales y anote dónde están: puertas, marcos, closets o muebles. Con eso ya puede escribirle a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Le orienta en el siguiente paso. Si quiere repasar las señales, entre a la <a href="${ROOT}plagas/comejen/">guía de comején</a>.</p>`,
   preguntas: [
-    ['¿Cómo eliminar el comején con remedios caseros?', 'La guía de termitas de la Universidad de California (UC IPM, 2025) dice que los pesticidas caseros contra las termitas «generalmente no son efectivos». Antes de gastar en ellos, escríbele a Truly AI y te orienta en el siguiente paso.'],
+    ['¿Cómo eliminar el comején con remedios caseros?', 'La guía de termitas de la Universidad de California (UC IPM, 2025) dice que los pesticidas caseros contra las termitas «generalmente no son efectivos». Antes de gastar en ellos, escríbale a Truly AI y le orienta en el siguiente paso.'],
     ['¿Qué son los tubitos de barro en la pared?', 'Son los túneles del comején subterráneo. Un estudio de 2011 sobre Cali los describe como la señal de su daño en paredes y techos.'],
-    ['¿Ver comején con alas significa que mi casa está infestada?', 'No siempre, según UC IPM. Si los ves, fotografíalos, anota por dónde salieron y escríbele a Truly AI.'],
+    ['¿Ver comején con alas significa que mi casa está infestada?', 'No siempre, según UC IPM. Si los ve, fotografíelos, anote por dónde salieron y escríbale a Truly AI.'],
   ],
   fuentesList: [F.termitasCali, F.ucipm, F.kuru, F.dec1843],
 });
@@ -641,15 +636,15 @@ const postRatas = articulo(BLOG.ratas, {
 <p>En 2023, según El País Cali, entre los sectores más afectados por roedores estaban el Parque del Perro, Granada, la Avenida Sexta, el Parque Alameda y la Carrera 66. En 2026 hubo denuncias por ratas cerca de restaurantes de la calle Novena, en el sur de la ciudad, y la Secretaría de Salud asoció esos focos, en gran medida, al inadecuado manejo de los residuos sólidos.</p>
 <h2>Lo que pide la norma para las basuras</h2>
 <p>La Ley 9 de 1979, el Código Sanitario Nacional, pide guardar las basuras en recipientes que impidan la proliferación de insectos y roedores (artículo 28). En la práctica:</p>
-<ul><li><strong>Canecas con tapa</strong>, siempre cerradas.</li><li><strong>Saca la basura</strong> en el horario de recolección, no la noche anterior.</li><li><strong>Guarda la comida</strong> en alacenas cerradas, también la de las mascotas.</li><li><strong>No dejes restos</strong> de comida al alcance, ni dentro ni fuera de la casa.</li></ul>
+<ul><li><strong>Canecas con tapa</strong>, siempre cerradas.</li><li><strong>Saque la basura</strong> en el horario de recolección, no la noche anterior.</li><li><strong>Guarde la comida</strong> en alacenas cerradas, también la de las mascotas.</li><li><strong>No deje restos</strong> de comida al alcance, ni dentro ni fuera de la casa.</li></ul>
 <h2>Las señales que conviene fotografiar</h2>
 <ul><li>Excrementos pequeños y oscuros en cocinas, alacenas o bodegas.</li><li>Roeduras en empaques, cables o madera.</li><li>Ruidos en el techo o el cielo raso, sobre todo de noche.</li><li>Madrigueras en zonas verdes cerca de la casa o el negocio.</li></ul>
-<h2>Truly AI te orienta en el siguiente paso</h2>
-<p>Con las fotos y el lugar donde viste las señales ya puedes escribirle a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. En la <a href="${ROOT}plagas/ratas-y-ratones/">guía de ratas y ratones</a> están los focos que se han visto en Cali.</p>`,
+<h2>Truly AI le orienta en el siguiente paso</h2>
+<p>Con las fotos y el lugar donde vio las señales ya puede escribirle a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. En la <a href="${ROOT}plagas/ratas-y-ratones/">guía de ratas y ratones</a> están los focos que se han visto en Cali.</p>`,
   preguntas: [
     ['¿Por qué las ratas son peligrosas?', 'El Instituto Nacional de Salud las señala como los principales reservorios de la leptospirosis. En 2024 se notificaron 9.681 casos en Colombia.'],
     ['¿Qué dice la norma sobre las basuras?', 'La Ley 9 de 1979 pide guardarlas en recipientes que impidan la proliferación de insectos y roedores (artículo 28).'],
-    ['Escucho ruidos en el techo. ¿Son ratas?', 'Puede ser. Busca excrementos y roeduras cerca, fotografíalos y escríbele a Truly AI.'],
+    ['Escucho ruidos en el techo. ¿Son ratas?', 'Puede ser. Busque excrementos y roeduras cerca, fotografíelos y escríbale a Truly AI.'],
   ],
   fuentesList: [F.lepto, F.roedores2023, F.roedores2026, F.ley9],
 });
@@ -661,17 +656,17 @@ const postCucarachas = articulo(BLOG.cucarachas, {
   cuerpo: `<p>¿Por qué el insecticida ya no mata a las cucarachas? Porque algunas poblaciones se volvieron resistentes. En Cali ya se encontró ese problema en la cucaracha alemana, la pequeña de cocina.</p>
 <h2>Lo que encontraron en Cali</h2>
 <p>Un estudio publicado en 2009 en la Revista Cubana de Medicina Tropical encontró en Cali las primeras cepas de cucaracha alemana (<em>Blattella germanica</em>) resistentes a la deltametrina, un insecticida común. Las cepas más resistentes salieron de un club deportivo y de una plaza de mercado.</p>
-<h2>Qué significa para tu casa o tu negocio</h2>
+<h2>Qué significa para su casa o su negocio</h2>
 <p>Si el mismo producto de siempre ya no funciona, echar más no resuelve el problema. Hay que encontrar dónde se esconden y cambiar el método.</p>
 <h2>Dos cucarachas distintas</h2>
 <ul><li><strong>Cucaracha alemana</strong> (<em>Blattella germanica</em>): la pequeña, la del estudio de resistencia de 2009 en Cali.</li><li><strong>Cucaracha americana</strong> (<em>Periplaneta americana</em>): la más grande. Un estudio de la Universidad del Valle (2010) analizó sus poblaciones en Cali, Popayán y Buenaventura.</li></ul>
 <h2>En negocios de alimentos es obligatorio</h2>
 <p>La Resolución 2674 de 2013 del Ministerio de Salud pide a los establecimientos de alimentos un programa de control de plagas (artículo 26). Bodegas, mesones y canecas de basura son los primeros puntos que hay que revisar.</p>
-<h2>Truly AI te ayuda a empezar</h2>
-<p>Anota si son pequeñas o grandes y dónde las ves. Con ese dato, escríbele a Truly AI por el chat o por WhatsApp. Si quieres repasar los datos, entra a la <a href="${ROOT}plagas/cucarachas/">guía de cucarachas</a>.</p>`,
+<h2>Truly AI le ayuda a empezar</h2>
+<p>Anote si son pequeñas o grandes y dónde las ve. Con ese dato, escríbale a Truly AI por el chat o por WhatsApp. Si quiere repasar los datos, entre a la <a href="${ROOT}plagas/cucarachas/">guía de cucarachas</a>.</p>`,
   preguntas: [
     ['¿Las cucarachas se vuelven resistentes?', 'Sí. En 2009 se encontraron en Cali cucarachas alemanas resistentes a la deltametrina, según la Revista Cubana de Medicina Tropical.'],
-    ['¿Cómo sé cuál cucaracha tengo?', 'La alemana es la pequeña y la americana, la más grande. Anota el tamaño y dónde la viste, y escríbele a Truly AI.'],
+    ['¿Cómo sé cuál cucaracha tengo?', 'La alemana es la pequeña y la americana, la más grande. Anote el tamaño y dónde la vio, y escríbale a Truly AI.'],
     ['¿Mi restaurante necesita control de plagas?', 'La Resolución 2674 de 2013 pide un programa de control de plagas a los establecimientos de alimentos (artículo 26).'],
   ],
   fuentesList: [F.cucaDelta, F.cucaAmericana, F.res2674],
@@ -686,8 +681,8 @@ const legal = (slug, h1, texto) => ({
 });
 
 export const PAGES = {
-  'servicios/hogares': hogares,
-  'servicios/comercios': comercios,
+  'servicios/hogares': { ref: 'servicios/hogares', title: 'Control de plagas para hogares en Cali | Truly Nolen Cali', desc: 'Programa residencial de Truly Nolen en Cali: su casa completa en tres zonas de protección. Escríbale a Truly AI.', replace: [] },
+  'servicios/comercios': { ref: 'servicios/comercios', title: 'Control de plagas para comercios en Cali | Truly Nolen Cali', desc: 'Servicio comercial de Truly Nolen en Cali: salud, industrias, venta de alimentos y logística, con el sistema TEPS.', replace: [] },
   'servicios/industria': industria,
   'plagas/zancudos': zancudos,
   'plagas/ratas-y-ratones': ratas,
@@ -700,7 +695,7 @@ export const PAGES = {
   [`blog/${BLOG.comejen.slug}`]: postComejen,
   [`blog/${BLOG.ratas.slug}`]: postRatas,
   [`blog/${BLOG.cucarachas.slug}`]: postCucarachas,
-  privacidad: legal('privacidad', 'Privacidad', 'Lo que escribas en el chat de este sitio o por WhatsApp lo recibe y responde Truly AI, el asistente de Truly Nolen International. Úsalo para tu consulta sobre control de plagas y no compartas datos sensibles, como claves, datos bancarios o información médica.'),
+  privacidad: legal('privacidad', 'Privacidad', 'Lo que escriba en el chat de este sitio o por WhatsApp lo recibe y responde Truly AI, el asistente de Truly Nolen International. Úselo para su consulta sobre control de plagas y no comparta datos sensibles, como claves, datos bancarios o información médica.'),
   terminos: legal('terminos', 'Términos de uso', 'La información de este sitio es general. Los servicios, la cobertura, los precios y las condiciones se confirman directamente con Truly Nolen antes de cualquier visita o servicio, y no constituyen una oferta.'),
-  accesibilidad: legal('accesibilidad', 'Accesibilidad', 'Puedes recorrer este sitio con el teclado, ampliar el texto y usar la preferencia de movimiento reducido de tu dispositivo. Si tu dispositivo pide reducir el movimiento, se muestra una imagen fija. Si encuentras una dificultad de acceso, cuéntasela a Truly AI en el chat.'),
+  accesibilidad: legal('accesibilidad', 'Accesibilidad', 'Puede recorrer este sitio con el teclado, ampliar el texto y usar la preferencia de movimiento reducido de su dispositivo. Si su dispositivo pide reducir el movimiento, se muestra una imagen fija. Si encuentra una dificultad de acceso, cuénteselo a Truly AI en el chat.'),
 };

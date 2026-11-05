@@ -9,4 +9,12 @@
   cols.forEach(function (d) {
     d.querySelector('summary').addEventListener('click', function (ev) { if (!movil.matches) ev.preventDefault(); });
   });
+  // Pasos de TEPS (como globaltni): en celular solo el primero abierto; en computadora todos abiertos y fijos.
+  var pasos = document.querySelectorAll('.teps-step');
+  function pasosAjustar() { pasos.forEach(function (d, i) { d.open = !movil.matches || i === 0; }); }
+  pasosAjustar();
+  if (movil.addEventListener) movil.addEventListener('change', pasosAjustar);
+  pasos.forEach(function (d) {
+    d.querySelector('summary').addEventListener('click', function (ev) { if (!movil.matches) ev.preventDefault(); });
+  });
 })();

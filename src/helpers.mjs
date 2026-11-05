@@ -43,12 +43,12 @@ const servLinks = (keys) => enlaces(keys.map((k) => [`${ROOT}servicios/${k}/`, S
 
 // ---------- Shared sections ----------
 export const FAQ_GENERAL = [
-  ['¿Cómo comienza el servicio?', 'El equipo revisa tu consulta, confirma si podemos atenderte y coordina la evaluación que corresponda.'],
+  ['¿Cómo comienza el servicio?', 'El equipo revisa su consulta, confirma si podemos atenderle y coordina la evaluación que corresponda.'],
   ['¿Puedo solicitar atención para mi negocio?', 'Sí. El tipo de actividad, los horarios y las condiciones del espacio ayudan a definir el programa.'],
-  ['¿Qué debo preparar antes de la visita?', 'Te indicaremos las medidas que aplican al servicio y las precauciones para personas y mascotas.'],
-  ['¿Cómo consulto la cobertura?', 'Indica tu comuna o corregimiento, tu barrio y el tipo de espacio. Te confirmaremos si podemos atenderte y cómo coordinar la atención.'],
-  ['¿La evaluación tiene costo?', 'Pregúntale al equipo antes de coordinar la visita. El costo y las condiciones dependen de la ubicación y del servicio que necesites.'],
-  ['¿Una visita es suficiente?', 'El equipo define el alcance y el seguimiento después de evaluar tu situación. Las visitas y condiciones se explican en la propuesta.'],
+  ['¿Qué debo preparar antes de la visita?', 'Le indicaremos las medidas que aplican al servicio y las precauciones para personas y mascotas.'],
+  ['¿Cómo consulto la cobertura?', 'Indique su comuna o corregimiento, su barrio y el tipo de espacio. Le confirmaremos si podemos atenderle y cómo coordinar la atención.'],
+  ['¿La evaluación tiene costo?', 'Pregúntele al equipo antes de coordinar la visita. El costo y las condiciones dependen de la ubicación y del servicio que necesite.'],
+  ['¿Una visita es suficiente?', 'El equipo define el alcance y el seguimiento después de evaluar su situación. Las visitas y condiciones se explican en la propuesta.'],
 ];
 
 const answers = (items) =>
@@ -56,17 +56,17 @@ const answers = (items) =>
 
 // items: [texto, url]
 export const fuentes = (items) =>
-  `<section class="wrap s-section s-fuentes"><h2>De dónde sale esta información.</h2><p class="s-note">Cada dato de esta página viene de una fuente pública que puedes revisar.</p><ol>${items
+  `<section class="wrap s-section s-fuentes"><h2>De dónde sale esta información.</h2><p class="s-note">Cada dato de esta página viene de una fuente pública que puede revisar.</p><ol>${items
     .map(([t, u]) => `<li><a href="${attr(u)}" target="_blank" rel="noopener noreferrer">${t}</a></li>`)
     .join('')}</ol></section>`;
 
 // Closing of internal pages (services, pests, articles, legal).
 export const closing = () =>
-  `<section id="contacto" class="s-closing"><div class="wrap"><h2>Cuéntanos qué necesitas proteger.</h2><p>Todo empieza por contarnos qué viste. Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><div class="s-closing-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a><a class="text-link" href="${ROOT}#consulta">Consultar cobertura →</a></div></div></section>`;
+  `<section id="contacto" class="s-closing"><div class="wrap"><h2>Cuéntenos qué necesita proteger.</h2><p>Todo empieza con contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p><div class="s-closing-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a><a class="text-link" href="${ROOT}#consulta">Consultar cobertura →</a></div></div></section>`;
 
 // Closing of the blog index (same as the reference: channels, no form).
 export const cierreBlog = () =>
-  `<section id="contacto" class="section local-consult g-cierre"><div><span id="consulta"></span><span id="cobertura"></span><p class="eyebrow">Truly Nolen · ${NAME}</p><h2>Cuéntanos qué necesitas proteger.</h2><p>Todo empieza por contarnos qué viste. Escríbele a Truly AI aquí mismo o por WhatsApp y te orienta en el siguiente paso.</p><div class="contact-channels" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;align-self:end"><a class="button" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`;
+  `<section id="contacto" class="section local-consult g-cierre"><div><span id="consulta"></span><span id="cobertura"></span><p class="eyebrow">Truly Nolen · ${NAME}</p><h2>Cuéntenos qué necesita proteger.</h2><p>Todo empieza con contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p><div class="contact-channels" style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;align-self:end"><a class="button" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="${WA}" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`;
 
 const intro = (crumbs, h1, extra = '') =>
   `<section class="wrap s-intro"><nav aria-label="Ruta"><a href="${ROOT}">Inicio</a>${crumbs
@@ -83,14 +83,14 @@ export const servicePage = ({ nombre, lead, bloques, preguntas, fuentesList }) =
     if (b.k === 'zonas')
       return flow(
         'Cada rincón cuenta.',
-        `<p>Tu casa tiene tres áreas que se complementan. La inspección define qué hace falta en cada una.</p><p class="s-zona s-zona-rojo"><strong>Interior.</strong> Donde vives y guardas la comida. ${b.det[0]}</p><p class="s-zona s-zona-amarillo"><strong>Perímetro.</strong> Por donde entran. ${b.det[1]}</p><p class="s-zona s-zona-verde"><strong>Patio y áreas verdes.</strong> El entorno que hay que entender. ${b.det[2]}</p>`
+        `<p>Su casa tiene tres áreas que se complementan. La inspección define qué hace falta en cada una.</p><p class="s-zona s-zona-rojo"><strong>Interior.</strong> Donde vive y guarda la comida. ${b.det[0]}</p><p class="s-zona s-zona-amarillo"><strong>Perímetro.</strong> Por donde entran. ${b.det[1]}</p><p class="s-zona s-zona-verde"><strong>Patio y áreas verdes.</strong> El entorno que hay que entender. ${b.det[2]}</p>`
       );
     if (b.k === 'plagas') {
       const sel = PLAGAS.filter((p) => !b.cuales || b.cuales.includes(p.slug));
       if (b.cuales) return flow(b.h2, pestLinks(b.cuales));
       return (
         flow(b.h2, sel.map((p) => `<p><strong>${p.nombre}.</strong> ${b.resumenes[p.slug]}</p>`).join('') + (b.nota ? `<p>${b.nota}</p>` : '')) +
-        flow('Conoce cada plaga en su guía.', pestLinks(sel.map((p) => p.slug)))
+        flow('Conozca cada plaga en su guía.', pestLinks(sel.map((p) => p.slug)))
       );
     }
     if (b.k === 'html') return b.html;

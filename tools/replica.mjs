@@ -36,7 +36,7 @@ const PAIRS = [
   ['terminos/', 'terminos/'],
   ['accesibilidad/', 'accesibilidad/'],
 ];
-const WIDTHS = [390, 961, 1024, 1100, 1280, 1440];
+const WIDTHS = [390, 768, 961, 1024, 1100, 1280, 1440];
 const ROLES = ['body', 'h1', 'h2', 'h3', 'p', '.button', '.text-link', 'nav a', 'footer a', '.s-note', '.pest-lead', '.s-entrada', '.eyebrow', '.g-ey', '.pest-eyebrow'];
 const PROPS = ['fontFamily', 'fontSize', 'fontWeight', 'lineHeight', 'color', 'letterSpacing', 'textTransform'];
 
