@@ -96,7 +96,7 @@ for (const file of pages) {
     }
     if (esperadoCmp !== actual) errors.push(`${label}: el orden de secciones no es igual a Venezuela\n     ESPERADO: ${esperadoCmp}\n     CALI: ${actual}`);
     const a = shellParts(r), b = shellParts(h);
-    const norm = (s) => s.replace(/Venezuela/g, 'X').replace(/Cali/g, 'X').replace(/Cucarachas y chiripas/g, 'Cucarachas').replace(/Hormigas y bachacos/g, 'Hormigas').replace(/\|Carrera 25 # 5 Oeste – 167, Barrio Cristales\|\+57 316 741 9018/, '').replace('|+57 316 741 9018|Carrera 25 # 5 Oeste – 167, Barrio Cristales, X|', '|'); // the Cali office line is intentional (Venezuela has no office)
+    const norm = (s) => s.replace(/Venezuela/g, 'X').replace(/Cali/g, 'X').replace(/Cucarachas y chiripas/g, 'Cucarachas').replace(/Hormigas y bachacos/g, 'Hormigas').replace(/\|Carrera 25 # 5 Oeste-167, Barrio Cristales\|\+57 316 741 9018/, '').replace('|+57 316 741 9018|Carrera 25 # 5 Oeste-167, Barrio Cristales, X|', '|'); // the Cali office line is intentional (Venezuela has no office)
     if (norm(a.nav) !== norm(b.nav)) errors.push(`${label}: el menú no es igual a Venezuela`);
     // Recipe: one "Conversemos" per page, so the footer link is "Volver arriba" in offices.
     const pieReceta = (s) => s.replace('importa.|Conversemos|', 'importa.|Volver arriba ↑|');

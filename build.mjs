@@ -47,10 +47,10 @@ if (!CORP.sello || !CORP.carro) console.log('AVISO: faltan archivos de marca en 
 // 3. Shell replacements: everything outside <main> that names Venezuela.
 const FOOTER_ALT = 'Torre de Cali y los cerros de Cali, Colombia. Ilustración';
 const FOOTER_CAP = 'Cali · Torre de Cali';
-export const OFICINA_PIE_OLD = '<p data-preview-office>Cali</p><p>Carrera 25 # 5 Oeste – 167, Barrio Cristales</p><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>';
+export const OFICINA_PIE_OLD = '<p data-preview-office>Cali</p><p>Carrera 25 # 5 Oeste-167, Barrio Cristales</p><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a>';
 const RECETA_CSS = readFileSync(new URL('./src/receta.css', import.meta.url), 'utf8');
 // Cali has an office (recipe, annex F): address and phone in the footer "Hablemos" column, next to Truly AI.
-const OFICINA_HABLEMOS = '<a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><span class="pie-oficina">Carrera 25 # 5 Oeste – 167, Barrio Cristales, Cali</span></nav>';
+const OFICINA_HABLEMOS = '<a href="/oficinas/cali/#contacto" data-abrir-chat>Escribir a Truly AI</a><a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a><span class="pie-oficina">Carrera 25 # 5 Oeste-167, Barrio Cristales, Cali</span></nav>';
 // Search index (recipe R4: the magnifier opens the site search, like globaltni.com). Built from Cali's own pages.
 function indiceBusqueda() {
   const cat = (k) => k.startsWith('servicios/') ? 'Servicios' : k.startsWith('plagas/') ? 'Guía de plagas' : k.startsWith('blog/') ? 'Blog' : null;
@@ -96,7 +96,7 @@ function shell(html) {
     // Truly AI must not deny it, and it may share only these published details.
     .replace(/<script id="tia-contexto" type="text\/plain">[\s\S]*?<\/script>/, () => `<script id="tia-contexto" type="text/plain">${CHAT_CONTEXTO}</script>`);
 }
-const CHAT_CONTEXTO = 'Truly Nolen Cali public website of the local Truly Nolen office in Cali, Colombia. Verified office contact details, the only ones you may share: address Carrera 25 # 5 Oeste – 167, Barrio Cristales, Cali; phone +57 316 741 9018. Never invent other phones, emails, schedules, coverage areas, prices or guarantees. Help visitors describe their pest situation (homes, businesses or industry): what they see, where, since when, type of space, children or pets. Explain the general Truly Nolen approach (listen, evaluate, propose, follow up) and what information helps. For service requests explain that the Cali office will review the request and confirm whether and how it can be attended. My Truly opens the separate VIP portal; Inside Truly opens the internal portal. No access to customer account data. Do not claim the chat stores no data. Language: Colombian Spanish from Cali, warm and professional, always usted, never tú or voseo.';
+const CHAT_CONTEXTO = 'Truly Nolen Cali public website of the local Truly Nolen office in Cali, Colombia. Verified office contact details, the only ones you may share: address Carrera 25 # 5 Oeste-167, Barrio Cristales, Cali; phone +57 316 741 9018. Never invent other phones, emails, schedules, coverage areas, prices or guarantees. Help visitors describe their pest situation (homes, businesses or industry): what they see, where, since when, type of space, children or pets. Explain the general Truly Nolen approach (listen, evaluate, propose, follow up) and what information helps. For service requests explain that the Cali office will review the request and confirm whether and how it can be attended. My Truly opens the separate VIP portal; Inside Truly opens the internal portal. No access to customer account data. Do not claim the chat stores no data. Language: Colombian Spanish from Cali, warm and professional, always usted, never tú or voseo.';
 
 // Each page's own URL and structured data (revisión 5-nov): two articles were built on the comején article template and
 // kept its canonical, og:url, BlogPosting, FAQPage and breadcrumb, so Google would read them as copies of it.

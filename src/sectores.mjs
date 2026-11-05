@@ -60,6 +60,7 @@ const SECTORES = [
   },
 ];
 
+// SIN USO desde el 5-nov-2026 (R17): no reactivar, está en tú.
 export function sectoresHtml() {
   const nav = SECTORES.map((s) => `<a href="#${s.id}">${s.nombre}<span aria-hidden="true">↓</span></a>`).join('');
   const sector = (s) => {

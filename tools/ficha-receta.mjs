@@ -13,7 +13,7 @@ const ficha = {
   chatIdioma: 'Colombian Spanish with tú (cuéntanos, tienes, puedes), warm and professional; never vos, never usted.',
   tratoVetado: ['usted', 'Usted', 'vos', 'querés', 'tenés', 'contanos', 'Cuéntenos', 'Escríbanos'],
   contacto: {
-    oficina: 'Carrera 25 # 5 Oeste – 167, Barrio Cristales, Cali, Colombia, 760043',
+    oficina: 'Carrera 25 # 5 Oeste-167, Barrio Cristales, Cali, Colombia, 760043',
     telefono: '+57 316 741 9018', fuente: 'http://globaltni.com/en/offices/',
     whatsappTrulyAI: WA, horario: null,
   },

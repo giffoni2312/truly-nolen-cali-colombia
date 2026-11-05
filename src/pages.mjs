@@ -19,11 +19,11 @@ const F = {
   res2674: ['Ministerio de Salud y Protección Social. Resolución 2674 de 2013', 'https://www.minsalud.gov.co/sites/rid/Lists/BibliotecaDigital/RIDE/DE/DIJ/resolucion-2674-de-2013.pdf'],
   dec1843: ['Presidencia de la República. Decreto 1843 de 1991, uso y manejo de plaguicidas', 'https://normas.cra.gov.co/gestor/docs/decreto_1843_1991.htm'],
   fumigacion: ['Secretaría de Salud Pública de Cali. Acerca de la fumigación para los establecimientos comerciales y viviendas', 'https://www.cali.gov.co/salud/publicaciones/163146/acerca-de-la-fumigacion-para-los-establecimientos-comerciales-y-viviendas/'],
-  cucaAmericana: ['Jaramillo-Ramírez, Cárdenas-Henao, González-Obando y Rosero-Galindo (2010). Estructura genética de Periplaneta americana en Cali, Popayán y Buenaventura. Neotropical Entomology 39(3), Universidad del Valle', 'https://dx.doi.org/10.1590/S1519-566X2010000300010'],
-  cucaDelta: ['Revista Cubana de Medicina Tropical (2009). Resistencia a la deltametrina en cepas de Blattella germanica de Cali, Colombia (resumen)', 'https://www.epistemonikos.org/pt/documents/911f8203b274f5f97bf75c07a03e01a82b0887d8'],
+  cucaAmericana: ['Jaramillo-Ramírez, Cárdenas-Henao, González-Obando y Rosero-Galindo (2010). Estructura genética de <em>Periplaneta americana</em> en Cali, Popayán y Buenaventura. Neotropical Entomology 39(3), Universidad del Valle', 'https://dx.doi.org/10.1590/S1519-566X2010000300010'],
+  cucaDelta: ['Revista Cubana de Medicina Tropical (2009). Resistencia a la deltametrina en cepas de <em>Blattella germanica</em> de Cali, Colombia (resumen)', 'https://www.epistemonikos.org/pt/documents/911f8203b274f5f97bf75c07a03e01a82b0887d8'],
   hormigas2005: ['Olaya-Másmela, Chacón de Ulloa y Payán (2005). Hormigas en centros de salud del Valle del Cauca. Revista Colombiana de Entomología 31(2)', 'https://revistacolombianaentomologia.univalle.edu.co/index.php/SOCOLEN/article/view/9442'],
   hormigasUrbanas: ['Chacón de Ulloa y col. (2006). Hormigas urbanas del Valle del Cauca, Colombia', 'https://raccefyn.co/index.php/raccefyn/article/download/2270/3668/27425'],
-  termitasCali: ['Abadía, Galvis, Arcila y Chacón de Ulloa (2011). Heterotermes convexinotatus en Colombia. ICUP', 'https://icup.org.uk/conferences/2011/posters/heterotermes-convexinotatus-isoptera-rhinotermitidae-in-colombia-distribution-and-impact/'],
+  termitasCali: ['Abadía, Galvis, Arcila y Chacón de Ulloa (2011). <em>Heterotermes convexinotatus</em> en Colombia. ICUP', 'https://icup.org.uk/conferences/2011/posters/heterotermes-convexinotatus-isoptera-rhinotermitidae-in-colombia-distribution-and-impact/'],
   ucipm: ['Universidad de California, UC IPM (2025). Termitas (guía en español, referencia general)', 'https://ipm.ucanr.edu/home-and-landscape/spanish/termitas/'],
   alacranes: ['Contexto Ganadero (2018). Con el incremento de las lluvias y el fuerte calor salen los escorpiones', 'https://www.contextoganadero.com/ganaderia-sostenible/con-el-incremento-de-las-lluvias-y-el-fuerte-calor-salen-los-escorpiones'],
   alacranArg: ['Ministerio de Salud de Argentina. Prevención ante escorpiones o alacranes (referencia general)', 'https://www.argentina.gob.ar/noticias/prevencion-ante-la-exposicion-escorpiones-o-alacranes'],
@@ -31,17 +31,17 @@ const F = {
   fotoZancudo: ['Foto del zancudo: Departamento de Agricultura de EE. UU., dominio público (Wikimedia Commons)', 'https://commons.wikimedia.org/wiki/File:Aedes_aegypti_biting_human.jpg'],
   fotoRata: ['Foto de la rata noruega: CC0, la misma del sitio de Venezuela', ''],
   fotoCucaracha: ['Foto de la cucaracha americana: Insects Unlocked, CC0 (Wikimedia Commons)', 'https://commons.wikimedia.org/wiki/File:Periplaneta_americana_-_American_cockroach_(25859665686)_(cropped).jpg'],
-  fotoComejen: ['Foto del comején de madera seca (Cryptotermes brevis): naturedom12, CC0 (iNaturalist 302868333)', 'https://www.inaturalist.org/observations/302868333'],
-  fotoAlacran: ['Foto del alacrán (Tityus columbianus): Manuel Ortiz, CC0 (Wikimedia Commons)', 'https://commons.wikimedia.org/wiki/File:Tityus_columbianus.jpg'],
-  fotoHormiga: ['Foto de la hormiga loca (Paratrechina longicornis): Ellyne Geurts, CC0 (iNaturalist 325709349)', 'https://www.inaturalist.org/observations/325709349'],
+  fotoComejen: ['Foto del comején de madera seca (<em>Cryptotermes brevis</em>): naturedom12, CC0 (iNaturalist 302868333)', 'https://www.inaturalist.org/observations/302868333'],
+  fotoAlacran: ['Foto del alacrán (<em>Tityus columbianus</em>): Manuel Ortiz, CC0 (Wikimedia Commons)', 'https://commons.wikimedia.org/wiki/File:Tityus_columbianus.jpg'],
+  fotoHormiga: ['Foto de la hormiga loca (<em>Paratrechina longicornis</em>): Ellyne Geurts, CC0 (iNaturalist 325709349)', 'https://www.inaturalist.org/observations/325709349'],
   kuru: ['Canessa Amador y Berrocal Jiménez (2006). Kurú: Revista Forestal 3(8), Instituto Tecnológico de Costa Rica', 'https://dialnet.unirioja.es/descarga/articulo/5123386.pdf'],
   galerias: ['Alcaldía de Santiago de Cali (2021). Las plazas de mercado de Cali están vivas', 'https://www.cali.gov.co/serviciospublicos/publicaciones/164455/las-plazas-de-mercado-de-cali-estan-vivas/'],
 };
 
 // ---------- Shared summaries ----------
 const RESUMEN = {
-  zancudos: 'El zancudo Aedes aegypti transmite el dengue, y en 2024 Cali declaró emergencia sanitaria por su avance.',
-  'ratas-y-ratones': 'Su orina transmite la leptospirosis. En 2024 Colombia notificó 9.681 casos, según el Instituto Nacional de Salud.',
+  zancudos: 'El zancudo <em>Aedes aegypti</em> transmite el dengue, y en 2024 Cali declaró emergencia sanitaria por su avance.',
+  'ratas-y-ratones': 'Su orina transmite la leptospirosis. En 2024, Colombia notificó 9.681 casos, según el Instituto Nacional de Salud.',
   cucarachas: 'La cucaracha alemana, pequeña y de cocina, y la americana, la más grande. En Cali ya se encontraron cepas resistentes a un insecticida.',
   hormigas: 'En centros de salud del Valle del Cauca, incluido Cali, la hormiga loca y la hormiga fantasma fueron las más comunes, y llevaban bacterias.',
   comejen: 'En Cali las especies más frecuentes son la de madera seca y una subterránea que sube por tubitos de barro.',
@@ -128,11 +128,12 @@ export const PORTADA = {
     ['El comején no se elimina fumigando a ciegas: primero hay que saber qué tipo tiene y dónde está la colonia. Le contamos qué señales deja y cómo evitar que vuelva.', BLOG.zancudos.resumen],
     ['Indique su estado, municipio y el tipo de espacio.', 'Indique su comuna o corregimiento, su barrio y el tipo de espacio.'],
     // Cali has an office (annex F): its address and phone in the closing band
-    ['Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p>', 'Escríbale a Truly AI aquí mismo o por WhatsApp: le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p>'],
+    ['Escríbale a Truly AI aquí mismo o por WhatsApp y le orienta en el siguiente paso.</p>', 'Escríbale a Truly AI aquí mismo o por WhatsApp: le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste-167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p>'],
   ],
 };
 
 // ---------- Services ----------
+// SIN USO desde el 5-nov-2026 (R17): no reactivar, está en tú.
 const hogares = {
   ref: 'servicios/hogares',
   title: 'Control de plagas para hogares en Cali | Truly Nolen Cali',
@@ -179,6 +180,7 @@ const hogares = {
   }),
 };
 
+// SIN USO desde el 5-nov-2026 (R17): no reactivar, está en tú.
 const comercios = {
   ref: 'servicios/comercios',
   title: 'Control de plagas para comercios en Cali | Truly Nolen Cali',
@@ -285,7 +287,7 @@ const industria = {
       ],
     }),
     ],
-    preguntas: [['¿Cómo se define el programa?', 'Con una visita de evaluación. Según lo que se encuentre y lo que pida su operación, se propone la frecuencia, los puntos de control y los registros.']],
+    preguntas: [['¿Cómo se define el programa?', 'Con una visita de evaluación. Según lo que se encuentre y lo que pida su operación, se proponen la frecuencia, los puntos de control y los registros.']],
     fuentesList: [F.res2674, F.dec1843, F.ley9],
   }),
 };
@@ -311,7 +313,7 @@ const zancudos = plaga('zancudos', {
       rows: [
         ['Agua de la casa', 'Se cría en tanques, baldes, floreros y cualquier recipiente que acumule agua.'],
         ['Lo que encontró la Alcaldía', 'A mayo de 2025, la Alcaldía había inspeccionado 12.924 depósitos de agua en Cali y 562 tenían larvas.'],
-        ['El dengue', 'Lo transmite el mosquito Aedes aegypti, el que nombran los boletines de la Secretaría de Salud de Cali.'],
+        ['El dengue', 'Lo transmite el mosquito <em>Aedes aegypti</em>, el mismo que mencionan los boletines de la Secretaría de Salud de Cali.'],
       ],
     }),
     dato({
@@ -360,7 +362,7 @@ const ratas = plaga('ratas-y-ratones', {
       ey: 'En Cali',
       h2: 'Dónde se han<br/>visto focos.',
       rows: [
-        ['Zonas comerciales', 'En 2023, según El País Cali, entre los sectores más afectados estaban el Parque del Perro, Granada, la Avenida Sexta, el Parque Alameda y la Carrera 66.'],
+        ['Zonas comerciales', 'En 2023, según El País Cali, entre los sectores más afectados estaban el Parque del Perro, Granada, la avenida Sexta, el Parque Alameda y la carrera 66.'],
         ['Calle Novena', 'En 2026 hubo denuncias por ratas cerca de restaurantes de la calle Novena, en el sur de Cali.'],
         ['La causa', 'En el caso de la calle Novena, la Secretaría de Salud asoció los focos, en gran medida, al inadecuado manejo de los residuos sólidos.'],
       ],
@@ -449,7 +451,7 @@ const hormigas = plaga('hormigas', {
       ey: 'Por qué importa',
       h2: 'No solo molestan.',
       rows: [
-        ['Llevan bacterias', 'En ese estudio se aislaron 14 tipos de bacterias de las hormigas, entre ellas <em>Staphylococcus aureus</em> y <em>E. coli</em>.', ['Cocinas y alacenas.', 'Comida destapada.']],
+        ['Llevan bacterias', 'En ese estudio se aislaron catorce tipos de bacterias de las hormigas, entre ellas <em>Staphylococcus aureus</em> y <em>E. coli</em>.', ['Cocinas y alacenas.', 'Comida destapada.']],
         ['Hormiga faraón', '<em>Monomorium pharaonis</em> también apareció entre las especies que llevaban bacterias.', ['Grietas y enchufes.', 'Zonas húmedas.']],
         ['El nido', 'La fila lleva al nido: ahí está la solución, no en matar las que se ven.', ['Bordes de pisos y muros.', 'Matas y materas.']],
       ],
@@ -474,7 +476,7 @@ const comejen = plaga('comejen', {
       h2: 'Dos tipos,<br/>dos tratamientos.',
       rows: [
         ['De madera seca', '<em>Cryptotermes brevis</em>. Según la revista forestal Kurú (Costa Rica), la de madera seca coloniza «piezas de madera tanto estructural como decorativa, así como diversas partes de muebles».'],
-        ['Subterráneo', '<em>Heterotermes convexinotatus</em>. Según la guía de UC IPM (California), el subterráneo llega a la madera por «tubos de refugio de tierra».'],
+        ['Subterránea', '<em>Heterotermes convexinotatus</em>. Según la guía de UC IPM (California), la subterránea llega a la madera por «tubos de refugio de tierra».'],
         ['En Cali', 'Un estudio presentado en 2011 encontró que estas dos son las especies más frecuentes en la ciudad.'],
       ],
     }),
@@ -482,7 +484,7 @@ const comejen = plaga('comejen', {
       ey: 'Señales',
       h2: 'Lo que deja<br/>a su paso.',
       rows: [
-        ['Tubitos de barro', 'El daño del subterráneo se nota por los túneles finos de barro que recorren paredes y techos.', ['Paredes y cielo raso.', 'Donde la madera toca el muro.']],
+        ['Tubitos de barro', 'El daño de la subterránea se nota por los túneles finos de barro que recorren paredes y techos.', ['Paredes y cielo raso.', 'Donde la madera toca el muro.']],
         ['Bolitas finas', 'Según Kurú (Costa Rica), son «los desechos fecales del comején» de madera seca: cuando se ven, la colonia ya está establecida.', ['Marcos y guardaescobas.', 'Closets y muebles.']],
         ['Insectos con alas', 'Según Kurú, salen de sus galerías a principios de la estación lluviosa para fundar colonias nuevas. UC IPM aclara que verlos «no siempre significa» que la casa esté infestada.', ['Alas cerca de ventanas.', 'Bombillos encendidos.']],
       ],
@@ -493,7 +495,7 @@ const comejen = plaga('comejen', {
       rows: [
         ['Inspección', 'La guía de la Universidad de California (UC IPM) pide «una inspección cuidadosa» para detectar y contener los daños y las colonias antes de tratar.'],
         ['Madera lejos de la tierra', 'Quitar la madera que toca el suelo, los restos enterrados y el exceso de humedad.'],
-        ['Productos', 'Los inmunizantes de madera son de los pocos productos que la norma colombiana permite en categorías toxicológicas altas, por eso los aplica personal con carné de aplicador (Decreto 1843 de 1991, artículos 111 y 114).'],
+        ['Productos', 'Los inmunizantes de madera son de los pocos productos que la norma colombiana permite en categorías toxicológicas altas; por eso los aplica personal con carné de aplicador (Decreto 1843 de 1991, artículos 111 y 114).'],
       ],
     }),
   ],
@@ -523,22 +525,22 @@ const alacranes = plaga('alacranes', {
     dato({
       ey: 'Un dato que tranquiliza',
       h2: 'La mayoría de<br/>las picaduras.',
-      items: [['85 %', 'de las picaduras de escorpión solo causa dolor e inflamación. Aun así, siempre hay que consultar al médico.', 'Contexto Ganadero (2018)']],
+      items: [['El 85 %', 'de las picaduras de alacrán solo causan dolor e inflamación. Aun así, siempre hay que consultar al médico.', 'Contexto Ganadero (2018)']],
     }),
     tabla({
       ey: 'En casa',
       h2: 'Cierre el paso.',
       rows: [
-        ['Ropa y zapatos', 'Revisar los zapatos y la ropa que estuvieron en el suelo.', ['Zapatos sacudidos.', 'Ropa del suelo revisada.']],
-        ['Rejillas', 'Taparlas con tela o malla metálica en el baño, la cocina y el lavadero.', ['Rejillas con malla.', 'Burletes en las puertas.']],
-        ['Patio', 'No acumular escombros, leña ni material de construcción.', ['Escombros retirados.', 'Leña lejos de la casa.']],
+        ['Ropa y zapatos', 'Revise los zapatos y la ropa que estuvieron en el suelo.', ['Zapatos sacudidos.', 'Ropa del suelo revisada.']],
+        ['Rejillas', 'Tápelas con tela o malla metálica en el baño, la cocina y el lavadero.', ['Rejillas con malla.', 'Burletes en las puertas.']],
+        ['Patio', 'No acumule escombros, leña ni material de construcción.', ['Escombros retirados.', 'Leña lejos de la casa.']],
       ],
     }),
     tabla({
       ey: 'Si hay una picadura',
       h2: 'Qué hacer.',
       rows: [
-        ['Hielo', 'Poner hielo en la zona de la picadura.'],
+        ['Hielo', 'Ponga hielo en la zona de la picadura.'],
         ['Sin remedios caseros', 'No se ponga remedios caseros: vaya al médico.'],
         ['El alacrán', 'Si puede hacerlo sin riesgo, llévelo en un frasco para identificarlo.'],
       ],
@@ -562,7 +564,7 @@ const blogIndex = {
   main: [
     `<section class="wrap journal-wrap"><nav aria-label="Ruta"><a href="${ROOT}">Inicio</a><span aria-hidden="true">/</span>Blog de control de plagas</nav><header class="journal-heading"><h1>Blog de control de plagas</h1><p class="s-prose">Guías sobre las plagas de Cali, con cada dato respaldado por su fuente.</p></header></section>`,
     `<section class="wrap journal-wrap"><div class="journal-stories">${[BLOG.zancudos, BLOG.comejen, BLOG.ratas, BLOG.cucarachas].map((b, i) => `<article class="journal-story"><div class="story-edition"><span>${String(i + 1).padStart(2, '0')}</span>${FECHA}<span class="story-topic">${b.tema}</span></div><div class="story-copy"><h2><a href="${ROOT}blog/${b.slug}/">${b.titulo}</a></h2><p>${b.resumen}</p><a class="text-link" href="${ROOT}blog/${b.slug}/">Leer el artículo <span aria-hidden="true">→</span></a></div><a class="story-image-link" href="${ROOT}blog/${b.slug}/" tabindex="-1" aria-hidden="true"><figure class="story-image"><img src="${A(b.img)}" alt="" loading="lazy"/></figure></a></article>`).join('')}</div></section>`,
-    `<section id="contacto" class="contact-band gt-contact" aria-labelledby="contact-title"><span id="consulta"></span><span id="cobertura"></span><div class="wrap contact-layout"><div class="contact-intro"><h2 id="contact-title">Cuéntenos qué necesita proteger.</h2><p>Todo empieza por contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp: le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste – 167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p></div><div class="contact-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="https://wa.me/15202145675" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`,
+    `<section id="contacto" class="contact-band gt-contact" aria-labelledby="contact-title"><span id="consulta"></span><span id="cobertura"></span><div class="wrap contact-layout"><div class="contact-intro"><h2 id="contact-title">Cuéntenos qué necesita proteger.</h2><p>Todo empieza por contarnos qué vio. Escríbale a Truly AI aquí mismo o por WhatsApp: le orienta en el siguiente paso.</p><p class="g-oficina">Oficina en Cali: Carrera 25 # 5 Oeste-167, Barrio Cristales · <a href="tel:+573167419018" style="white-space:nowrap">+57 316 741 9018</a></p></div><div class="contact-actions"><a class="button button-dark" href="#contacto" data-abrir-chat>Escribir en el chat</a><a class="text-link" href="https://wa.me/15202145675" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div></div></section>`,
   ].join(''),
 };
 
@@ -575,24 +577,24 @@ const articulo = (b, { alt, cuerpo, preguntas, fuentesList, otro, lectura }) => 
 
 const postZancudos = articulo(BLOG.zancudos, {
   lectura: 5,
-  alt: 'Zancudo Aedes aegypti posado sobre la piel',
+  alt: 'Zancudo <em>Aedes aegypti</em> posado sobre la piel',
   otro: BLOG.comejen,
   cuerpo: `<p>¿Cómo acabar con los zancudos en casa? Quitándoles el agua donde se crían. El zancudo que transmite el dengue, el <em>Aedes aegypti</em>, pone sus huevos en el agua que guardamos: tanques, baldes, floreros, llantas y platos de materas. Si esa agua desaparece, el zancudo no tiene dónde nacer.</p>
 <h2>En Cali el dengue no es un tema lejano</h2>
-<p>El 11 de junio de 2024 la Alcaldía de Cali declaró la emergencia sanitaria por el avance del dengue. Ese día, según El País Cali, ya había «más de 20.000 contagiados» y cuatro personas habían muerto.</p>
-<p>Hasta el 16 de octubre de 2024 la Alcaldía contaba 34.463 casos de dengue en la ciudad. En 2025 la cifra bajó mucho: 3.088 casos hasta la semana epidemiológica 46, según el reporte del 5 de diciembre de 2025. Bajó, pero no desapareció, y el zancudo sigue criándose en las casas.</p>
+<p>El 11 de junio de 2024, la Alcaldía de Cali declaró la emergencia sanitaria por el avance del dengue. Ese día, según El País Cali, ya había «más de 20.000 contagiados» y cuatro personas habían muerto.</p>
+<p>Hasta el 16 de octubre de 2024, la Alcaldía contaba 34.463 casos de dengue en la ciudad. En 2025 la cifra bajó mucho: 3.088 casos hasta la semana epidemiológica 46, según el reporte del 5 de diciembre de 2025. Bajó, pero no desapareció, y el zancudo sigue criándose en las casas.</p>
 <h2>El agua de la casa es el criadero</h2>
 <p>A mayo de 2025, los equipos de la Alcaldía habían inspeccionado 12.924 depósitos de agua en Cali y 562 tenían larvas. Es decir, el criadero no está lejos: está en el patio, en el lavadero o en la terraza.</p>
 <h2>La rutina de cada semana, según la Alcaldía de Cali</h2>
 <p>La Secretaría de Salud Pública de Cali publicó estas recomendaciones en mayo de 2025, durante la temporada de lluvias:</p>
 <ul><li><strong>Lave y cepille</strong> tanques, cubetas y floreros al menos dos veces a la semana. Cepillar importa: según la Alcaldía, los huevos pueden sobrevivir varios meses en superficies secas y nacen cuando vuelven a mojarse.</li><li><strong>Tape bien</strong> los recipientes que almacenan agua.</li><li><strong>Voltee</strong> los objetos que no esté usando y puedan acumular agua, como baldes o juguetes.</li><li><strong>Bote</strong> llantas, botellas, latas y otros inservibles que puedan convertirse en criaderos.</li></ul>
-<p>En diciembre de 2025 la Alcaldía agregó otras medidas: poner arena en los platos de las materas, usar toldillo, poner mallas en puertas y ventanas, y aplicarse repelente.</p>
+<p>En diciembre de 2025, la Alcaldía agregó otras medidas: poner arena en los platos de las materas, usar toldillo, poner mallas en puertas y ventanas, y aplicarse repelente.</p>
 <h2>Cuándo pedir ayuda</h2>
 <p>Si aun con la rutina sigue viendo muchos zancudos, puede haber un criadero que no ha encontrado: una canal del techo tapada, un tanque sin tapa o agua acumulada en un rincón del patio. Ahí sirve una revisión con ojos de experto.</p>
 <p>Escríbale a Truly AI, el asistente de Truly Nolen International, por el chat del sitio o por WhatsApp. Cuéntele qué ve y dónde. En la <a href="${ROOT}plagas/zancudos/">guía de zancudos</a> están las cifras de la Alcaldía.</p>`,
   preguntas: [
     ['¿Cada cuánto debo lavar los tanques?', 'La Alcaldía de Cali recomienda lavar y cepillar tanques, cubetas y floreros al menos dos veces a la semana.'],
-    ['¿Basta con tapar el tanque?', 'Ayuda, pero no basta. También hay que voltear lo que no se usa, botar inservibles y revisar materas y canales. Según la Alcaldía, los huevos sobreviven meses en superficies secas, por eso hay que lavar y cepillar.'],
+    ['¿Basta con tapar el tanque?', 'Ayuda, pero no basta. También hay que voltear lo que no se usa, botar inservibles y revisar materas y canales. Según la Alcaldía, los huevos sobreviven meses en superficies secas; por eso hay que lavar y cepillar.'],
     ['¿Cuántos casos de dengue hubo en Cali?', 'Según la Alcaldía, 34.463 casos en 2024 hasta el 16 de octubre, y 3.088 en 2025 hasta la semana epidemiológica 46.'],
   ],
   fuentesList: [F.emergencia, F.dengue2024, F.dengue2025, F.depositos, F.criaderos, F.oms],
@@ -633,7 +635,7 @@ const postRatas = articulo(BLOG.ratas, {
 <h2>Las ratas transmiten la leptospirosis</h2>
 <p>El Instituto Nacional de Salud señala a los roedores, sobre todo las ratas, como los principales reservorios de la leptospirosis, una enfermedad que se transmite por su orina. En 2024 se notificaron 9.681 casos en Colombia, y el mismo informe ubica a Cali entre las entidades con mayor aumento de casos confirmados entre 2021 y 2024.</p>
 <h2>En Cali las ratas siguen a la basura</h2>
-<p>En 2023, según El País Cali, entre los sectores más afectados por roedores estaban el Parque del Perro, Granada, la Avenida Sexta, el Parque Alameda y la Carrera 66. En 2026 hubo denuncias por ratas cerca de restaurantes de la calle Novena, en el sur de la ciudad, y la Secretaría de Salud asoció esos focos, en gran medida, al inadecuado manejo de los residuos sólidos.</p>
+<p>En 2023, según El País Cali, entre los sectores más afectados por roedores estaban el Parque del Perro, Granada, la avenida Sexta, el Parque Alameda y la carrera 66. En 2026 hubo denuncias por ratas cerca de restaurantes de la calle Novena, en el sur de la ciudad, y la Secretaría de Salud asoció esos focos, en gran medida, al inadecuado manejo de los residuos sólidos.</p>
 <h2>Lo que pide la norma para las basuras</h2>
 <p>La Ley 9 de 1979, el Código Sanitario Nacional, pide guardar las basuras en recipientes que impidan la proliferación de insectos y roedores (artículo 28). En la práctica:</p>
 <ul><li><strong>Canecas con tapa</strong>, siempre cerradas.</li><li><strong>Saque la basura</strong> en el horario de recolección, no la noche anterior.</li><li><strong>Guarde la comida</strong> en alacenas cerradas, también la de las mascotas.</li><li><strong>No deje restos</strong> de comida al alcance, ni dentro ni fuera de la casa.</li></ul>
@@ -651,7 +653,7 @@ const postRatas = articulo(BLOG.ratas, {
 
 const postCucarachas = articulo(BLOG.cucarachas, {
   lectura: 4,
-  alt: 'Cucaracha alemana (Blattella germanica) con su ooteca',
+  alt: 'Cucaracha alemana (<em>Blattella germanica</em>) con su ooteca',
   otro: BLOG.ratas,
   cuerpo: `<p>¿Por qué el insecticida ya no mata a las cucarachas? Porque algunas poblaciones se volvieron resistentes. En Cali ya se encontró ese problema en la cucaracha alemana, la pequeña de cocina.</p>
 <h2>Lo que encontraron en Cali</h2>
@@ -666,7 +668,7 @@ const postCucarachas = articulo(BLOG.cucarachas, {
 <p>Anote si son pequeñas o grandes y dónde las ve. Con ese dato, escríbale a Truly AI por el chat o por WhatsApp. Si quiere repasar los datos, entre a la <a href="${ROOT}plagas/cucarachas/">guía de cucarachas</a>.</p>`,
   preguntas: [
     ['¿Las cucarachas se vuelven resistentes?', 'Sí. En 2009 se encontraron en Cali cucarachas alemanas resistentes a la deltametrina, según la Revista Cubana de Medicina Tropical.'],
-    ['¿Cómo sé cuál cucaracha tengo?', 'La alemana es la pequeña y la americana, la más grande. Anote el tamaño y dónde la vio, y escríbale a Truly AI.'],
+    ['¿Cómo sé qué cucaracha tengo?', 'La alemana es la pequeña y la americana, la más grande. Anote el tamaño y dónde la vio, y escríbale a Truly AI.'],
     ['¿Mi restaurante necesita control de plagas?', 'La Resolución 2674 de 2013 pide un programa de control de plagas a los establecimientos de alimentos (artículo 26).'],
   ],
   fuentesList: [F.cucaDelta, F.cucaAmericana, F.res2674],

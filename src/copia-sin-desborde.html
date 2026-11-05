@@ -7,4 +7,17 @@ html body.country-site[data-oficina][data-oficina][data-oficina] div.gt-copia > 
 @media (min-width:961px) and (max-width:1199px){html body.country-site[data-oficina][data-oficina][data-oficina] div.gt-copia > section.s-lead-pair:nth-of-type(n){grid-template-columns:minmax(0,486.188fr) minmax(0,397.812fr)!important}}
 @media (max-width:1199px){html body.country-site[data-oficina][data-oficina][data-oficina] div.gt-copia > section:nth-of-type(n){max-width:calc(100vw - 80px)!important}}
 @media (max-width:760px){html body.country-site[data-oficina][data-oficina][data-oficina] div.gt-copia > section:nth-of-type(n){max-width:calc(100vw - 44px)!important}}
+/* 5-nov-2026 (decisiones comunes): Hogares repeats the same 7 paragraphs twice. Nothing is deleted (the measure rules use :nth-of-type); top shows intro + closing, #zonas shows «La propiedad se dividirá en tres zonas:» + the 3 bars */
+html body.country-site[data-oficina][data-oficina][data-oficina][data-oficina] main#contenido div.gt-copia > section.s-lead-pair > article.s-prose > p:nth-of-type(n+2):nth-of-type(-n+5){display:none!important}
+html body.country-site[data-oficina][data-oficina][data-oficina][data-oficina] div.gt-copia > section#zonas > article.s-prose > p:is(:nth-of-type(1),:nth-of-type(6),:nth-of-type(7)){display:none!important}
+/* the Venezuela reference hid a different split (top p3-7, #zonas p1-2 and p7); show the closing on top and the zones line below, as decided for the three sites */
+html body.country-site[data-oficina][data-oficina][data-oficina][data-oficina] main#contenido div.gt-copia > section.s-lead-pair > article.s-prose > p:is(:nth-of-type(6),:nth-of-type(7)){display:block!important}
+html body.country-site[data-oficina][data-oficina][data-oficina][data-oficina] div.gt-copia > section#zonas > article.s-prose > p:nth-of-type(2){display:block!important}
+/* the closing does not fit the pinned height at some widths: grow only when needed (min-height = the old pinned height) */
+@media (min-width:1200px){html body.country-site[data-oficina][data-oficina][data-oficina][data-oficina] main#contenido div.gt-copia > section.s-lead-pair{height:auto!important;min-height:682.094px!important}}
+@media (min-width:961px) and (max-width:1199px){html body.country-site[data-oficina][data-oficina][data-oficina][data-oficina] main#contenido div.gt-copia > section.s-lead-pair{height:auto!important;min-height:557.75px!important}}
+@media (min-width:761px) and (max-width:960px){html body.country-site[data-oficina][data-oficina][data-oficina][data-oficina] main#contenido div.gt-copia > section.s-lead-pair{height:auto!important;min-height:504.844px!important}}
+@media (max-width:760px){html body.country-site[data-oficina][data-oficina][data-oficina][data-oficina] main#contenido div.gt-copia > section.s-lead-pair{height:auto!important;min-height:821.75px!important}}
+/* Comercios: «Campos de la logística» is a label, not a sector */
+html body.country-site[data-oficina][data-oficina][data-oficina][data-oficina] div.ct-commercial .ct-facilities li[data-source-facility="3-4"]{display:none!important}
 </style>
