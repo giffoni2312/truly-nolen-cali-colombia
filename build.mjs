@@ -129,6 +129,8 @@ for (const [out, page] of Object.entries({ '': PORTADA, ...PAGES })) {
   }
   let full = shell(html.slice(0, i)) + main + shell(html.slice(j));
   full = full.replace('</head>', '<style>' + RECETA_CSS + '</style></head>');
+  // Site icon: without it the browser asks for /favicon.ico at the github.io root (404 in the console).
+  if (!full.includes('rel="icon"')) full = full.replace('</head>', '<link rel="icon" href="/tn-emblema.png" type="image/png"/></head>');
   full = shell(full); // the reference main may still carry asset paths
   full = setHead(full, page.title, page.desc);
   const file = join(OUT, 'oficinas', ID, out, 'index.html');

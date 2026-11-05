@@ -24,7 +24,7 @@ for (const [espacio, terms] of Object.entries(BUSQUEDAS)) {
     let found = [];
     for (let k = 0; k < 3 && !found.length; k++) {
       await page.waitForTimeout(3500);
-      found = await page.evaluate(() => [...document.querySelectorAll('a[href*="/es/fotos/"], a[href*="/photos/"]')].map((a) => a.getAttribute('href')).filter((h) => /\/(es\/fotos|photos)\/[^/]+$/.test(h))).catch(() => []);
+      found = await page.evaluate(() => [...document.querySelectorAll('a[href*="/es/fotos/"], a[href*="/photos/"]')].map((a) => a.getAttribute('href')).filter((h) => /^\/(es\/fotos|photos)\/[^/?]+$/.test(h))).catch(() => []);
     }
     if (!found.length) console.log('sin resultados (o bloqueado):', t, page.url());
     for (const h of found) ids.add(h.split('/').pop());
@@ -39,8 +39,10 @@ for (const [espacio, terms] of Object.entries(BUSQUEDAS)) {
     await page.waitForTimeout(1200);
     const info = await page.evaluate(() => {
       const ld = [...document.querySelectorAll('script[type="application/ld+json"]')].map((s) => { try { return JSON.parse(s.textContent); } catch { return null; } }).find((x) => x && (x.contentUrl || x['@type'] === 'ImageObject'));
-      const plus = /Unsplash\+/.test(document.body.innerText.slice(0, 4000));
-      return ld ? { autor: ld.creator?.name || ld.author?.name, licencia: ld.license, imagen: ld.contentUrl, titulo: ld.name || ld.caption || '', plus } : null;
+      // the header always says «Obtener Unsplash+»; a free photo shows «Descargar gratis» and the Unsplash licence line
+      const t = document.body.innerText.slice(0, 4000);
+      const plus = !/Descargar gratis/.test(t) || !/Licencia Unsplash/.test(t);
+      return ld ? { autor: ld.creator?.name || ld.author?.name, licencia: ld.license, imagen: ld.contentUrl, titulo: (ld.name || ld.description || '') + (ld.contentLocation?.name ? ` · ${ld.contentLocation.name}` : ''), plus } : null;
     });
     await page.close();
     if (!info || !info.imagen || info.plus || !/unsplash\.com\/(license|es\/licencia)/.test(info.licencia || '')) continue;
