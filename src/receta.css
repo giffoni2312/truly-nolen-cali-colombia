@@ -11,3 +11,23 @@ body.country-site[data-oficina] .local-footer .pie-oficina{display:block;margin-
 /* Revisión 5-nov: service links at the end of each pest guide, as globaltni's arrow links (44 px touch target). */
 body.country-site[data-oficina] .pest-copy .s-servicios{display:flex;flex-wrap:wrap;gap:4px 32px;margin-top:4px}
 body.country-site[data-oficina] .pest-copy .s-servicios .text-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600}
+
+/* Recipe owner exception (6-nov-2026): on the phone the hero text is white with NO cream/white veil; a soft dark
+   shade at the top and a text shadow keep it readable. Desktop keeps its light veil (recipe section I). */
+@media(max-width:760px){html body.country-site[data-oficina] section#inicio#inicio.cinema::after{background:linear-gradient(180deg,rgba(12,28,34,.55) 0,rgba(12,28,34,.28) 22%,transparent 40%),linear-gradient(0deg,rgba(16,24,32,.94) 0,rgba(16,24,32,.64) 22%,transparent 41%)!important}html body.country-site[data-oficina] section#inicio#inicio :is(.eyebrow,.eyebrow *,h1,h1 *){color:#fff!important;text-shadow:0 1px 2px rgba(0,0,0,.45),0 3px 16px rgba(0,0,0,.4)!important}}
+/* 6-nov-2026: stronger top shade so the white title passes contrast over Cali's light sky. */
+@media(max-width:760px){html body.country-site[data-oficina] section#inicio#inicio.cinema::after{background:linear-gradient(180deg,rgba(12,28,34,.74) 0,rgba(12,28,34,.52) 25%,transparent 46%),linear-gradient(0deg,rgba(16,24,32,.94) 0,rgba(16,24,32,.64) 22%,transparent 41%)!important}}
+/* Short phones (360x640): let the hero grow instead of stacking the copy on the links. */
+@media(max-width:760px) and (max-height:760px){html body.country-site[data-oficina] section#inicio#inicio{height:max(100svh,767px)!important;min-height:0!important}}
+/* Tablet 761-899: the title column was 162-206 px and split «Protegi/do.»; give it room. */
+@media(min-width:761px) and (max-width:899px){html body.country-site[data-oficina] section#inicio#inicio .hero-text{max-width:none!important;width:min(42vw,340px)!important}html body.country-site[data-oficina] section#inicio#inicio h1{overflow-wrap:normal!important}}
+/* Small phones (≤400 px): the «Vista previa» notice wrapped to two lines and covered the top of the page; keep it on one. */
+@media(max-width:400px){html body .aviso-borrador{font-size:11px!important;white-space:nowrap!important;padding:7px 8px!important}}
+/* 6-nov-2026 (ojo de diseño): short phones keep the photo at screen height so the car stays on the first screen. */
+@media(max-width:760px) and (max-height:760px){html body.country-site[data-oficina] section#inicio#inicio .film{bottom:auto!important;height:100svh!important;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent)!important;mask-image:linear-gradient(180deg,#000 72%,transparent)!important}}
+/* The white line under the title crosses the light car hood: give it a stronger text shadow. */
+@media(max-width:760px){html body.country-site[data-oficina] section#inicio#inicio .hero-action p{text-shadow:0 1px 3px rgba(0,0,0,.75),0 2px 14px rgba(0,0,0,.6)!important}}
+/* Tablet 761-960: the contact title had a 160-292 px column and split words; stack the contact band in one column. */
+@media(min-width:761px) and (max-width:960px){html body.country-site[data-oficina] #contacto .contact-layout{grid-template-columns:minmax(0,1fr)!important;row-gap:32px!important}html body.country-site[data-oficina] #contact-title{overflow-wrap:normal!important}}
+/* Tablet 761-960: the «Vista previa» notice sat over the hero links; put it under the header as on the phone. */
+@media(min-width:761px) and (max-width:960px){html body .aviso-borrador{top:84px!important;bottom:auto!important;left:0!important;right:0!important;transform:none!important;max-width:none!important;border-radius:0!important}}
